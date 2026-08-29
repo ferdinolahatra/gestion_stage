@@ -1,0 +1,2030 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #111827;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.protected-layout {
+  min-height: 100vh;
+  width: 100%;
+  background: #f5f7fb;
+}
+
+.protected-content {
+  width: 100%;
+  min-height: calc(100vh - 76px);
+}
+/* =====================================================
+   MODE CLAIR / MODE NUIT GLOBAL
+===================================================== */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =====================================================
+   MODE NUIT
+===================================================== */
+
+body.dark-mode {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+body.dark-mode .protected-layout,
+body.dark-mode .dashboard-layout {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =====================================================
+   CONTENU PRINCIPAL
+===================================================== */
+
+body.dark-mode .protected-content,
+body.dark-mode .dashboard-main {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+body.dark-mode .sidebar {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #1f2937;
+}
+
+
+/* =====================================================
+   TEXTE SIDEBAR
+===================================================== */
+
+body.dark-mode .sidebar h2,
+body.dark-mode .sidebar span,
+body.dark-mode .sidebar strong {
+  color: #e5e7eb;
+}
+
+
+/* =====================================================
+   LIENS SIDEBAR
+===================================================== */
+
+body.dark-mode .sidebar-link {
+  color: #cbd5e1;
+}
+
+body.dark-mode .sidebar-link:hover {
+  background: #1e293b;
+  color: #7dd3fc;
+}
+
+body.dark-mode .sidebar-link.active {
+  background: #1e3a5f;
+  color: #7dd3fc;
+}
+
+
+/* =====================================================
+   BAS SIDEBAR
+===================================================== */
+
+body.dark-mode .sidebar-bottom {
+  border-color: #1f2937;
+}
+
+body.dark-mode .sidebar-user {
+  color: #e5e7eb;
+}
+
+body.dark-mode .sidebar-user-info span {
+  color: #94a3b8;
+}
+
+
+/* =====================================================
+   BOUTON DECONNEXION
+===================================================== */
+
+body.dark-mode .logout-button {
+  color: #cbd5e1;
+  background: transparent;
+}
+
+body.dark-mode .logout-button:hover {
+  background: #1e293b;
+  color: #f87171;
+}
+
+
+/* =====================================================
+   HEADER DASHBOARD
+===================================================== */
+
+body.dark-mode .dashboard-header {
+  color: #e2e8f0;
+}
+
+body.dark-mode .dashboard-header h1 {
+  color: #f8fafc;
+}
+
+body.dark-mode .dashboard-header p {
+  color: #94a3b8;
+}
+
+
+/* =====================================================
+   CARTES STATISTIQUES
+===================================================== */
+
+body.dark-mode .stat-card {
+  background: #111827;
+  border-color: #1f2937;
+  color: #e5e7eb;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .stat-card span {
+  color: #94a3b8;
+}
+
+body.dark-mode .stat-card strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .stat-card small {
+  color: #94a3b8;
+}
+
+
+/* =====================================================
+   PANELS
+===================================================== */
+
+body.dark-mode .dashboard-panel {
+  background: #111827;
+  border-color: #1f2937;
+  color: #e5e7eb;
+}
+
+body.dark-mode .dashboard-panel h2 {
+  color: #f8fafc;
+}
+
+
+/* =====================================================
+   LIGNES DE STATUT
+===================================================== */
+
+body.dark-mode .status-row {
+  border-color: #1f2937;
+}
+
+body.dark-mode .status-row span {
+  color: #cbd5e1;
+}
+
+body.dark-mode .status-row strong {
+  color: #7dd3fc;
+}
+
+
+/* =====================================================
+   BOUTONS
+===================================================== */
+
+body.dark-mode button {
+  border-color: #334155;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* =====================================================
+   TABLEAUX
+===================================================== */
+
+body.dark-mode table {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+body.dark-mode th {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+body.dark-mode td {
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+
+/* =====================================================
+   CARTES / CONTENEURS
+===================================================== */
+
+body.dark-mode .card,
+body.dark-mode .panel,
+body.dark-mode .content-card {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #1f2937;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+body.dark-mode .navbar {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #1f2937;
+}
+
+body.dark-mode .navbar a {
+  color: #cbd5e1;
+}
+
+
+/* =====================================================
+   TEXTE GENERAL
+===================================================== */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #f8fafc;
+}
+
+body.dark-mode p {
+  color: #cbd5e1;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+body.dark-mode ::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* =========================================================
+   MODE NUIT — GLOBAL POUR TOUTE L'APPLICATION
+   ========================================================= */
+
+body.dark-mode {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   CONTENEURS PRINCIPAUX
+   ========================================================= */
+
+body.dark-mode main,
+body.dark-mode section,
+body.dark-mode article {
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   CARTES
+   ========================================================= */
+
+body.dark-mode .card,
+body.dark-mode .panel,
+body.dark-mode .content-card,
+body.dark-mode .page-card,
+body.dark-mode .form-card,
+body.dark-mode .stat-card,
+body.dark-mode .dashboard-panel,
+body.dark-mode .table-card {
+  background-color: #111827;
+  color: #e2e8f0;
+  border-color: #1f2937;
+}
+
+
+/* =========================================================
+   CONTENEURS DE PAGES
+   ========================================================= */
+
+body.dark-mode .page-container,
+body.dark-mode .page-content,
+body.dark-mode .content-container,
+body.dark-mode .main-content,
+body.dark-mode .protected-content {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   TITRES
+   ========================================================= */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   TEXTES
+   ========================================================= */
+
+body.dark-mode p,
+body.dark-mode label,
+body.dark-mode span {
+  color: #cbd5e1;
+}
+
+
+/* =========================================================
+   LIENS
+   ========================================================= */
+
+body.dark-mode a {
+  color: #7dd3fc;
+}
+
+body.dark-mode a:hover {
+  color: #38bdf8;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #111827;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+
+/* PLACEHOLDER */
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* INPUT FOCUS */
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: #38bdf8;
+  outline-color: #38bdf8;
+}
+
+
+/* =========================================================
+   TABLEAUX
+   ========================================================= */
+
+body.dark-mode table {
+  background-color: #111827;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+
+body.dark-mode thead {
+  background-color: #1e293b;
+}
+
+
+body.dark-mode th {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+
+body.dark-mode td {
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+
+body.dark-mode tbody tr {
+  background-color: #111827;
+}
+
+
+body.dark-mode tbody tr:hover {
+  background-color: #1e293b;
+}
+
+
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+
+body.dark-mode button {
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   MODALES
+   ========================================================= */
+
+body.dark-mode .modal,
+body.dark-mode .modal-content,
+body.dark-mode .dialog,
+body.dark-mode .popup {
+  background-color: #111827;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+
+/* =========================================================
+   LISTES
+   ========================================================= */
+
+body.dark-mode .list,
+body.dark-mode .list-item,
+body.dark-mode li {
+  color: #cbd5e1;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+body.dark-mode .badge {
+  background-color: #1e293b;
+  color: #7dd3fc;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+body.dark-mode .sidebar {
+  background-color: #111827;
+  color: #e2e8f0;
+  border-color: #1f2937;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+body.dark-mode .navbar {
+  background-color: #111827;
+  color: #e2e8f0;
+  border-color: #1f2937;
+}
+
+
+/* =========================================================
+   BARRES DE RECHERCHE
+   ========================================================= */
+
+body.dark-mode .search,
+body.dark-mode .search-box,
+body.dark-mode .search-container {
+  background-color: #111827;
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+body.dark-mode .dropdown,
+body.dark-mode .dropdown-menu {
+  background-color: #111827;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+
+/* =========================================================
+   ALERTES
+   ========================================================= */
+
+body.dark-mode .alert {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+body.dark-mode .pagination button,
+body.dark-mode .pagination a {
+  background-color: #111827;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+body.dark-mode ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* =========================================================
+   CORRECTION DEFINITIVE DU MODE CLAIR
+   ========================================================= */
+
+body:not(.dark-mode) {
+  background-color: #f5f7fb !important;
+  color: #111827 !important;
+}
+
+/* Conteneurs principaux */
+body:not(.dark-mode) .protected-layout,
+body:not(.dark-mode) .protected-content,
+body:not(.dark-mode) main,
+body:not(.dark-mode) section,
+body:not(.dark-mode) article {
+  background-color: #f5f7fb !important;
+  color: #111827 !important;
+}
+
+
+/* =========================================================
+   TITRES
+   ========================================================= */
+
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) h5,
+body:not(.dark-mode) h6 {
+  color: #172033 !important;
+}
+
+
+/* =========================================================
+   TEXTES
+   ========================================================= */
+
+body:not(.dark-mode) p,
+body:not(.dark-mode) label {
+  color: #64748b !important;
+}
+
+
+/* =========================================================
+   SPANS
+   ========================================================= */
+
+body:not(.dark-mode) .protected-content span {
+  color: #334155;
+}
+
+
+/* =========================================================
+   CARTES
+   ========================================================= */
+
+body:not(.dark-mode) .card,
+body:not(.dark-mode) .panel,
+body:not(.dark-mode) .content-card,
+body:not(.dark-mode) .page-card,
+body:not(.dark-mode) .form-card,
+body:not(.dark-mode) .table-card,
+body:not(.dark-mode) .dashboard-panel,
+body:not(.dark-mode) .stat-card {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #e2e8f0 !important;
+}
+
+
+/* =========================================================
+   TABLEAUX
+   ========================================================= */
+
+body:not(.dark-mode) table {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+
+body:not(.dark-mode) thead {
+  background-color: #1e293b;
+}
+
+body:not(.dark-mode) th {
+  color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+body:not(.dark-mode) td {
+  color: #334155 !important;
+  border-color: #e2e8f0 !important;
+}
+
+body:not(.dark-mode) tbody tr {
+  background-color: #ffffff !important;
+}
+
+body:not(.dark-mode) tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+body:not(.dark-mode) input,
+body:not(.dark-mode) textarea,
+body:not(.dark-mode) select {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border-color: #cbd5e1 !important;
+}
+
+body:not(.dark-mode) input::placeholder,
+body:not(.dark-mode) textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+
+/* =========================================================
+   BARRE DE RECHERCHE
+   ========================================================= */
+
+body:not(.dark-mode) .search,
+body:not(.dark-mode) .search-box,
+body:not(.dark-mode) .search-container {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+
+
+/* =========================================================
+   LIENS
+   ========================================================= */
+
+body:not(.dark-mode) a {
+  color: #2563eb;
+}
+
+body:not(.dark-mode) a:hover {
+  color: #0284c7;
+}
+
+
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+
+body:not(.dark-mode) button {
+  color: #1e293b;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+body:not(.dark-mode) .badge {
+  background-color: #e0f2fe;
+  color: #0284c7 !important;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+body:not(.dark-mode) .navbar {
+  color: #1e293b;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+body:not(.dark-mode) .sidebar {
+  color: #1e293b;
+}
+
+
+/* =========================================================
+   MODE NUIT — PRIORITAIRE
+   ========================================================= */
+
+body.dark-mode {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode .protected-layout,
+body.dark-mode .protected-content,
+body.dark-mode main,
+body.dark-mode section,
+body.dark-mode article {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+}
+
+
+/* Titres mode nuit */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f8fafc !important;
+}
+
+
+/* Textes mode nuit */
+
+body.dark-mode p,
+body.dark-mode label {
+  color: #cbd5e1 !important;
+}
+
+
+/* Cartes mode nuit */
+
+body.dark-mode .card,
+body.dark-mode .panel,
+body.dark-mode .content-card,
+body.dark-mode .page-card,
+body.dark-mode .form-card,
+body.dark-mode .table-card,
+body.dark-mode .dashboard-panel,
+body.dark-mode .stat-card {
+  background-color: #111827 !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+
+
+/* Tableaux mode nuit */
+
+body.dark-mode table {
+  background-color: #111827 !important;
+  color: #e2e8f0 !important;
+}
+
+body.dark-mode thead {
+  background-color: #1e293b !important;
+}
+
+body.dark-mode th {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode td {
+  background-color: #111827 !important;
+  color: #cbd5e1 !important;
+  border-color: #334155 !important;
+}
+
+
+/* Inputs mode nuit */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #111827 !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+
+/* Recherche mode nuit */
+
+body.dark-mode .search,
+body.dark-mode .search-box,
+body.dark-mode .search-container {
+  background-color: #111827 !important;
+  color: #e2e8f0 !important;
+}
+
+
+/* =========================================================
+   TRANSITION
+   ========================================================= */
+
+body,
+.protected-layout,
+.protected-content,
+.card,
+.panel,
+.content-card,
+.page-card,
+.form-card,
+.table-card,
+.stat-card,
+.dashboard-panel,
+table,
+input,
+textarea,
+select {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =====================================================
+   THEME GLOBAL
+===================================================== */
+
+:root {
+  --bg-main: #f5f7fb;
+  --bg-card: #ffffff;
+  --bg-secondary: #f8fafc;
+
+  --text-main: #172033;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --border: #e2e8f0;
+
+  --primary: #2563eb;
+}
+
+
+/* =====================================================
+   MODE CLAIR
+===================================================== */
+
+body:not(.dark-mode) {
+
+  background: #f5f7fb !important;
+
+  color: #172033 !important;
+
+}
+
+
+/* =====================================================
+   MODE SOMBRE
+===================================================== */
+
+body.dark-mode {
+
+  background: #0f172a !important;
+
+  color: #e2e8f0 !important;
+
+}
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+body:not(.dark-mode) .protected-content {
+
+  background: #f5f7fb !important;
+
+  color: #172033 !important;
+
+}
+
+
+body.dark-mode .protected-content {
+
+  background: #0f172a !important;
+
+  color: #e2e8f0 !important;
+
+}
+
+
+/* =====================================================
+   MODE CLAIR — TEXTES
+===================================================== */
+
+body:not(.dark-mode) .protected-content h1,
+body:not(.dark-mode) .protected-content h2,
+body:not(.dark-mode) .protected-content h3,
+body:not(.dark-mode) .protected-content h4 {
+
+  color: #172033 !important;
+
+}
+
+
+body:not(.dark-mode) .protected-content p {
+
+  color: #64748b !important;
+
+}
+
+
+/* =====================================================
+   MODE SOMBRE — TEXTES
+===================================================== */
+
+body.dark-mode .protected-content h1,
+body.dark-mode .protected-content h2,
+body.dark-mode .protected-content h3,
+body.dark-mode .protected-content h4 {
+
+  color: #f8fafc !important;
+
+}
+
+
+body.dark-mode .protected-content p {
+
+  color: #cbd5e1 !important;
+
+}
+
+
+/* =====================================================
+   CARTES — CLAIR
+===================================================== */
+
+body:not(.dark-mode) .protected-content .card,
+body:not(.dark-mode) .protected-content .panel,
+body:not(.dark-mode) .protected-content .dashboard-panel,
+body:not(.dark-mode) .protected-content .stat-card {
+
+  background: #ffffff !important;
+
+  color: #172033 !important;
+
+  border-color: #e2e8f0 !important;
+
+}
+
+
+/* =====================================================
+   CARTES — SOMBRE
+===================================================== */
+
+body.dark-mode .protected-content .card,
+body.dark-mode .protected-content .panel,
+body.dark-mode .protected-content .dashboard-panel,
+body.dark-mode .protected-content .stat-card {
+
+  background: #111827 !important;
+
+  color: #e2e8f0 !important;
+
+  border-color: #334155 !important;
+
+}
+
+
+/* =====================================================
+   TABLEAU — CLAIR
+===================================================== */
+
+body:not(.dark-mode) .protected-content table {
+
+  background: #ffffff !important;
+
+  color: #172033 !important;
+
+}
+
+
+body:not(.dark-mode) .protected-content td {
+
+  background: #ffffff !important;
+
+  color: #334155 !important;
+
+  border-color: #e2e8f0 !important;
+
+}
+
+
+body:not(.dark-mode) .protected-content th {
+
+  background: #1e293b !important;
+
+  color: #ffffff !important;
+
+}
+
+
+/* =====================================================
+   TABLEAU — SOMBRE
+===================================================== */
+
+body.dark-mode .protected-content table {
+
+  background: #111827 !important;
+
+  color: #e2e8f0 !important;
+
+}
+
+
+body.dark-mode .protected-content td {
+
+  background: #111827 !important;
+
+  color: #e2e8f0 !important;
+
+  border-color: #334155 !important;
+
+}
+
+
+body.dark-mode .protected-content th {
+
+  background: #1e293b !important;
+
+  color: #ffffff !important;
+
+}
+
+
+/* =====================================================
+   INPUTS — CLAIR
+===================================================== */
+
+body:not(.dark-mode) .protected-content input,
+body:not(.dark-mode) .protected-content textarea,
+body:not(.dark-mode) .protected-content select {
+
+  background: #ffffff !important;
+
+  color: #172033 !important;
+
+  border-color: #cbd5e1 !important;
+
+}
+
+
+/* =====================================================
+   INPUTS — SOMBRE
+===================================================== */
+
+body.dark-mode .protected-content input,
+body.dark-mode .protected-content textarea,
+body.dark-mode .protected-content select {
+
+  background: #111827 !important;
+
+  color: #f8fafc !important;
+
+  border-color: #334155 !important;
+
+}
+
+
+/* =====================================================
+   BOUTONS — CLAIR
+===================================================== */
+
+body:not(.dark-mode) .protected-content button {
+
+  color: #172033;
+
+}
+
+
+/* =====================================================
+   LIENS — CLAIR
+===================================================== */
+
+body:not(.dark-mode) .protected-content a {
+
+  color: #2563eb;
+
+}
+
+
+/* =====================================================
+   LIENS — SOMBRE
+===================================================== */
+
+body.dark-mode .protected-content a {
+
+  color: #60a5fa;
+
+}
+
+
+/* =====================================================
+   TRANSITION
+===================================================== */
+
+body,
+.protected-content,
+.protected-content * {
+
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    border-color .25s ease;
+
+}
+/* =========================================================
+   MODE SOMBRE GLOBAL — CORRECTION FINALE
+   Ne modifie aucune fonctionnalité React
+========================================================= */
+
+
+/* =========================================================
+   1. PAGE PRINCIPALE
+========================================================= */
+
+body.dark-mode {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+}
+
+
+/* =========================================================
+   2. ROOT REACT
+========================================================= */
+
+body.dark-mode #root {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   3. LAYOUT PRINCIPAL
+========================================================= */
+
+body.dark-mode .protected-layout {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+    min-height: 100vh;
+}
+
+
+body.dark-mode .protected-content {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+}
+
+
+/* =========================================================
+   4. TOUTES LES PAGES
+========================================================= */
+
+body.dark-mode .evaluations-page,
+body.dark-mode .entreprises-page,
+body.dark-mode .stages-page,
+body.dark-mode .candidatures-page,
+body.dark-mode .encadrements-page,
+body.dark-mode .journaux-page,
+body.dark-mode .rapports-page,
+body.dark-mode .users-page,
+body.dark-mode .history-page,
+body.dark-mode .statistiques-page,
+body.dark-mode .demandes-page,
+body.dark-mode .validation-demandes-page,
+body.dark-mode .dashboard-layout {
+    background: #0f172a !important;
+    color: #e2e8f0 !important;
+}
+
+
+/* =========================================================
+   5. CONTENU DES PAGES
+========================================================= */
+
+body.dark-mode .evaluations-page *,
+body.dark-mode .entreprises-page *,
+body.dark-mode .stages-page *,
+body.dark-mode .candidatures-page *,
+body.dark-mode .encadrements-page *,
+body.dark-mode .journaux-page *,
+body.dark-mode .rapports-page *,
+body.dark-mode .users-page *,
+body.dark-mode .history-page *,
+body.dark-mode .statistiques-page *,
+body.dark-mode .demandes-page *,
+body.dark-mode .validation-demandes-page * {
+    border-color: #334155;
+}
+
+
+/* =========================================================
+   6. TITRES
+========================================================= */
+
+body.dark-mode .evaluations-page h1,
+body.dark-mode .evaluations-page h2,
+body.dark-mode .evaluations-page h3,
+body.dark-mode .evaluations-page h4,
+body.dark-mode .entreprises-page h1,
+body.dark-mode .entreprises-page h2,
+body.dark-mode .stages-page h1,
+body.dark-mode .stages-page h2,
+body.dark-mode .candidatures-page h1,
+body.dark-mode .candidatures-page h2,
+body.dark-mode .encadrements-page h1,
+body.dark-mode .encadrements-page h2,
+body.dark-mode .journaux-page h1,
+body.dark-mode .journaux-page h2,
+body.dark-mode .rapports-page h1,
+body.dark-mode .rapports-page h2,
+body.dark-mode .users-page h1,
+body.dark-mode .users-page h2,
+body.dark-mode .history-page h1,
+body.dark-mode .history-page h2,
+body.dark-mode .statistiques-page h1,
+body.dark-mode .statistiques-page h2 {
+    color: #f8fafc !important;
+}
+
+
+/* =========================================================
+   7. TEXTES
+========================================================= */
+
+body.dark-mode .evaluations-page p,
+body.dark-mode .evaluations-page span,
+body.dark-mode .evaluations-page label,
+body.dark-mode .entreprises-page p,
+body.dark-mode .entreprises-page span,
+body.dark-mode .entreprises-page label,
+body.dark-mode .stages-page p,
+body.dark-mode .stages-page span,
+body.dark-mode .stages-page label,
+body.dark-mode .candidatures-page p,
+body.dark-mode .candidatures-page span,
+body.dark-mode .candidatures-page label,
+body.dark-mode .encadrements-page p,
+body.dark-mode .encadrements-page span,
+body.dark-mode .encadrements-page label,
+body.dark-mode .journaux-page p,
+body.dark-mode .journaux-page span,
+body.dark-mode .journaux-page label,
+body.dark-mode .rapports-page p,
+body.dark-mode .rapports-page span,
+body.dark-mode .rapports-page label {
+    color: #cbd5e1 !important;
+}
+
+
+/* =========================================================
+   8. CARTES
+========================================================= */
+
+body.dark-mode .evaluations-page .card,
+body.dark-mode .evaluations-page .panel,
+body.dark-mode .evaluations-page .content-card,
+body.dark-mode .evaluations-page .table-card,
+body.dark-mode .evaluations-page .dashboard-panel,
+body.dark-mode .entreprises-page .card,
+body.dark-mode .stages-page .card,
+body.dark-mode .candidatures-page .card,
+body.dark-mode .encadrements-page .card,
+body.dark-mode .journaux-page .card,
+body.dark-mode .rapports-page .card,
+body.dark-mode .users-page .card {
+    background: #111827 !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+
+/* =========================================================
+   9. TABLEAUX
+========================================================= */
+
+body.dark-mode table {
+    background: #111827 !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+
+body.dark-mode thead,
+body.dark-mode th {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+
+
+body.dark-mode td {
+    background: #111827 !important;
+    color: #cbd5e1 !important;
+    border-color: #334155 !important;
+}
+
+
+body.dark-mode tbody tr {
+    background: #111827 !important;
+}
+
+
+body.dark-mode tbody tr:hover {
+    background: #1e293b !important;
+}
+
+
+/* =========================================================
+   10. RECHERCHE
+========================================================= */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background: #111827 !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #64748b !important;
+}
+
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    background: #111827 !important;
+    color: #ffffff !important;
+    border-color: #38bdf8 !important;
+}
+
+
+/* =========================================================
+   11. BOUTONS
+========================================================= */
+
+body.dark-mode button {
+    color: #e2e8f0;
+}
+
+
+/* =========================================================
+   12. PANNEAUX
+========================================================= */
+
+body.dark-mode .evaluations-panel,
+body.dark-mode .evaluation-panel,
+body.dark-mode .evaluations-card,
+body.dark-mode .evaluation-card,
+body.dark-mode .report-card,
+body.dark-mode .reports-card {
+    background: #111827 !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+
+/* =========================================================
+   13. HEADER DES PAGES
+========================================================= */
+
+body.dark-mode .evaluations-header,
+body.dark-mode .entreprises-header,
+body.dark-mode .stages-header,
+body.dark-mode .candidatures-header,
+body.dark-mode .encadrements-header,
+body.dark-mode .journaux-header,
+body.dark-mode .rapports-header,
+body.dark-mode .users-header,
+body.dark-mode .history-header,
+body.dark-mode .statistiques-header {
+    color: #f8fafc !important;
+}
+
+
+/* =========================================================
+   14. FILTRES
+========================================================= */
+
+body.dark-mode .filter-button,
+body.dark-mode .filter-btn,
+body.dark-mode .filter,
+body.dark-mode .filters button {
+    background: #111827 !important;
+    color: #cbd5e1 !important;
+    border-color: #475569 !important;
+}
+
+
+body.dark-mode .filter-button.active,
+body.dark-mode .filter-btn.active,
+body.dark-mode .filter.active,
+body.dark-mode .filters button.active {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+}
+
+
+/* =========================================================
+   15. MODALES
+========================================================= */
+
+body.dark-mode .modal,
+body.dark-mode .modal-content,
+body.dark-mode .evaluations-modal,
+body.dark-mode .evaluation-modal,
+body.dark-mode .dialog,
+body.dark-mode .popup {
+    background: #111827 !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+
+/* =========================================================
+   16. LISTES
+========================================================= */
+
+body.dark-mode li {
+    color: #cbd5e1 !important;
+}
+
+
+/* =========================================================
+   17. LIENS
+========================================================= */
+
+body.dark-mode a {
+    color: #7dd3fc;
+}
+
+
+body.dark-mode a:hover {
+    color: #38bdf8;
+}
+
+
+/* =========================================================
+   18. NAVBAR
+========================================================= */
+
+body.dark-mode .navbar {
+    background: #111827 !important;
+    color: #e2e8f0 !important;
+    border-color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   19. SIDEBAR
+========================================================= */
+
+body.dark-mode .sidebar {
+    background: #111827 !important;
+    color: #e2e8f0 !important;
+    border-color: #1f2937 !important;
+}
+
+
+/* =========================================================
+   20. TEXTES DE LA NAVBAR
+========================================================= */
+
+body.dark-mode .navbar span,
+body.dark-mode .navbar strong,
+body.dark-mode .navbar p {
+    color: #e2e8f0 !important;
+}
+
+
+/* =========================================================
+   21. SCROLLBAR
+========================================================= */
+
+body.dark-mode ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* =====================================================
+   THEME GLOBAL
+===================================================== */
+
+:root {
+
+  --bg-primary: #f5f7fb;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+
+  --text-primary: #172033;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --border-color: #e2e8f0;
+
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+
+  --sidebar-bg: #ffffff;
+
+  --input-bg: #ffffff;
+
+  --table-header: #f1f5f9;
+  --table-row: #ffffff;
+
+  --shadow:
+    0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =====================================================
+   MODE SOMBRE
+===================================================== */
+
+body.dark-mode {
+
+  --bg-primary: #0f172a;
+  --bg-secondary: #111827;
+  --bg-card: #172033;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border-color: #334155;
+
+  --primary: #3b82f6;
+  --primary-light: #60a5fa;
+
+  --sidebar-bg: #0f172a;
+
+  --input-bg: #111827;
+
+  --table-header: #1e293b;
+  --table-row: #111827;
+
+  --shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   BASE
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =====================================================
+   TEXTES
+===================================================== */
+
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+
+  color: var(--text-primary);
+}
+
+body p {
+
+  color: var(--text-secondary);
+}
+
+body span {
+
+  color: inherit;
+}
+
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+
+.protected-layout {
+
+  min-height: 100vh;
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+}
+
+.protected-content {
+
+  min-height: calc(100vh - 70px);
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard-layout {
+
+  min-height: 100vh;
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+}
+
+.dashboard-main {
+
+  background: var(--bg-primary);
+
+  color: var(--text-primary);
+}
+
+
+/* =====================================================
+   CARTES
+===================================================== */
+
+.stat-card,
+.dashboard-panel,
+.dashboard-access-card,
+.dashboard-error,
+.card,
+.panel,
+.content-card {
+
+  background: var(--bg-card);
+
+  color: var(--text-primary);
+
+  border-color: var(--border-color);
+
+  box-shadow: var(--shadow);
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+
+  background: var(--sidebar-bg);
+
+  color: var(--text-primary);
+
+  border-color: var(--border-color);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+
+  background: var(--bg-secondary);
+
+  color: var(--text-primary);
+
+  border-color: var(--border-color);
+}
+
+
+/* =====================================================
+   TABLEAUX
+===================================================== */
+
+table {
+
+  color: var(--text-primary);
+}
+
+thead,
+.table-header {
+
+  background: var(--table-header);
+
+  color: var(--text-primary);
+}
+
+tbody {
+
+  background: var(--table-row);
+
+  color: var(--text-primary);
+}
+
+tr {
+
+  border-color: var(--border-color);
+}
+
+td,
+th {
+
+  border-color: var(--border-color);
+
+  color: var(--text-primary);
+}
+
+
+/* =====================================================
+   FORMULAIRES
+===================================================== */
+
+input,
+textarea,
+select {
+
+  background: var(--input-bg);
+
+  color: var(--text-primary);
+
+  border-color: var(--border-color);
+}
+
+input::placeholder,
+textarea::placeholder {
+
+  color: var(--text-muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+
+  border-color: var(--primary);
+
+  outline: none;
+}
+
+
+/* =====================================================
+   BOUTONS
+===================================================== */
+
+button {
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* =====================================================
+   LIENS
+===================================================== */
+
+a {
+
+  color: var(--primary);
+}
+
+
+/* =====================================================
+   MODE SOMBRE : ELEMENTS BLANCS
+===================================================== */
+
+body.dark-mode .white,
+body.dark-mode .bg-white,
+body.dark-mode .background-white {
+
+  background: var(--bg-card) !important;
+
+  color: var(--text-primary) !important;
+}
+
+
+/* =====================================================
+   MODE CLAIR : ELEMENTS SOMBRES
+===================================================== */
+
+body.light-mode .dark-background {
+
+  background: var(--bg-card);
+}
+
+
+/* =====================================================
+   TRANSITION GENERALE
+===================================================== */
+
+.sidebar,
+.navbar,
+.dashboard-main,
+.dashboard-layout,
+.protected-layout,
+.protected-content,
+.stat-card,
+.dashboard-panel,
+.card,
+.panel,
+table,
+thead,
+tbody,
+input,
+textarea,
+select {
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}

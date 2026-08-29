@@ -1,0 +1,604 @@
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-page {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 30px 20px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(37, 99, 235, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(14, 165, 233, 0.10),
+      transparent 30%
+    ),
+    #f4f7fb;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.login-card {
+
+  width: 100%;
+
+  max-width: 460px;
+
+  padding: 42px;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.12),
+    0 8px 25px rgba(37, 99, 235, 0.05);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.login-header {
+
+  text-align: center;
+
+  margin-bottom: 32px;
+}
+
+.login-logo {
+
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0ea5e9
+    );
+
+  color: #fff;
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 12px 28px rgba(
+      37,
+      99,
+      235,
+      0.22
+    );
+}
+
+.login-header h1 {
+
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+
+  transition: color 0.25s ease;
+}
+
+.login-header p {
+
+  margin: 8px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+
+  transition: color 0.25s ease;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.login-field {
+
+  margin-bottom: 21px;
+}
+
+.login-field label {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #374151;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition: color 0.25s ease;
+}
+
+.login-field input {
+
+  width: 100%;
+
+  min-height: 52px;
+
+  box-sizing: border-box;
+
+  padding: 0 15px;
+
+  border: 1px solid #d8dee8;
+
+  border-radius: 11px;
+
+  background: #fff;
+
+  color: #111827;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-field input::placeholder {
+
+  color: #9ca3af;
+}
+
+.login-field input:hover {
+
+  border-color: #bfc8d6;
+}
+
+.login-field input:focus {
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(
+      37,
+      99,
+      235,
+      0.09
+    );
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.login-error {
+
+  margin-bottom: 18px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 10px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-button {
+
+  width: 100%;
+
+  min-height: 53px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0ea5e9
+    );
+
+  color: #fff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px rgba(
+      37,
+      99,
+      235,
+      0.20
+    );
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.login-button:hover:not(:disabled) {
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 16px 30px rgba(
+      37,
+      99,
+      235,
+      0.25
+    );
+}
+
+.login-button:disabled {
+
+  cursor: not-allowed;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+.login-register {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 25px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  text-align: center;
+
+  transition: color 0.25s ease;
+}
+
+.login-register a {
+
+  color: #2563eb;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.login-register a:hover {
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.login-security {
+
+  margin-top: 22px;
+
+  color: #9ca3af;
+
+  font-size: 11px;
+
+  text-align: center;
+
+  transition: color 0.25s ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+   Compatible avec :
+   body.dark-mode
+   body.dark
+   [data-theme="dark"]
+========================================================= */
+
+body.dark-mode .login-page,
+body.dark .login-page,
+body[data-theme="dark"] .login-page {
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(37, 99, 235, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(14, 165, 233, 0.14),
+      transparent 30%
+    ),
+    #0f172a;
+
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   DARK - CARD
+========================================================= */
+
+body.dark-mode .login-card,
+body.dark .login-card,
+body[data-theme="dark"] .login-card {
+
+  background: #111827;
+
+  border-color: #1e293b;
+
+  box-shadow:
+    0 25px 60px rgba(
+      0,
+      0,
+      0,
+      0.35
+    ),
+    0 8px 25px rgba(
+      0,
+      0,
+      0,
+      0.20
+    );
+}
+
+
+/* =========================================================
+   DARK - TITRES
+========================================================= */
+
+body.dark-mode .login-header h1,
+body.dark .login-header h1,
+body[data-theme="dark"] .login-header h1 {
+
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   DARK - DESCRIPTION
+========================================================= */
+
+body.dark-mode .login-header p,
+body.dark .login-header p,
+body[data-theme="dark"] .login-header p {
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   DARK - LABEL
+========================================================= */
+
+body.dark-mode .login-field label,
+body.dark .login-field label,
+body[data-theme="dark"] .login-field label {
+
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   DARK - INPUT
+========================================================= */
+
+body.dark-mode .login-field input,
+body.dark .login-field input,
+body[data-theme="dark"] .login-field input {
+
+  background: #0f172a;
+
+  border-color: #334155;
+
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   DARK - INPUT PLACEHOLDER
+========================================================= */
+
+body.dark-mode .login-field input::placeholder,
+body.dark .login-field input::placeholder,
+body[data-theme="dark"] .login-field input::placeholder {
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   DARK - INPUT HOVER
+========================================================= */
+
+body.dark-mode .login-field input:hover,
+body.dark .login-field input:hover,
+body[data-theme="dark"] .login-field input:hover {
+
+  border-color: #475569;
+}
+
+
+/* =========================================================
+   DARK - INPUT FOCUS
+========================================================= */
+
+body.dark-mode .login-field input:focus,
+body.dark .login-field input:focus,
+body[data-theme="dark"] .login-field input:focus {
+
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 0 0 4px rgba(
+      96,
+      165,
+      250,
+      0.12
+    );
+}
+
+
+/* =========================================================
+   DARK - ERROR
+========================================================= */
+
+body.dark-mode .login-error,
+body.dark .login-error,
+body[data-theme="dark"] .login-error {
+
+  border-color: #7f1d1d;
+
+  background: #450a0a;
+
+  color: #fca5a5;
+}
+
+
+/* =========================================================
+   DARK - REGISTER
+========================================================= */
+
+body.dark-mode .login-register,
+body.dark .login-register,
+body[data-theme="dark"] .login-register {
+
+  color: #94a3b8;
+}
+
+body.dark-mode .login-register a,
+body.dark .login-register a,
+body[data-theme="dark"] .login-register a {
+
+  color: #60a5fa;
+}
+
+
+/* =========================================================
+   DARK - SECURITY
+========================================================= */
+
+body.dark-mode .login-security,
+body.dark .login-security,
+body[data-theme="dark"] .login-security {
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   DARK - BUTTON
+   On ne change pas le bouton :
+   il reste bleu dans les deux modes.
+========================================================= */
+
+body.dark-mode .login-button,
+body.dark .login-button,
+body[data-theme="dark"] .login-button {
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0ea5e9
+    );
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .login-page {
+
+    padding: 18px;
+  }
+
+  .login-card {
+
+    padding: 30px 20px;
+
+    border-radius: 18px;
+  }
+
+  .login-header h1 {
+
+    font-size: 25px;
+  }
+}

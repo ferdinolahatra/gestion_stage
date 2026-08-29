@@ -1,0 +1,2221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        Administration — Gestion des stages
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet"
+          href="{% static 'admin/css/base.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'admin/css/custom_admin.css' %}">
+
+    {% block extrastyle %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+
+
+<style>
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#header {
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: #ffffff !important;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+#branding {
+
+    margin: 0;
+
+}
+
+.admin-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none !important;
+
+}
+
+
+.logo-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #1767b1;
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 16px;
+
+}
+
+
+.logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.logo-text strong {
+
+    color: #172033;
+
+    font-size: 16px;
+
+}
+
+
+.logo-text small {
+
+    color: #718096;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   USER TOOLS
+========================================================= */
+
+#user-tools {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   LIENS DU HEADER — MODE CLAIR
+========================================================= */
+
+#user-tools a {
+
+    color: #1767b1 !important;
+
+    text-decoration: none !important;
+
+    font-weight: 600;
+
+    transition: all .25s ease;
+
+}
+
+
+#user-tools a:hover {
+
+    color: #0d4f8c !important;
+
+    text-decoration: underline !important;
+
+}
+
+
+/* =========================================================
+   PROFIL
+========================================================= */
+
+.user-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+}
+
+
+.user-avatar {
+
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #1767b1;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+}
+
+
+.user-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1.2;
+
+}
+
+
+.user-info .welcome {
+
+    color: #718096;
+
+    font-size: 11px;
+
+}
+
+
+.user-info strong {
+
+    color: #172033;
+
+    font-size: 13px;
+
+}
+
+
+.user-separator {
+
+    color: #cbd5e1;
+
+}
+
+
+/* =========================================================
+   BOUTON MODE CLAIR / NUIT
+========================================================= */
+
+.theme-toggle {
+
+    width: 40px;
+
+    height: 40px;
+
+    padding: 0;
+
+    border: 1px solid #dbe4ec;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f8fafc;
+
+    color: #526b82;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+
+}
+
+
+.theme-toggle:hover {
+
+    background: #eaf4fc;
+
+    color: #1767b1;
+
+    border-color: #bfd3e3;
+
+}
+
+
+.theme-toggle svg {
+
+    width: 19px;
+
+    height: 19px;
+
+}
+
+
+#moon-icon {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   FORMULAIRE DECONNEXION HEADER
+========================================================= */
+
+.logout-form {
+
+    display: inline;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.logout-form button {
+
+    border: 0;
+
+    background: transparent;
+
+    color: #dc3545;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    font-size: 13px;
+
+}
+
+
+.logout-form button:hover {
+
+    color: #a71d2a;
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   STRUCTURE
+========================================================= */
+
+.main-wrapper {
+
+    display: flex;
+
+    min-height: calc(100vh - 72px);
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.custom-sidebar {
+
+    width: 245px;
+
+    flex-shrink: 0;
+
+    background: #ffffff;
+
+    border-right: 1px solid #e5e7eb;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.sidebar-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 22px 20px 12px;
+
+    color: #718096;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .8px;
+
+}
+
+
+.sidebar-title-icon svg {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+
+.sidebar-nav {
+
+    padding: 5px 12px;
+
+}
+
+
+.sidebar-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    margin-bottom: 4px;
+
+    border-radius: 8px;
+
+    color: #526170 !important;
+
+    text-decoration: none !important;
+
+    font-size: 13px;
+
+    transition: all .2s ease;
+
+}
+
+
+.sidebar-link:hover {
+
+    background: #edf6fd;
+
+    color: #1767b1 !important;
+
+}
+
+
+.sidebar-icon {
+
+    width: 20px;
+
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.sidebar-icon svg {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+
+.sidebar-link:hover .sidebar-icon {
+
+    color: #1767b1;
+
+}
+
+
+/* =========================================================
+   SIDEBAR BAS
+========================================================= */
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    padding: 12px;
+
+    border-top: 1px solid #e5e7eb;
+
+}
+
+
+.sidebar-bottom form {
+
+    margin: 0;
+
+}
+
+
+.sidebar-logout {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #526170;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+}
+
+
+.sidebar-logout:hover {
+
+    background: #fff1f2;
+
+    color: #dc3545;
+
+}
+
+
+/* =========================================================
+   CONTENU
+========================================================= */
+
+#content-main {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 25px 30px;
+
+    background: #f7f9fc;
+
+}
+
+
+/* =========================================================
+   BREADCRUMBS
+========================================================= */
+
+.breadcrumbs {
+
+    margin-bottom: 18px;
+
+    color: #718096;
+
+    font-size: 12px;
+
+}
+
+
+.breadcrumbs a {
+
+    color: #1767b1 !important;
+
+    text-decoration: none;
+
+}
+
+
+.breadcrumbs a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   TITRE
+========================================================= */
+
+.page-heading {
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-heading h1 {
+
+    margin: 0 0 5px;
+
+    color: #172033;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+}
+
+
+.page-heading p {
+
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   MODULES DJANGO
+========================================================= */
+
+#content-main .module {
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 7px rgba(0,0,0,.03);
+
+}
+
+
+#content-main .module h2 {
+
+    background: #f8fafc;
+
+    color: #172033;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+
+/* =========================================================
+   LIENS CONTENU MODE CLAIR
+========================================================= */
+
+#content-main a {
+
+    color: #1767b1 !important;
+
+}
+
+
+#content-main a:hover {
+
+    color: #0d4f8c !important;
+
+}
+
+
+/* =========================================================
+   TABLEAUX
+========================================================= */
+
+#content-main th {
+
+    color: #526170;
+
+}
+
+
+#content-main td {
+
+    color: #374151;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.custom-footer {
+
+    min-height: 58px;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e5e7eb;
+
+    color: #718096;
+
+    font-size: 11px;
+
+}
+
+
+.custom-footer strong {
+
+    color: #526170;
+
+    margin-right: 8px;
+
+}
+
+
+/* =========================================================
+   =========================================================
+   MODE NUIT
+   =========================================================
+========================================================= */
+
+body.dark-mode {
+
+    background: #111827 !important;
+
+    color: #e5e7eb !important;
+
+}
+
+
+/* =========================================================
+   HEADER MODE NUIT
+========================================================= */
+
+body.dark-mode #header {
+
+    background: #172235 !important;
+
+    border-bottom-color: #29384c !important;
+
+}
+
+
+body.dark-mode .logo-text strong {
+
+    color: #ffffff !important;
+
+}
+
+
+body.dark-mode .logo-text small {
+
+    color: #94a3b8 !important;
+
+}
+
+
+body.dark-mode .user-info .welcome {
+
+    color: #94a3b8 !important;
+
+}
+
+
+body.dark-mode .user-info strong {
+
+    color: #ffffff !important;
+
+}
+
+
+body.dark-mode .user-separator {
+
+    color: #475569 !important;
+
+}
+
+
+/* =========================================================
+   LIENS HEADER MODE NUIT
+   IMPORTANT
+========================================================= */
+
+body.dark-mode #user-tools a {
+
+    color: #7dd3fc !important;
+
+    text-decoration: none !important;
+
+    font-weight: 600;
+
+}
+
+
+body.dark-mode #user-tools a:hover {
+
+    color: #38bdf8 !important;
+
+    text-decoration: underline !important;
+
+}
+
+
+/* =========================================================
+   BOUTON MODE NUIT
+========================================================= */
+
+body.dark-mode .theme-toggle {
+
+    background: #243247;
+
+    border-color: #3a4c63;
+
+    color: #facc15;
+
+}
+
+
+body.dark-mode .theme-toggle:hover {
+
+    background: #2c3d54;
+
+    color: #fde047;
+
+}
+
+
+body.dark-mode #sun-icon {
+
+    display: none;
+
+}
+
+
+body.dark-mode #moon-icon {
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   SIDEBAR MODE NUIT
+========================================================= */
+
+body.dark-mode .custom-sidebar {
+
+    background: #172235 !important;
+
+    border-right-color: #29384c !important;
+
+}
+
+
+body.dark-mode .sidebar-title {
+
+    color: #94a3b8 !important;
+
+}
+
+
+body.dark-mode .sidebar-title-icon {
+
+    color: #60a5fa !important;
+
+}
+
+
+body.dark-mode .sidebar-link {
+
+    color: #b7c3d0 !important;
+
+}
+
+
+body.dark-mode .sidebar-link:hover {
+
+    background: #24344a !important;
+
+    color: #7dd3fc !important;
+
+}
+
+
+body.dark-mode .sidebar-link:hover .sidebar-icon {
+
+    color: #60a5fa !important;
+
+}
+
+
+body.dark-mode .sidebar-bottom {
+
+    border-top-color: #29384c !important;
+
+}
+
+
+body.dark-mode .sidebar-logout {
+
+    color: #b7c3d0 !important;
+
+}
+
+
+body.dark-mode .sidebar-logout:hover {
+
+    background: #38262b !important;
+
+    color: #f87171 !important;
+
+}
+
+
+/* =========================================================
+   CONTENU MODE NUIT
+========================================================= */
+
+body.dark-mode #content-main {
+
+    background: #111827 !important;
+
+}
+
+
+body.dark-mode .breadcrumbs {
+
+    color: #94a3b8 !important;
+
+}
+
+
+/* =========================================================
+   BREADCRUMBS MODE NUIT
+========================================================= */
+
+body.dark-mode .breadcrumbs a {
+
+    color: #7dd3fc !important;
+
+}
+
+
+body.dark-mode .breadcrumbs a:hover {
+
+    color: #38bdf8 !important;
+
+}
+
+
+/* =========================================================
+   TITRE MODE NUIT
+========================================================= */
+
+body.dark-mode .page-heading h1 {
+
+    color: #ffffff !important;
+
+}
+
+
+body.dark-mode .page-heading p {
+
+    color: #94a3b8 !important;
+
+}
+
+
+/* =========================================================
+   LIENS CONTENU MODE NUIT
+========================================================= */
+
+body.dark-mode #content-main a {
+
+    color: #7dd3fc !important;
+
+}
+
+
+body.dark-mode #content-main a:hover {
+
+    color: #38bdf8 !important;
+
+}
+
+
+/* =========================================================
+   MODULES MODE NUIT
+========================================================= */
+
+body.dark-mode #content-main .module {
+
+    background: #172235 !important;
+
+    border-color: #29384c !important;
+
+    color: #e5e7eb !important;
+
+}
+
+
+body.dark-mode #content-main .module h2 {
+
+    background: #1d2b3e !important;
+
+    border-bottom-color: #29384c !important;
+
+    color: #ffffff !important;
+
+}
+
+
+/* =========================================================
+   TABLEAUX MODE NUIT
+========================================================= */
+
+body.dark-mode #content-main table {
+
+    background: #172235 !important;
+
+}
+
+
+body.dark-mode #content-main th {
+
+    background: #1d2b3e !important;
+
+    color: #cbd5e1 !important;
+
+    border-color: #29384c !important;
+
+}
+
+
+body.dark-mode #content-main td {
+
+    color: #d1d5db !important;
+
+    border-color: #29384c !important;
+
+}
+
+
+body.dark-mode #content-main tr:hover td {
+
+    background: #213047 !important;
+
+}
+
+
+/* =========================================================
+   FORMULAIRES MODE NUIT
+========================================================= */
+
+body.dark-mode #content-main input,
+body.dark-mode #content-main textarea,
+body.dark-mode #content-main select {
+
+    background: #1e2b3d !important;
+
+    border-color: #3a4c63 !important;
+
+    color: #ffffff !important;
+
+}
+
+
+body.dark-mode #content-main input:focus,
+body.dark-mode #content-main textarea:focus,
+body.dark-mode #content-main select:focus {
+
+    border-color: #3b82f6 !important;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,.15);
+
+}
+
+
+/* =========================================================
+   FILTRE MODE NUIT
+========================================================= */
+
+body.dark-mode #changelist-filter {
+
+    background: #172235 !important;
+
+    border-color: #29384c !important;
+
+}
+
+
+body.dark-mode #changelist-filter h2 {
+
+    background: #1d2b3e !important;
+
+    color: #ffffff !important;
+
+}
+
+
+body.dark-mode #changelist-filter h3 {
+
+    color: #94a3b8 !important;
+
+}
+
+
+body.dark-mode #changelist-filter a {
+
+    color: #7dd3fc !important;
+
+}
+
+
+body.dark-mode #changelist-filter a:hover {
+
+    color: #38bdf8 !important;
+
+}
+
+
+/* =========================================================
+   FOOTER MODE NUIT
+========================================================= */
+
+body.dark-mode .custom-footer {
+
+    background: #172235 !important;
+
+    border-top-color: #29384c !important;
+
+    color: #94a3b8 !important;
+
+}
+
+
+body.dark-mode .custom-footer strong {
+
+    color: #e2e8f0 !important;
+
+}
+
+
+/* =========================================================
+   MESSAGES MODE NUIT
+========================================================= */
+
+body.dark-mode .messagelist li {
+
+    background: #1d2b3e !important;
+
+    border-color: #33465c !important;
+
+    color: #dbeafe !important;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .custom-sidebar {
+
+        width: 210px;
+
+    }
+
+    #user-tools {
+
+        gap: 8px;
+
+    }
+
+    .user-info {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    #header {
+
+        padding: 0 12px;
+
+    }
+
+    .logo-text {
+
+        display: none;
+
+    }
+
+    .custom-sidebar {
+
+        width: 65px;
+
+    }
+
+    .sidebar-title span:last-child {
+
+        display: none;
+
+    }
+
+    .sidebar-link {
+
+        justify-content: center;
+
+        padding: 11px;
+
+    }
+
+    .sidebar-link span:last-child {
+
+        display: none;
+
+    }
+
+    .sidebar-logout {
+
+        justify-content: center;
+
+    }
+
+    .sidebar-logout span:last-child {
+
+        display: none;
+
+    }
+
+    #content-main {
+
+        padding: 20px 15px;
+
+    }
+
+    #user-tools > a {
+
+        display: none;
+
+    }
+
+    .user-separator {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   FIN CSS
+========================================================= */
+
+</style>
+
+</head>
+
+
+<body class="{% block bodyclass %}{% endblock %}">
+
+
+<div id="container">
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header id="header">
+
+
+    <!-- LOGO -->
+
+    <div id="branding">
+
+        <a href="{% url 'admin:index' %}"
+           class="admin-logo">
+
+            <div class="logo-icon">
+                GS
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Gestion des Stages
+                </strong>
+
+                <small>
+                    Administration
+                </small>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         OUTILS UTILISATEUR
+    ====================================================== -->
+
+    <div id="user-tools">
+
+
+        {% if user.is_authenticated %}
+
+
+        <!-- BOUTON THEME -->
+
+        <button
+            type="button"
+            id="theme-toggle"
+            class="theme-toggle"
+            title="Changer le mode clair / nuit"
+            aria-label="Changer le thème">
+
+
+            <!-- SOLEIL -->
+
+            <svg id="sun-icon"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"/>
+
+                <line
+                    x1="12"
+                    y1="2"
+                    x2="12"
+                    y2="4"/>
+
+                <line
+                    x1="12"
+                    y1="20"
+                    x2="12"
+                    y2="22"/>
+
+                <line
+                    x1="4.93"
+                    y1="4.93"
+                    x2="6.34"
+                    y2="6.34"/>
+
+                <line
+                    x1="17.66"
+                    y1="17.66"
+                    x2="19.07"
+                    y2="19.07"/>
+
+                <line
+                    x1="2"
+                    y1="12"
+                    x2="4"
+                    y2="12"/>
+
+                <line
+                    x1="20"
+                    y1="12"
+                    x2="22"
+                    y2="12"/>
+
+                <line
+                    x1="4.93"
+                    y1="19.07"
+                    x2="6.34"
+                    y2="17.66"/>
+
+                <line
+                    x1="17.66"
+                    y1="6.34"
+                    x2="19.07"
+                    y2="4.93"/>
+
+            </svg>
+
+
+            <!-- LUNE -->
+
+            <svg id="moon-icon"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+
+                <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3
+                    7 7 0 0 0 21 12.79z"/>
+
+            </svg>
+
+        </button>
+
+
+        <!-- PROFIL -->
+
+        <div class="user-profile">
+
+            <div class="user-avatar">
+
+                {{ user.username|first|upper }}
+
+            </div>
+
+            <div class="user-info">
+
+                <span class="welcome">
+                    Bonjour,
+                </span>
+
+                <strong>
+                    {{ user.username }}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <span class="user-separator">
+            |
+        </span>
+
+
+        <!-- =================================================
+             TABLEAU DE BORD
+        ================================================== -->
+
+        <a href="{% url 'admin:index' %}">
+            Tableau de bord
+        </a>
+
+
+        <!-- =================================================
+             MOT DE PASSE
+        ================================================== -->
+
+        {% if user.has_usable_password %}
+
+        <a href="{% url 'admin:password_change' %}">
+            Modifier le mot de passe
+        </a>
+
+        {% endif %}
+
+
+        <!-- =================================================
+             DECONNEXION
+        ================================================== -->
+
+        <form method="post"
+              action="{% url 'admin:logout' %}"
+              class="logout-form">
+
+            {% csrf_token %}
+
+            <button type="submit">
+                Déconnexion
+            </button>
+
+        </form>
+
+
+        {% endif %}
+
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     CONTENU PRINCIPAL
+========================================================= -->
+
+<div class="main-wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="custom-sidebar">
+
+
+        <div class="sidebar-title">
+
+            <span class="sidebar-title-icon">
+
+                <svg viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2">
+
+                    <line
+                        x1="4"
+                        y1="6"
+                        x2="20"
+                        y2="6"/>
+
+                    <line
+                        x1="4"
+                        y1="12"
+                        x2="20"
+                        y2="12"/>
+
+                    <line
+                        x1="4"
+                        y1="18"
+                        x2="20"
+                        y2="18"/>
+
+                </svg>
+
+            </span>
+
+            <span>
+                MENU
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <!-- TABLEAU DE BORD -->
+
+            <a href="{% url 'admin:index' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <rect
+                            x="3"
+                            y="3"
+                            width="7"
+                            height="7"/>
+
+                        <rect
+                            x="14"
+                            y="3"
+                            width="7"
+                            height="7"/>
+
+                        <rect
+                            x="3"
+                            y="14"
+                            width="7"
+                            height="7"/>
+
+                        <rect
+                            x="14"
+                            y="14"
+                            width="7"
+                            height="7"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Tableau de bord
+                </span>
+
+            </a>
+
+
+            <!-- UTILISATEURS -->
+
+            <a href="{% url 'admin:accounts_user_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path
+                            d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+
+                        <circle
+                            cx="9"
+                            cy="7"
+                            r="4"/>
+
+                        <path
+                            d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+
+                        <path
+                            d="M16 3.13a4 4 0 0 1 0 7.75"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Utilisateurs
+                </span>
+
+            </a>
+
+
+            <!-- ENTREPRISES -->
+
+            <a href="{% url 'admin:entreprises_entreprise_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path d="M3 21h18"/>
+
+                        <path
+                            d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+
+                        <path
+                            d="M9 21v-4h6v4"/>
+
+                        <rect
+                            x="8"
+                            y="7"
+                            width="2"
+                            height="2"/>
+
+                        <rect
+                            x="11"
+                            y="7"
+                            width="2"
+                            height="2"/>
+
+                        <rect
+                            x="14"
+                            y="7"
+                            width="2"
+                            height="2"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Entreprises
+                </span>
+
+            </a>
+
+
+            <!-- OFFRES -->
+
+            <a href="{% url 'admin:stages_offrestage_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <rect
+                            x="3"
+                            y="7"
+                            width="18"
+                            height="13"
+                            rx="2"/>
+
+                        <path
+                            d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+
+                        <line
+                            x1="3"
+                            y1="12"
+                            x2="21"
+                            y2="12"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Offres de stage
+                </span>
+
+            </a>
+
+
+            <!-- CANDIDATURES -->
+
+            <a href="{% url 'admin:candidatures_candidaturestage_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path
+                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                        <polyline
+                            points="14 2 14 8 20 8"/>
+
+                        <line
+                            x1="8"
+                            y1="13"
+                            x2="16"
+                            y2="13"/>
+
+                        <line
+                            x1="8"
+                            y1="17"
+                            x2="16"
+                            y2="17"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Candidatures
+                </span>
+
+            </a>
+
+
+            <!-- ENCADREMENT -->
+
+            <a href="{% url 'admin:encadrement_encadrement_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <circle
+                            cx="9"
+                            cy="7"
+                            r="4"/>
+
+                        <path
+                            d="M3 21v-2a6 6 0 0 1 12 0v2"/>
+
+                        <circle
+                            cx="18"
+                            cy="8"
+                            r="3"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Encadrement
+                </span>
+
+            </a>
+
+
+            <!-- JOURNAL -->
+
+            <a href="{% url 'admin:journal_journalstage_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path
+                            d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+
+                        <path
+                            d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Journal de stage
+                </span>
+
+            </a>
+
+
+            <!-- RAPPORTS -->
+
+            <a href="{% url 'admin:rapports_rapportstage_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path
+                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+
+                        <polyline
+                            points="14 2 14 8 20 8"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Rapports
+                </span>
+
+            </a>
+
+
+            <!-- EVALUATIONS -->
+
+            <a href="{% url 'admin:evaluations_evaluation_changelist' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <polygon
+                            points="12 2 15 9 22 9 16.5 13.5 18.5 21 12 17 5.5 21 7.5 13.5 2 9 9 9 12 2"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Évaluations
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- BAS -->
+
+        <div class="sidebar-bottom">
+
+
+            <a href="{% url 'admin:password_change' %}"
+               class="sidebar-link">
+
+                <span class="sidebar-icon">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="3"/>
+
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06-1.5 1.5-.06-.06A1.65 1.65 0 0 0 16.03 19.4"/>
+
+                    </svg>
+
+                </span>
+
+                <span>
+                    Paramètres
+                </span>
+
+            </a>
+
+
+            <form method="post"
+                  action="{% url 'admin:logout' %}">
+
+                {% csrf_token %}
+
+                <button type="submit"
+                        class="sidebar-logout">
+
+                    <span class="sidebar-icon">
+
+                        <svg viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2">
+
+                            <path
+                                d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+
+                            <polyline
+                                points="16 17 21 12 16 7"/>
+
+                            <line
+                                x1="21"
+                                y1="12"
+                                x2="9"
+                                y2="12"/>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        Déconnexion
+                    </span>
+
+                </button>
+
+            </form>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTENU
+    ====================================================== -->
+
+    <main id="content-main">
+
+
+        {% block breadcrumbs %}
+
+        <div class="breadcrumbs">
+
+            <a href="{% url 'admin:index' %}">
+                Accueil
+            </a>
+
+            {% if title %}
+
+                <span> / </span>
+
+                <span>
+                    {{ title }}
+                </span>
+
+            {% endif %}
+
+        </div>
+
+        {% endblock %}
+
+
+        {% block messages %}
+
+        {% if messages %}
+
+        <ul class="messagelist">
+
+            {% for message in messages %}
+
+            <li
+                {% if message.tags %}
+                class="{{ message.tags }}"
+                {% endif %}>
+
+                {{ message }}
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+        {% endif %}
+
+        {% endblock %}
+
+
+        {% block content_title %}
+
+        {% if title %}
+
+        <div class="page-heading">
+
+            <h1>
+                {{ title }}
+            </h1>
+
+            <p>
+                Gestion de votre espace d'administration
+            </p>
+
+        </div>
+
+        {% endif %}
+
+        {% endblock %}
+
+
+        {% block content %}
+
+        {{ content }}
+
+        {% endblock %}
+
+
+        {% block sidebar %}
+
+        {% endblock %}
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="custom-footer">
+
+    <div>
+
+        <strong>
+            Gestion des Stages
+        </strong>
+
+        <span>
+            Administration
+        </span>
+
+    </div>
+
+    <div>
+        Django Administration
+    </div>
+
+</footer>
+
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT MODE CLAIR / NUIT
+========================================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const themeToggle =
+            document.getElementById(
+                "theme-toggle"
+            );
+
+
+        const savedTheme =
+            localStorage.getItem(
+                "admin-theme"
+            );
+
+
+        /* =================================================
+           RESTAURER LE MODE ENREGISTRÉ
+        ================================================= */
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+
+        }
+
+
+        /* =================================================
+           BOUTON MODE
+        ================================================= */
+
+        if (themeToggle) {
+
+            themeToggle.addEventListener(
+                "click",
+                function () {
+
+
+                    document.body.classList.toggle(
+                        "dark-mode"
+                    );
+
+
+                    /* =====================================
+                       SAUVEGARDER LE CHOIX
+                    ===================================== */
+
+                    if (
+                        document.body.classList.contains(
+                            "dark-mode"
+                        )
+                    ) {
+
+                        localStorage.setItem(
+                            "admin-theme",
+                            "dark"
+                        );
+
+                    } else {
+
+                        localStorage.setItem(
+                            "admin-theme",
+                            "light"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+    }
+);
+
+</script>
+
+
+{% block extrajs %}
+
+{% endblock %}
+
+
+</body>
+
+</html>

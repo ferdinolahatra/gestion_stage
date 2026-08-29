@@ -1,0 +1,2816 @@
+/* =========================================================
+   VALIDATION DES DEMANDES
+   DESIGN PROFESSIONNEL + RESPONSIVE
+========================================================= */
+
+.validation-demandes-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px 38px 50px;
+  box-sizing: border-box;
+  background: #f5f7fb;
+  color: #0f172a;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.validation-demandes-header {
+  margin-bottom: 25px;
+}
+
+.validation-demandes-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.validation-demandes-breadcrumb span {
+  color: #cbd5e1;
+}
+
+.validation-demandes-kicker {
+  display: inline-block;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.validation-demandes-header h1 {
+  margin: 7px 0 6px;
+  color: #111827;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.validation-demandes-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   STATISTIQUES
+========================================================= */
+
+.validation-demandes-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.validation-stat-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.validation-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+.validation-stat-icon {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.validation-stat-icon.total {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.validation-stat-icon.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.validation-stat-icon.valid {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.validation-stat-icon.refused {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.validation-stat-card span {
+  display: block;
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.validation-stat-card strong {
+  display: block;
+  margin-top: 3px;
+  color: #111827;
+  font-size: 21px;
+  line-height: 1;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.validation-demandes-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 17px;
+}
+
+.validation-demandes-search {
+  position: relative;
+  width: min(470px, 100%);
+}
+
+.validation-demandes-search > span {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.validation-demandes-search input {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 0 15px 0 42px;
+  border: 1px solid #dbe2ea;
+  border-radius: 11px;
+  outline: none;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 12px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.validation-demandes-search input::placeholder {
+  color: #a0aec0;
+}
+
+.validation-demandes-search input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.validation-demandes-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.validation-demandes-filters select {
+  min-height: 42px;
+  padding: 0 30px 0 11px;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.validation-demandes-refresh {
+  min-height: 42px;
+  padding: 0 13px;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.validation-demandes-refresh:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* =========================================================
+   CARD PRINCIPALE
+========================================================= */
+
+.validation-demandes-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.validation-demandes-card-header {
+  padding: 21px 24px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.validation-demandes-card-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.validation-demandes-card-header p {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.validation-demandes-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.validation-demandes-table {
+  width: 100%;
+  min-width: 1250px;
+  border-collapse: collapse;
+}
+
+.validation-demandes-table th {
+  padding: 14px 18px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.validation-demandes-table td {
+  padding: 15px 18px;
+  border-top: 1px solid #f1f5f9;
+  color: #475569;
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+.validation-demandes-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.validation-demandes-table tbody tr:hover {
+  background: #fbfdff;
+}
+
+/* =========================================================
+   DEMANDEUR
+========================================================= */
+
+.validation-demande-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.validation-demande-avatar {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.validation-demande-user strong {
+  display: block;
+  color: #111827;
+  font-size: 11px;
+}
+
+.validation-demande-user span {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+/* =========================================================
+   OBJET
+========================================================= */
+
+.validation-demande-object strong {
+  display: block;
+  color: #111827;
+  font-size: 11px;
+}
+
+.validation-demande-object span {
+  display: block;
+  max-width: 220px;
+  margin-top: 4px;
+  color: #94a3b8;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   TYPE
+========================================================= */
+
+.validation-demande-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   STATUT
+========================================================= */
+
+.validation-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.validation-status > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-valid {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-refused {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.validation-demandes-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.validation-demandes-actions button,
+.validation-modal-actions button,
+.validation-close-button {
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.validation-demandes-actions button:hover:not(:disabled),
+.validation-modal-actions button:hover:not(:disabled),
+.validation-close-button:hover {
+  transform: translateY(-1px);
+}
+
+.validation-demandes-actions button {
+  padding: 7px 9px;
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.validation-view-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 13px;
+  border: 1px solid #dbe3f0;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.validation-view-button svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s ease;
+}
+
+.validation-view-button:hover {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #93c5fd;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+  transform: translateY(-1px);
+}
+
+.validation-view-button:hover svg {
+  transform: scale(1.1);
+}
+
+.validation-view-button:active {
+  transform: translateY(0);
+}
+
+.validation-view-button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 2px;
+}
+
+.validation-accept-button {
+  border: 1px solid #bbf7d0;
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.validation-accept-button:hover {
+  background: #dcfce7;
+}
+
+.validation-refuse-button {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.validation-refuse-button:hover {
+  background: #fee2e2;
+}
+
+.validation-demandes-actions button:disabled,
+.validation-modal-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   ÉTATS
+========================================================= */
+
+.validation-demandes-state,
+.validation-demandes-empty {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.validation-demandes-state-icon,
+.validation-demandes-empty-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.validation-demandes-state h2,
+.validation-demandes-empty h3 {
+  margin: 15px 0 5px;
+  color: #111827;
+  font-size: 16px;
+}
+
+.validation-demandes-state p,
+.validation-demandes-empty p {
+  max-width: 450px;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.validation-demandes-state button {
+  margin-top: 14px;
+  min-height: 41px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.validation-demandes-spinner {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 14px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: validationDemandesSpin 0.8s linear infinite;
+}
+
+@keyframes validationDemandesSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.validation-demandes-error .validation-demandes-state-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.validation-demandes-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1300;
+  width: min(400px, calc(100vw - 40px));
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  animation: validationToastIn 0.25s ease;
+}
+
+@keyframes validationToastIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.validation-demandes-toast-success {
+  border-left: 4px solid #16a34a;
+}
+
+.validation-demandes-toast-error {
+  border-left: 4px solid #dc2626;
+}
+
+.validation-demandes-toast-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 800;
+}
+
+.validation-demandes-toast-error .validation-demandes-toast-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.validation-demandes-toast strong {
+  display: block;
+  color: #111827;
+  font-size: 12px;
+}
+
+.validation-demandes-toast p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.validation-demandes-toast > button {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.validation-demandes-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-sizing: border-box;
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: validationModalOverlayIn 0.2s ease;
+}
+
+.validation-demandes-modal {
+  width: min(100%, 1000px);
+  max-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.25),
+    0 8px 20px rgba(15, 23, 42, 0.12);
+  animation: validationModalIn 0.25s ease;
+}
+
+@keyframes validationModalOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes validationModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   HEADER DU MODAL
+========================================================= */
+
+.validation-demandes-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #f8fafc, #ffffff);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.validation-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.validation-modal-title-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
+}
+
+.validation-modal-title span {
+  display: block;
+  margin-bottom: 3px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.validation-modal-title h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.validation-demandes-modal-close {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.validation-demandes-modal-close:hover {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+/* =========================================================
+   CONTENU DU MODAL
+========================================================= */
+
+.validation-demandes-detail {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 24px;
+  background: #f8fafc;
+}
+
+/* =========================================================
+   INFORMATIONS PRINCIPALES
+========================================================= */
+
+.validation-detail-item {
+  min-height: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.validation-detail-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+.validation-detail-item > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 7px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.validation-detail-item > span svg {
+  color: #2563eb;
+}
+
+.validation-detail-item > strong {
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   DESCRIPTION / MESSAGE
+========================================================= */
+
+.validation-detail-description {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+}
+
+.validation-description-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.validation-description-header > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.validation-description-header svg {
+  color: #2563eb;
+}
+
+.validation-detail-description p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   DOCUMENTS — SECTION
+========================================================= */
+
+.validation-documents-section {
+  grid-column: 1 / -1;
+  margin-top: 5px;
+  padding: 17px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.validation-documents-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 13px;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.validation-documents-title svg {
+  width: 17px;
+  height: 17px;
+  color: #2563eb;
+}
+
+.validation-documents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* =========================================================
+   CARTE DOCUMENT
+========================================================= */
+
+.validation-document-card {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.validation-document-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   HEADER DOCUMENT
+========================================================= */
+
+.validation-document-header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 13px;
+}
+
+.validation-document-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.validation-document-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.validation-document-icon.motivation {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.validation-document-icon.cv {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.validation-document-title {
+  min-width: 0;
+}
+
+.validation-document-title strong {
+  display: block;
+  color: #111827;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.validation-document-title span {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+/* =========================================================
+   ZONE DE DÉPÔT
+========================================================= */
+
+.validation-upload-zone {
+  position: relative;
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 18px;
+  box-sizing: border-box;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.validation-upload-zone:hover {
+  border-color: #2563eb;
+  background: #f8fbff;
+}
+
+.validation-upload-zone.drag-active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* =========================================================
+   ICÔNE UPLOAD
+========================================================= */
+
+.validation-upload-icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+}
+
+.validation-upload-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================================
+   TEXTE UPLOAD
+========================================================= */
+
+.validation-upload-zone strong {
+  display: block;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.validation-upload-zone strong span {
+  color: #2563eb;
+}
+
+.validation-upload-zone p {
+  margin: 5px 0 0;
+  color: #94a3b8;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   INPUT FILE
+========================================================= */
+
+.validation-upload-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* =========================================================
+   FICHIER SÉLECTIONNÉ
+========================================================= */
+
+.validation-upload-selected {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 11px;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  background: #eff6ff;
+}
+
+.validation-upload-selected-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #2563eb;
+}
+
+.validation-upload-selected-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.validation-upload-selected-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.validation-upload-selected-info strong {
+  display: block;
+  overflow: hidden;
+  color: #1e293b;
+  font-size: 10px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.validation-upload-selected-info span {
+  display: block;
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 8px;
+}
+
+/* =========================================================
+   BOUTON SUPPRIMER FICHIER
+========================================================= */
+
+.validation-upload-remove {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #94a3b8;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.validation-upload-remove:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.validation-upload-remove svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* =========================================================
+   ÉTAT DOCUMENT VALIDÉ
+========================================================= */
+
+.validation-upload-success {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.validation-upload-success svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* =========================================================
+   INFORMATIONS FORMAT
+========================================================= */
+
+.validation-upload-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.validation-upload-info span {
+  color: #94a3b8;
+  font-size: 8px;
+}
+
+.validation-upload-format {
+  padding: 3px 6px;
+  border-radius: 5px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   VERSION FICHIER DÉJÀ ENREGISTRÉ
+========================================================= */
+
+.validation-existing-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.validation-existing-file-info {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+}
+
+.validation-existing-file-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.validation-existing-file-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.validation-existing-file-name {
+  min-width: 0;
+}
+
+.validation-existing-file-name strong {
+  display: block;
+  overflow: hidden;
+  color: #334155;
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.validation-existing-file-name span {
+  display: block;
+  margin-top: 2px;
+  color: #94a3b8;
+  font-size: 8px;
+}
+
+.validation-existing-file-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 0 9px;
+  flex-shrink: 0;
+  border: 1px solid #bfdbfe;
+  border-radius: 7px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.validation-existing-file-button:hover {
+  background: #dbeafe;
+}
+
+.validation-existing-file-button svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* =========================================================
+   MESSAGE ERREUR
+========================================================= */
+
+.validation-upload-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  color: #dc2626;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.validation-upload-error svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* =========================================================
+   DOCUMENTS DU MODAL
+========================================================= */
+
+.validation-detail-document {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+}
+
+.validation-detail-document-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.validation-document-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.validation-document-heading h3 {
+  margin: 0 0 3px;
+  color: #0f172a;
+  font-size: 15px;
+}
+
+.validation-document-heading span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.validation-document-badge {
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.validation-document-badge.cv-badge {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+/* =========================================================
+   CARTE FICHIER
+========================================================= */
+
+.validation-file-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+}
+
+.validation-file-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.validation-file-icon.cv-file {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.validation-file-info {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.validation-file-info strong {
+  color: #1e293b;
+  font-size: 13px;
+}
+
+.validation-file-info span {
+  overflow: hidden;
+  color: #475569;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.validation-file-info small {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.validation-file-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.validation-file-button,
+.validation-file-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.validation-file-button {
+  padding: 0 11px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.validation-file-button:hover {
+  background: #dbeafe;
+  border-color: #93c5fd;
+}
+
+.validation-file-download {
+  width: 34px;
+  border: 1px solid #dbeafe;
+  background: #ffffff;
+  color: #2563eb;
+}
+
+.validation-file-download:hover {
+  background: #eff6ff;
+}
+
+/* =========================================================
+   LETTRE DE MOTIVATION — APERÇU
+========================================================= */
+
+.validation-letter-preview {
+  grid-column: 1 / -1;
+  padding: 8px;
+}
+
+.validation-letter-paper {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.validation-letter-paper-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 15px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.validation-letter-paper-content {
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.validation-letter-paper-content p {
+  margin: 0;
+  color: #334155;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+/* =========================================================
+   DOCUMENT ABSENT
+========================================================= */
+
+.validation-no-document {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.validation-no-document svg {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   APERÇU PDF
+========================================================= */
+
+.validation-pdf-preview {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.validation-pdf-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #eef2f7;
+  background: #f8fafc;
+}
+
+.validation-pdf-preview-header strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111827;
+  font-size: 11px;
+}
+
+.validation-pdf-preview-header svg {
+  color: #dc2626;
+}
+
+.validation-pdf-frame {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}
+
+/* =========================================================
+   FOOTER MODAL
+========================================================= */
+
+.validation-demandes-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 24px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.validation-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.validation-close-button {
+  height: 38px;
+  padding: 0 17px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.validation-close-button:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+/* =========================================================
+   RESPONSIVE — 1200 PX
+========================================================= */
+
+@media (max-width: 1200px) {
+  .validation-demandes-page {
+    padding: 30px 28px 45px;
+  }
+
+  .validation-demandes-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .validation-demandes-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .validation-demandes-search {
+    width: 100%;
+  }
+
+  .validation-demandes-filters {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 900 PX
+========================================================= */
+
+@media (max-width: 900px) {
+  .validation-demandes-page {
+    padding: 26px 22px 40px;
+  }
+
+  .validation-demandes-header h1 {
+    font-size: 27px;
+  }
+
+  .validation-demandes-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .validation-detail-description,
+  .validation-documents-section,
+  .validation-letter-preview,
+  .validation-detail-document,
+  .validation-pdf-preview {
+    grid-column: 1 / -1;
+  }
+
+  .validation-documents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .validation-demandes-modal-overlay {
+    padding: 15px;
+  }
+
+  .validation-demandes-modal {
+    max-height: calc(100vh - 30px);
+  }
+
+  .validation-demandes-detail {
+    padding: 16px;
+  }
+
+  .validation-demandes-modal-footer {
+    padding: 14px 16px;
+  }
+
+  .validation-pdf-frame {
+    height: 450px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 700 PX
+========================================================= */
+
+@media (max-width: 700px) {
+  .validation-demandes-page {
+    padding: 22px 16px 35px;
+  }
+
+  .validation-demandes-header {
+    margin-bottom: 20px;
+  }
+
+  .validation-demandes-header h1 {
+    font-size: 24px;
+  }
+
+  .validation-demandes-header p {
+    font-size: 12px;
+  }
+
+  .validation-demandes-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .validation-stat-card {
+    padding: 14px;
+  }
+
+  .validation-demandes-filters {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .validation-demandes-filters select,
+  .validation-demandes-refresh {
+    width: 100%;
+  }
+
+  .validation-demandes-refresh {
+    grid-column: 1 / -1;
+  }
+
+  .validation-demandes-modal-overlay {
+    padding: 10px;
+  }
+
+  .validation-demandes-modal {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+    border-radius: 16px;
+  }
+
+  .validation-demandes-modal-header {
+    padding: 18px;
+  }
+
+  .validation-demandes-modal-header h2,
+  .validation-modal-title h2 {
+    font-size: 17px;
+  }
+
+  .validation-demandes-detail {
+    padding: 18px;
+  }
+
+  .validation-demandes-modal-footer {
+    padding: 0 18px 18px;
+  }
+
+  .validation-pdf-frame {
+    height: 400px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 650 PX
+========================================================= */
+
+@media (max-width: 650px) {
+  .validation-demandes-modal-header {
+    padding: 15px;
+  }
+
+  .validation-demandes-modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .validation-modal-actions {
+    width: 100%;
+  }
+
+  .validation-modal-actions button {
+    flex: 1;
+  }
+
+  .validation-close-button {
+    width: 100%;
+  }
+
+  .validation-file-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .validation-file-info {
+    width: calc(100% - 60px);
+  }
+
+  .validation-file-actions {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .validation-file-button {
+    flex: 1;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 600 PX
+========================================================= */
+
+@media (max-width: 600px) {
+  .validation-documents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .validation-document-card {
+    padding: 13px;
+  }
+
+  .validation-upload-zone {
+    min-height: 115px;
+    padding: 15px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 520 PX
+========================================================= */
+
+@media (max-width: 520px) {
+  .validation-demandes-page {
+    padding: 18px 12px 30px;
+  }
+
+  .validation-demandes-breadcrumb {
+    font-size: 9px;
+  }
+
+  .validation-demandes-kicker {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+  }
+
+  .validation-demandes-header h1 {
+    font-size: 21px;
+    letter-spacing: -0.3px;
+  }
+
+  .validation-demandes-header p {
+    font-size: 11px;
+  }
+
+  .validation-demandes-card {
+    border-radius: 14px;
+  }
+
+  .validation-demandes-card-header {
+    padding: 17px;
+  }
+
+  .validation-demandes-card-header h2 {
+    font-size: 14px;
+  }
+
+  .validation-demandes-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .validation-demandes-refresh {
+    grid-column: auto;
+  }
+
+  .validation-demandes-modal-overlay {
+    padding: 0;
+  }
+
+  .validation-demandes-modal {
+    max-height: 100vh;
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  .validation-demandes-modal-header {
+    padding: 16px;
+  }
+
+  .validation-demandes-detail {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .validation-detail-item {
+    padding: 12px;
+  }
+
+  .validation-detail-description,
+  .validation-documents-section,
+  .validation-letter-preview,
+  .validation-detail-document {
+    padding: 13px;
+  }
+
+  .validation-documents-grid {
+    gap: 8px;
+  }
+
+  .validation-document-card {
+    padding: 12px;
+  }
+
+  .validation-document-title {
+    width: calc(100% - 55px);
+  }
+
+  .validation-letter-paper-content {
+    padding: 13px;
+  }
+
+  .validation-letter-paper-content p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .validation-pdf-frame {
+    height: 330px;
+  }
+
+  .validation-demandes-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 15px 15px;
+  }
+
+  .validation-modal-actions {
+    width: 100%;
+  }
+
+  .validation-modal-actions button,
+  .validation-close-button {
+    flex: 1;
+  }
+
+  .validation-demandes-toast {
+    top: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 450 PX
+========================================================= */
+
+@media (max-width: 450px) {
+  .validation-document-header {
+    gap: 8px;
+  }
+
+  .validation-document-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .validation-upload-zone strong {
+    font-size: 10px;
+  }
+
+  .validation-upload-zone p {
+    font-size: 8px;
+  }
+
+  .validation-upload-selected {
+    padding: 8px;
+  }
+
+  .validation-upload-selected-info strong {
+    max-width: 170px;
+  }
+
+  .validation-file-card {
+    padding: 11px;
+  }
+
+  .validation-file-info strong {
+    font-size: 11px;
+  }
+
+  .validation-file-info span {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITÉ / MOBILE TACTILE
+========================================================= */
+
+@media (hover: none) {
+  .validation-stat-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  }
+
+  .validation-demandes-actions button:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   RÉDUCTION DES ANIMATIONS
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .validation-stat-card,
+  .validation-demandes-actions button,
+  .validation-modal-actions button,
+  .validation-close-button,
+  .validation-demandes-toast,
+  .validation-demandes-modal {
+    transition: none;
+    animation: none;
+  }
+
+  .validation-demandes-spinner {
+    animation: none;
+  }
+}
+/* =========================================================
+   MODE NUIT
+   ========================================================= */
+
+/* Page principale */
+.dark-mode .validation-demandes-page {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.dark-mode .validation-demandes-breadcrumb {
+  color: #64748b;
+}
+
+.dark-mode .validation-demandes-breadcrumb span {
+  color: #475569;
+}
+
+.dark-mode .validation-demandes-header h1 {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demandes-header p {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   STATISTIQUES
+   ========================================================= */
+
+.dark-mode .validation-stat-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .validation-stat-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .validation-stat-card span {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-stat-card strong {
+  color: #f8fafc;
+}
+
+/* Icônes statistiques */
+.dark-mode .validation-stat-icon.total {
+  background: rgba(37, 99, 235, 0.18);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-stat-icon.pending {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+}
+
+.dark-mode .validation-stat-icon.valid {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+.dark-mode .validation-stat-icon.refused {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
+
+/* =========================================================
+   RECHERCHE / FILTRES
+   ========================================================= */
+
+.dark-mode .validation-demandes-search input {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demandes-search input::placeholder {
+  color: #64748b;
+}
+
+.dark-mode .validation-demandes-search > span {
+  color: #64748b;
+}
+
+.dark-mode .validation-demandes-search input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.dark-mode .validation-demandes-filters select {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-demandes-refresh {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-demandes-refresh:hover {
+  background: #273449;
+  border-color: #475569;
+}
+
+/* =========================================================
+   CARTE PRINCIPALE
+   ========================================================= */
+
+.dark-mode .validation-demandes-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .validation-demandes-card-header {
+  background: #1e293b;
+  border-bottom-color: #334155;
+}
+
+.dark-mode .validation-demandes-card-header h2 {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demandes-card-header p {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.dark-mode .validation-demandes-table th {
+  background: #172033;
+  color: #94a3b8;
+}
+
+.dark-mode .validation-demandes-table td {
+  border-top-color: #334155;
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-demandes-table tbody tr:hover {
+  background: #263449;
+}
+
+/* =========================================================
+   DEMANDEUR
+   ========================================================= */
+
+.dark-mode .validation-demande-avatar {
+  background: rgba(37, 99, 235, 0.18);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-demande-user strong {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demande-user span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   OBJET
+   ========================================================= */
+
+.dark-mode .validation-demande-object strong {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demande-object span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   TYPE
+   ========================================================= */
+
+.dark-mode .validation-demande-type {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   STATUT
+   ========================================================= */
+
+.dark-mode .status-pending {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+}
+
+.dark-mode .status-valid {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+.dark-mode .status-refused {
+  background: rgba(239, 68, 68, 0.18);
+  color: #f87171;
+}
+
+/* =========================================================
+   BOUTON VOIR
+   ========================================================= */
+
+.dark-mode .validation-view-button {
+  background: #1e293b;
+  border-color: #475569;
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-view-button:hover {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border-color: #3b82f6;
+}
+
+/* =========================================================
+   BOUTONS ACCEPT / REFUS
+   ========================================================= */
+
+.dark-mode .validation-accept-button {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(74, 222, 128, 0.35);
+  color: #4ade80;
+}
+
+.dark-mode .validation-accept-button:hover {
+  background: rgba(34, 197, 94, 0.20);
+}
+
+.dark-mode .validation-refuse-button {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #f87171;
+}
+
+.dark-mode .validation-refuse-button:hover {
+  background: rgba(239, 68, 68, 0.20);
+}
+
+/* =========================================================
+   ÉTATS
+   ========================================================= */
+
+.dark-mode .validation-demandes-state-icon,
+.dark-mode .validation-demandes-empty-icon {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-demandes-state h2,
+.dark-mode .validation-demandes-empty h3 {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demandes-state p,
+.dark-mode .validation-demandes-empty p {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-demandes-spinner {
+  border-color: #334155;
+  border-top-color: #3b82f6;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.dark-mode .validation-demandes-toast {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.40);
+}
+
+.dark-mode .validation-demandes-toast strong {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-demandes-toast p {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-demandes-toast > button {
+  color: #64748b;
+}
+
+.dark-mode .validation-demandes-toast > button:hover {
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.dark-mode .validation-demandes-modal-overlay {
+  background: rgba(2, 6, 23, 0.78);
+}
+
+.dark-mode .validation-demandes-modal {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+/* =========================================================
+   HEADER MODAL
+   ========================================================= */
+
+.dark-mode .validation-demandes-modal-header {
+  background: linear-gradient(
+    135deg,
+    #172033,
+    #1e293b
+  );
+  border-bottom-color: #334155;
+}
+
+.dark-mode .validation-modal-title span {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-modal-title h2 {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-modal-title-icon {
+  background: rgba(37, 99, 235, 0.15);
+  border-color: rgba(59, 130, 246, 0.25);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-demandes-modal-close {
+  background: #1e293b;
+  border-color: #475569;
+  color: #94a3b8;
+}
+
+.dark-mode .validation-demandes-modal-close:hover {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+/* =========================================================
+   CONTENU MODAL
+   ========================================================= */
+
+.dark-mode .validation-demandes-detail {
+  background: #0f172a;
+}
+
+/* =========================================================
+   INFORMATIONS
+   ========================================================= */
+
+.dark-mode .validation-detail-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-mode .validation-detail-item:hover {
+  border-color: #475569;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .validation-detail-item > span {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-detail-item > span svg {
+  color: #60a5fa;
+}
+
+.dark-mode .validation-detail-item > strong {
+  color: #f8fafc;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.dark-mode .validation-detail-description {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-mode .validation-description-header {
+  border-bottom-color: #334155;
+}
+
+.dark-mode .validation-description-header > div {
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-description-header svg {
+  color: #60a5fa;
+}
+
+.dark-mode .validation-detail-description p {
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   DOCUMENTS
+   ========================================================= */
+
+.dark-mode .validation-documents-section {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-mode .validation-documents-title {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-documents-title svg {
+  color: #60a5fa;
+}
+
+/* =========================================================
+   CARTE DOCUMENT
+   ========================================================= */
+
+.dark-mode .validation-document-card {
+  background: #172033;
+  border-color: #334155;
+}
+
+.dark-mode .validation-document-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
+}
+
+.dark-mode .validation-document-icon {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-document-icon.motivation {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.dark-mode .validation-document-icon.cv {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.dark-mode .validation-document-title strong {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-document-title span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   ZONE UPLOAD
+   ========================================================= */
+
+.dark-mode .validation-upload-zone {
+  background: #0f172a;
+  border-color: #475569;
+}
+
+.dark-mode .validation-upload-zone:hover {
+  background: #172554;
+  border-color: #3b82f6;
+}
+
+.dark-mode .validation-upload-zone.drag-active {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: #3b82f6;
+}
+
+.dark-mode .validation-upload-icon {
+  background: #1e293b;
+  color: #60a5fa;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .validation-upload-zone strong {
+  color: #e2e8f0;
+}
+
+.dark-mode .validation-upload-zone p {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   FICHIER SÉLECTIONNÉ
+   ========================================================= */
+
+.dark-mode .validation-upload-selected {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+.dark-mode .validation-upload-selected-icon {
+  background: #1e293b;
+  color: #60a5fa;
+}
+
+.dark-mode .validation-upload-selected-info strong {
+  color: #e2e8f0;
+}
+
+.dark-mode .validation-upload-selected-info span {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-upload-remove {
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+.dark-mode .validation-upload-remove:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+/* =========================================================
+   INFORMATIONS FORMAT
+   ========================================================= */
+
+.dark-mode .validation-upload-info span {
+  color: #64748b;
+}
+
+.dark-mode .validation-upload-format {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   FICHIER EXISTANT
+   ========================================================= */
+
+.dark-mode .validation-existing-file {
+  background: #172033;
+  border-color: #334155;
+}
+
+.dark-mode .validation-existing-file-icon {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-existing-file-name strong {
+  color: #e2e8f0;
+}
+
+.dark-mode .validation-existing-file-name span {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-existing-file-button {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(96, 165, 250, 0.35);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-existing-file-button:hover {
+  background: rgba(37, 99, 235, 0.20);
+}
+
+/* =========================================================
+   DOCUMENT VALIDÉ
+   ========================================================= */
+
+.dark-mode .validation-upload-success {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+/* =========================================================
+   MESSAGE ERREUR
+   ========================================================= */
+
+.dark-mode .validation-upload-error {
+  color: #f87171;
+}
+
+/* =========================================================
+   DOCUMENT DU MODAL
+   ========================================================= */
+
+.dark-mode .validation-detail-document {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-mode .validation-document-heading h3 {
+  color: #f8fafc;
+}
+
+.dark-mode .validation-document-heading span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   CARTE FICHIER
+   ========================================================= */
+
+.dark-mode .validation-file-card {
+  background: #172033;
+  border-color: #334155;
+}
+
+.dark-mode .validation-file-icon {
+  background: rgba(234, 88, 12, 0.15);
+  color: #fb923c;
+}
+
+.dark-mode .validation-file-icon.cv-file {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.dark-mode .validation-file-info strong {
+  color: #e2e8f0;
+}
+
+.dark-mode .validation-file-info span {
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-file-info small {
+  color: #94a3b8;
+}
+
+.dark-mode .validation-file-button {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(96, 165, 250, 0.35);
+  color: #60a5fa;
+}
+
+.dark-mode .validation-file-button:hover {
+  background: rgba(37, 99, 235, 0.20);
+}
+
+.dark-mode .validation-file-download {
+  background: #1e293b;
+  border-color: #334155;
+  color: #60a5fa;
+}
+
+.dark-mode .validation-file-download:hover {
+  background: rgba(37, 99, 235, 0.15);
+}
+
+/* =========================================================
+   LETTRE DE MOTIVATION
+   ========================================================= */
+
+.dark-mode .validation-letter-paper {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode .validation-letter-paper-top {
+  background: #172033;
+  border-bottom-color: #334155;
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-letter-paper-content p {
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   DOCUMENT ABSENT
+   ========================================================= */
+
+.dark-mode .validation-no-document {
+  background: #172033;
+  border-color: #475569;
+  color: #94a3b8;
+}
+
+.dark-mode .validation-no-document svg {
+  color: #64748b;
+}
+
+/* =========================================================
+   APERÇU PDF
+   ========================================================= */
+
+.dark-mode .validation-pdf-preview {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark-mode .validation-pdf-preview-header {
+  background: #172033;
+  border-bottom-color: #334155;
+}
+
+.dark-mode .validation-pdf-preview-header strong {
+  color: #e2e8f0;
+}
+
+/* =========================================================
+   FOOTER MODAL
+   ========================================================= */
+
+.dark-mode .validation-demandes-modal-footer {
+  background: #1e293b;
+  border-top-color: #334155;
+}
+
+.dark-mode .validation-close-button {
+  background: #1e293b;
+  border-color: #475569;
+  color: #cbd5e1;
+}
+
+.dark-mode .validation-close-button:hover {
+  background: #334155;
+  color: #f8fafc;
+}
+
+/* =========================================================
+   BADGES DOCUMENTS
+   ========================================================= */
+
+.dark-mode .validation-document-badge {
+  background: rgba(234, 88, 12, 0.15);
+  color: #fb923c;
+}
+
+.dark-mode .validation-document-badge.cv-badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}

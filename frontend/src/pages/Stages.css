@@ -1,0 +1,1322 @@
+.stages-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 38px 40px 50px;
+  box-sizing: border-box;
+  background: #f5f7fb;
+}
+
+/* HEADER */
+
+.stages-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.stages-breadcrumb {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.stages-breadcrumb span {
+  color: #cbd5e1;
+}
+
+.stages-kicker {
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.stages-header h1 {
+  margin: 7px 0 6px;
+  color: #111827;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.stages-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.stages-add-button {
+  min-height: 45px;
+  padding: 0 17px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.18);
+}
+
+.stages-add-button span {
+  font-size: 18px;
+}
+
+/* TOOLBAR */
+
+.stages-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.stages-search {
+  width: min(500px, 100%);
+  position: relative;
+}
+
+.stages-search > span {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 19px;
+}
+
+.stages-search input {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 0 15px 0 42px;
+
+  border: 1px solid #dbe2ea;
+  border-radius: 11px;
+
+  outline: none;
+  background: #ffffff;
+
+  font-size: 13px;
+}
+
+.stages-search input:focus {
+  border-color: #2563eb;
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.stages-count {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.stages-count strong {
+  color: #111827;
+  font-size: 20px;
+}
+
+.stages-count span {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+/* CARD */
+
+.stages-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.stages-card-header {
+  padding: 21px 24px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.stages-card-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 16px;
+}
+
+.stages-card-header p {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+/* TABLE */
+
+.stages-table-wrapper {
+  overflow-x: auto;
+}
+
+.stages-table {
+  width: 100%;
+  min-width: 1150px;
+  border-collapse: collapse;
+}
+
+.stages-table th {
+  padding: 14px 18px;
+  background: #f8fafc;
+
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.stages-table td {
+  padding: 16px 18px;
+  border-top: 1px solid #f1f5f9;
+
+  color: #475569;
+  font-size: 12px;
+}
+
+.stages-table tr:hover td {
+  background: #fbfdff;
+}
+
+/* IDENTITY */
+
+.stage-identity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.stage-avatar {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-weight: 800;
+}
+
+.stage-identity strong {
+  display: block;
+  color: #111827;
+  font-size: 12px;
+}
+
+.stage-identity span {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+.stage-domain {
+  display: inline-flex;
+  padding: 6px 9px;
+
+  border-radius: 20px;
+
+  background: #f1f5f9;
+  color: #475569;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.stage-period {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.stage-period span {
+  color: #475569;
+  font-size: 11px;
+}
+
+.stage-period small {
+  color: #94a3b8;
+}
+
+.stage-places {
+  display: inline-flex;
+  min-width: 28px;
+  height: 28px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-weight: 800;
+}
+
+.stage-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.stage-status > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.stage-open {
+  color: #15803d;
+}
+
+.stage-open > span {
+  background: #22c55e;
+}
+
+.stage-closed {
+  color: #b91c1c;
+}
+
+.stage-closed > span {
+  background: #ef4444;
+}
+
+/* ACTIONS */
+
+.stages-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.stages-actions button {
+  padding: 7px 10px;
+  border-radius: 8px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.stage-edit {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.stage-delete {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.stage-delete:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* EMPTY / LOADING */
+
+.stages-state,
+.stages-empty {
+  min-height: 340px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  text-align: center;
+}
+
+.stages-empty-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background: #eff6ff;
+
+  font-size: 23px;
+}
+
+.stages-empty h3 {
+  margin: 15px 0 5px;
+
+  color: #111827;
+  font-size: 15px;
+}
+
+.stages-empty p,
+.stages-state p {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.stages-spinner {
+  width: 35px;
+  height: 35px;
+
+  margin-bottom: 14px;
+
+  border: 4px solid #e5e7eb;
+  border-top-color: #2563eb;
+
+  border-radius: 50%;
+
+  animation: stages-spin 0.8s linear infinite;
+}
+
+@keyframes stages-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stages-error {
+  color: #b91c1c;
+}
+
+.stages-error button {
+  margin-top: 12px;
+
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+/* TOAST */
+
+.stages-toast {
+  position: fixed;
+
+  top: 24px;
+  right: 24px;
+
+  z-index: 1000;
+
+  width: min(390px, calc(100vw - 40px));
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 15px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+
+  animation: stages-toast-in 0.25s ease-out;
+}
+
+.stages-toast-success {
+  border-left: 4px solid #16a34a;
+}
+
+.stages-toast-error {
+  border-left: 4px solid #dc2626;
+}
+
+.stages-toast-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #dcfce7;
+  color: #15803d;
+
+  font-weight: 800;
+}
+
+.stages-toast-error .stages-toast-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.stages-toast strong {
+  display: block;
+  color: #111827;
+  font-size: 13px;
+}
+
+.stages-toast p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.stages-toast button {
+  margin-left: auto;
+
+  border: none;
+  background: transparent;
+
+  color: #94a3b8;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes stages-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MODAL */
+
+.stages-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  backdrop-filter: blur(5px);
+}
+
+.stages-modal {
+  width: min(800px, 100%);
+
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.25);
+}
+
+.stages-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 24px 26px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.stages-modal-header span {
+  color: #2563eb;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.stages-modal-header h2 {
+  margin: 6px 0 0;
+
+  color: #111827;
+
+  font-size: 20px;
+}
+
+.stage-modal-close {
+  width: 35px;
+  height: 35px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #f8fafc;
+  color: #64748b;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.stages-modal form {
+  padding: 26px;
+}
+
+.stages-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 17px;
+}
+
+.stage-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-field-full {
+  grid-column: 1 / -1;
+}
+
+.stage-field label {
+  margin-bottom: 7px;
+
+  color: #374151;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stage-field input,
+.stage-field select,
+.stage-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 11px 12px;
+
+  border: 1px solid #dbe2ea;
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 12px;
+}
+
+.stage-field textarea {
+  resize: vertical;
+}
+
+.stage-field input:focus,
+.stage-field select:focus,
+.stage-field textarea:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.stages-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.stage-cancel,
+.stage-save {
+  min-height: 44px;
+
+  padding: 0 16px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.stage-cancel {
+  border: 1px solid #dbe2ea;
+
+  background: #ffffff;
+  color: #64748b;
+}
+
+.stage-save {
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #0ea5e9
+  );
+
+  color: #ffffff;
+}
+
+.stage-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .stages-page {
+    padding: 28px 24px 40px;
+  }
+
+  .stages-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .stages-page {
+    padding: 22px 16px 35px;
+  }
+
+  .stages-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .stages-search {
+    width: 100%;
+  }
+
+  .stages-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-field-full {
+    grid-column: auto;
+  }
+
+  .stages-modal-actions {
+    flex-direction: column;
+  }
+
+  .stage-cancel,
+  .stage-save {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+
+  .stages-page {
+    padding: 28px 24px 40px;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .stages-page {
+    padding: 22px 15px 35px;
+  }
+
+  .stages-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stages-add-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stages-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .stages-search {
+    width: 100%;
+  }
+
+  .stages-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stages-table {
+    min-width: 1150px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .stages-header h1 {
+    font-size: 26px;
+  }
+
+  .stages-modal form {
+    padding: 20px;
+  }
+
+  .stages-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-field-full {
+    grid-column: auto;
+  }
+
+  .stages-modal-actions {
+    flex-direction: column;
+  }
+
+  .stage-cancel,
+  .stage-save {
+    width: 100%;
+  }
+
+}
+/* =========================================================
+   MODE SOMBRE — STAGES
+   Même principe que Candidatures
+   ========================================================= */
+
+/* PAGE PRINCIPALE */
+body.dark-mode .stages-page {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+body.dark-mode .stages-breadcrumb {
+  color: #94a3b8;
+}
+
+body.dark-mode .stages-breadcrumb span {
+  color: #64748b;
+}
+
+body.dark-mode .stages-kicker {
+  color: #60a5fa;
+}
+
+body.dark-mode .stages-header h1 {
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-header p {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   BOUTON AJOUTER
+   ========================================================= */
+
+body.dark-mode .stages-add-button {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #0ea5e9
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+body.dark-mode .stages-search input {
+  background: #111827;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-search input::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .stages-search input:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+body.dark-mode .stages-search > span {
+  color: #94a3b8;
+}
+
+body.dark-mode .stages-count strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-count span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   CARD PRINCIPALE
+   ========================================================= */
+
+body.dark-mode .stages-card {
+  background: #111827;
+  border-color: #334155;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   HEADER CARD
+   ========================================================= */
+
+body.dark-mode .stages-card-header {
+  background: #111827;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .stages-card-header h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-card-header p {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   TABLEAU
+   ========================================================= */
+
+body.dark-mode .stages-table {
+  background: #111827;
+}
+
+body.dark-mode .stages-table th {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+body.dark-mode .stages-table td {
+  background: #111827;
+  border-top-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .stages-table tr:hover td {
+  background: #172033;
+}
+
+/* =========================================================
+   IDENTITÉ
+   ========================================================= */
+
+body.dark-mode .stage-avatar {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+body.dark-mode .stage-identity strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .stage-identity span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   DOMAINE
+   ========================================================= */
+
+body.dark-mode .stage-domain {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   PÉRIODE
+   ========================================================= */
+
+body.dark-mode .stage-period span {
+  color: #cbd5e1;
+}
+
+body.dark-mode .stage-period small {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   PLACES
+   ========================================================= */
+
+body.dark-mode .stage-places {
+  background: #172554;
+  color: #60a5fa;
+}
+
+/* =========================================================
+   STATUT
+   ========================================================= */
+
+body.dark-mode .stage-open {
+  color: #4ade80;
+}
+
+body.dark-mode .stage-open > span {
+  background: #22c55e;
+}
+
+body.dark-mode .stage-closed {
+  color: #f87171;
+}
+
+body.dark-mode .stage-closed > span {
+  background: #ef4444;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+body.dark-mode .stage-edit {
+  background: #172554;
+  border-color: #1d4ed8;
+  color: #60a5fa;
+}
+
+body.dark-mode .stage-edit:hover {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+body.dark-mode .stage-delete {
+  background: #450a0a;
+  border-color: #991b1b;
+  color: #f87171;
+}
+
+body.dark-mode .stage-delete:hover {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+body.dark-mode .stage-delete:disabled {
+  opacity: 0.5;
+}
+
+/* =========================================================
+   ÉTAT VIDE / CHARGEMENT
+   ========================================================= */
+
+body.dark-mode .stages-state,
+body.dark-mode .stages-empty {
+  background: #111827;
+  color: #e2e8f0;
+}
+
+body.dark-mode .stages-empty-icon {
+  background: #172554;
+  color: #60a5fa;
+}
+
+body.dark-mode .stages-empty h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-empty p,
+body.dark-mode .stages-state p {
+  color: #94a3b8;
+}
+
+body.dark-mode .stages-spinner {
+  border-color: #334155;
+  border-top-color: #3b82f6;
+}
+
+body.dark-mode .stages-error {
+  color: #f87171;
+}
+
+/* =========================================================
+   BOUTON ERREUR
+   ========================================================= */
+
+body.dark-mode .stages-error button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+body.dark-mode .stages-toast {
+  background: #111827;
+  border-color: #334155;
+  color: #e2e8f0;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .stages-toast strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-toast p {
+  color: #94a3b8;
+}
+
+body.dark-mode .stages-toast button {
+  color: #64748b;
+}
+
+body.dark-mode .stages-toast-success {
+  border-left-color: #22c55e;
+}
+
+body.dark-mode .stages-toast-error {
+  border-left-color: #ef4444;
+}
+
+body.dark-mode .stages-toast-icon {
+  background: #052e16;
+  color: #4ade80;
+}
+
+body.dark-mode .stages-toast-error .stages-toast-icon {
+  background: #450a0a;
+  color: #f87171;
+}
+
+/* =========================================================
+   MODAL — OVERLAY
+   ========================================================= */
+
+body.dark-mode .stages-modal-overlay {
+  background: rgba(2, 6, 23, 0.78);
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+body.dark-mode .stages-modal {
+  background: #111827;
+  border: 1px solid #334155;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================================
+   HEADER MODAL
+   ========================================================= */
+
+body.dark-mode .stages-modal-header {
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1e293b
+  );
+
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .stages-modal-header span {
+  color: #94a3b8;
+}
+
+body.dark-mode .stages-modal-header h2 {
+  color: #f8fafc;
+}
+
+/* =========================================================
+   BOUTON FERMER MODAL
+   ========================================================= */
+
+body.dark-mode .stage-modal-close {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+body.dark-mode .stage-modal-close:hover {
+  background: #450a0a;
+  color: #f87171;
+}
+
+/* =========================================================
+   FORMULAIRE
+   ========================================================= */
+
+body.dark-mode .stages-modal form {
+  background: #111827;
+}
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+body.dark-mode .stage-field label {
+  color: #cbd5e1;
+}
+
+/* =========================================================
+   INPUTS / SELECT / TEXTAREA
+   ========================================================= */
+
+body.dark-mode .stage-field input,
+body.dark-mode .stage-field select,
+body.dark-mode .stage-field textarea {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .stage-field input::placeholder,
+body.dark-mode .stage-field textarea::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .stage-field input:focus,
+body.dark-mode .stage-field select:focus,
+body.dark-mode .stage-field textarea:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+/* SELECT */
+body.dark-mode .stage-field select option {
+  background: #111827;
+  color: #f8fafc;
+}
+
+/* =========================================================
+   ACTIONS MODAL
+   ========================================================= */
+
+body.dark-mode .stage-cancel {
+  background: #111827;
+  border-color: #475569;
+  color: #cbd5e1;
+}
+
+body.dark-mode .stage-cancel:hover {
+  background: #334155;
+  border-color: #64748b;
+  color: #ffffff;
+}
+
+body.dark-mode .stage-save {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #0ea5e9
+  );
+
+  color: #ffffff;
+}
+
+body.dark-mode .stage-save:hover {
+  background: linear-gradient(
+    135deg,
+    #1d4ed8,
+    #0284c7
+  );
+}
+
+/* =========================================================
+   SCROLLBAR MODE SOMBRE
+   ========================================================= */
+
+body.dark-mode .stages-table-wrapper::-webkit-scrollbar,
+body.dark-mode .stages-modal::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.dark-mode .stages-table-wrapper::-webkit-scrollbar-track,
+body.dark-mode .stages-modal::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+body.dark-mode .stages-table-wrapper::-webkit-scrollbar-thumb,
+body.dark-mode .stages-modal::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+
+body.dark-mode .stages-table-wrapper::-webkit-scrollbar-thumb:hover,
+body.dark-mode .stages-modal::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* =========================================================
+   INPUTS GÉNÉRAUX DE LA PAGE
+   ========================================================= */
+
+body.dark-mode .stages-page input,
+body.dark-mode .stages-page select,
+body.dark-mode .stages-page textarea {
+  background: #111827;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .stages-page input::placeholder,
+body.dark-mode .stages-page textarea::placeholder {
+  color: #64748b;
+}

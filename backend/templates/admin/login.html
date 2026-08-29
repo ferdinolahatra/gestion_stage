@@ -1,0 +1,473 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Administration de Django</title>
+
+    <link rel="stylesheet"
+          href="{% static 'admin/css/custom_login.css' %}">
+
+</head>
+
+
+<body>
+
+<div class="login-page">
+
+
+    <!-- ==============================
+         ELEMENTS DECORATIFS
+    =============================== -->
+
+    <div class="background-circle circle-1"></div>
+
+    <div class="background-circle circle-2"></div>
+
+    <div class="background-circle circle-3"></div>
+
+    <div class="dots dots-left"></div>
+
+    <div class="dots dots-right"></div>
+
+    <div class="wave wave-1"></div>
+
+    <div class="wave wave-2"></div>
+
+
+
+    <!-- ==============================
+         CARTE DE CONNEXION
+    =============================== -->
+
+    <div class="login-card">
+
+
+        <!-- ==============================
+             EN-TETE
+        =============================== -->
+
+        <div class="login-header">
+
+
+            <!-- Logo sécurité -->
+
+            <div class="shield-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <path d="M12 2L4 5v6c0 5.25 3.4 9.95 8 11
+                             4.6-1.05 8-5.75 8-11V5l-8-3z"/>
+
+                    <rect x="8.5"
+                          y="10"
+                          width="7"
+                          height="6"
+                          rx="1"/>
+
+                    <path d="M10 10V8.5a2 2 0 014 0V10"/>
+
+                </svg>
+
+            </div>
+
+
+            <!-- Titre -->
+
+            <h1>
+
+                Administration de
+
+                <span>Django</span>
+
+            </h1>
+
+
+            <!-- Sous-titre -->
+
+            <p>
+
+                Connectez-vous à votre espace d'administration
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- ==============================
+             PETIT CERCLE
+        =============================== -->
+
+        <div class="lock-circle">
+
+            <svg viewBox="0 0 24 24">
+
+                <rect x="6"
+                      y="10"
+                      width="12"
+                      height="10"
+                      rx="2"/>
+
+                <path d="M9 10V7a3 3 0 016 0v3"/>
+
+            </svg>
+
+        </div>
+
+
+
+        <!-- ==============================
+             FORMULAIRE
+        =============================== -->
+
+        <form method="post"
+              action="{% url 'admin:login' %}"
+              class="login-form">
+
+
+            {% csrf_token %}
+
+
+
+            <!-- Message d'erreur Django -->
+
+            {% if form.errors %}
+
+                <div class="error-message">
+
+                    Nom d'utilisateur ou mot de passe incorrect.
+
+                </div>
+
+            {% endif %}
+
+
+
+            {% if next %}
+
+                <input type="hidden"
+                       name="next"
+                       value="{{ next }}">
+
+            {% endif %}
+
+
+
+            <!-- ==============================
+                 NOM D'UTILISATEUR
+            =============================== -->
+
+            <div class="form-group">
+
+
+                <label for="id_username">
+
+
+                    <span class="label-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <circle cx="12"
+                                    cy="8"
+                                    r="4"/>
+
+                            <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/>
+
+                        </svg>
+
+                    </span>
+
+
+                    Nom d'utilisateur
+
+
+                </label>
+
+
+
+                <div class="input-container">
+
+
+                    <input
+
+                        type="text"
+
+                        name="username"
+
+                        id="id_username"
+
+                        autocomplete="username"
+
+                        autofocus
+
+                        required
+
+                        placeholder="Entrez votre nom d'utilisateur"
+
+                    >
+
+
+                    <svg class="input-icon"
+                         viewBox="0 0 24 24">
+
+                        <circle cx="12"
+                                cy="8"
+                                r="4"/>
+
+                        <path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/>
+
+                    </svg>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==============================
+                 MOT DE PASSE
+            =============================== -->
+
+            <div class="form-group">
+
+
+                <label for="id_password">
+
+
+                    <span class="label-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <rect x="5"
+                                  y="10"
+                                  width="14"
+                                  height="10"
+                                  rx="2"/>
+
+                            <path d="M8 10V7a4 4 0 018 0v3"/>
+
+                        </svg>
+
+                    </span>
+
+
+                    Mot de passe
+
+
+                </label>
+
+
+
+                <div class="input-container">
+
+
+                    <input
+
+                        type="password"
+
+                        name="password"
+
+                        id="id_password"
+
+                        autocomplete="current-password"
+
+                        required
+
+                        placeholder="Entrez votre mot de passe"
+
+                    >
+
+
+                    <button
+
+                        type="button"
+
+                        class="password-toggle"
+
+                        onclick="togglePassword()"
+
+                    >
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path d="M2 12s3.5-6 10-6 10 6 10 6
+                                     -3.5 6-10 6S2 12 2 12z"/>
+
+                            <circle cx="12"
+                                    cy="12"
+                                    r="2.5"/>
+
+                        </svg>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==============================
+                 BOUTON CONNEXION
+            =============================== -->
+
+            <button
+
+                type="submit"
+
+                class="login-button"
+
+            >
+
+                <span>
+
+                    Connexion
+
+                </span>
+
+
+                <svg viewBox="0 0 24 24">
+
+                    <path d="M5 12h13"/>
+
+                    <path d="M13 6l6 6-6 6"/>
+
+                </svg>
+
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- ==============================
+             SEPARATEUR
+        =============================== -->
+
+        <div class="separator">
+
+            <span></span>
+
+            <strong>OU</strong>
+
+            <span></span>
+
+        </div>
+
+
+
+        <!-- ==============================
+             MOT DE PASSE OUBLIE
+        =============================== -->
+
+        <div class="forgot-password">
+
+
+            <span class="key-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <circle cx="8"
+                            cy="15"
+                            r="4"/>
+
+                    <path d="M11 12l8-8"/>
+
+                    <path d="M16 7l2 2"/>
+
+                    <path d="M14 9l2 2"/>
+
+                </svg>
+
+            </span>
+
+
+            <a href="#">
+
+                Mot de passe oublié ?
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- ==============================
+             PIED DE PAGE
+        =============================== -->
+
+        <div class="login-footer">
+
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M12 3l7 3v5c0 4.5-2.8 8.3-7 10
+                         -4.2-1.7-7-5.5-7-10V6l7-3z"/>
+
+            </svg>
+
+
+            <span>
+
+                Django Administration ·
+                Accès réservé aux administrateurs
+
+            </span>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ==============================
+     JAVASCRIPT
+=============================== -->
+
+<script>
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("id_password");
+
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+    } else {
+
+        password.type = "password";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1044 @@
+.rapports-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 38px 40px 50px;
+  box-sizing: border-box;
+  background: #f5f7fb;
+}
+
+.rapports-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.rapports-breadcrumb {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.rapports-breadcrumb span {
+  color: #cbd5e1;
+}
+
+.rapports-kicker {
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.rapports-header h1 {
+  margin: 7px 0 6px;
+  color: #111827;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.rapports-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.rapports-add-button {
+  min-height: 45px;
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rapports-add-button span {
+  font-size: 18px;
+}
+
+.rapports-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.rapports-search {
+  width: min(460px, 100%);
+  position: relative;
+}
+
+.rapports-search > span {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 19px;
+}
+
+.rapports-search input {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 0 15px 0 42px;
+  border: 1px solid #dbe2ea;
+  border-radius: 11px;
+  outline: none;
+  background: #fff;
+  font-size: 13px;
+}
+
+.rapports-search input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.rapports-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rapports-filters button {
+  padding: 8px 11px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #fff;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rapports-filters button.active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #fff;
+}
+
+.rapports-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.rapports-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 21px 24px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.rapports-card-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 16px;
+}
+
+.rapports-card-header p {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.rapports-card-header > span {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.rapports-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rapports-table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+}
+
+.rapports-table th {
+  padding: 14px 18px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.rapports-table td {
+  padding: 16px 18px;
+  border-top: 1px solid #f1f5f9;
+  color: #475569;
+  font-size: 12px;
+}
+
+.rapports-table tr:hover td {
+  background: #fbfdff;
+}
+
+.rapport-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rapport-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #eff6ff;
+  font-size: 17px;
+}
+
+.rapport-identity strong {
+  display: block;
+  color: #111827;
+  font-size: 12px;
+}
+
+.rapport-identity span {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+.rapport-stage {
+  color: #111827;
+  font-size: 12px;
+}
+
+.rapport-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.rapport-status > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.status-pending {
+  color: #b45309;
+}
+
+.status-pending > span {
+  background: #f59e0b;
+}
+
+.status-valid {
+  color: #15803d;
+}
+
+.status-valid > span {
+  background: #22c55e;
+}
+
+.status-refused {
+  color: #b91c1c;
+}
+
+.status-refused > span {
+  background: #ef4444;
+}
+
+.rapport-file-button {
+  display: inline-flex;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.rapports-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rapports-actions button {
+  padding: 7px 9px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rapport-edit {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.rapport-validate {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.rapport-refuse,
+.rapport-delete {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.rapports-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rapports-state,
+.rapports-empty {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rapports-empty-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: #eff6ff;
+  font-size: 23px;
+}
+
+.rapports-empty h3 {
+  margin: 15px 0 5px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.rapports-empty p,
+.rapports-state p {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.rapports-spinner {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 14px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: rapports-spin 0.8s linear infinite;
+}
+
+@keyframes rapports-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rapports-error {
+  color: #b91c1c;
+}
+
+.rapports-error button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+.rapports-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: min(390px, calc(100vw - 40px));
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+}
+
+.rapports-toast-success {
+  border-left: 4px solid #16a34a;
+}
+
+.rapports-toast-error {
+  border-left: 4px solid #dc2626;
+}
+
+.rapports-toast-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 800;
+}
+
+.rapports-toast-error .rapports-toast-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.rapports-toast strong {
+  display: block;
+  color: #111827;
+  font-size: 13px;
+}
+
+.rapports-toast p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.rapports-toast button {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* MODAL */
+
+.rapports-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.rapports-modal {
+  width: min(700px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
+}
+
+.rapports-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 26px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.rapports-modal-header span {
+  color: #2563eb;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.rapports-modal-header h2 {
+  margin: 6px 0 0;
+  color: #111827;
+  font-size: 20px;
+}
+
+.rapport-modal-close {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.rapports-modal form {
+  padding: 26px;
+}
+
+.rapports-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+}
+
+.rapport-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.rapport-field-full {
+  grid-column: 1 / -1;
+}
+
+.rapport-field label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 7px;
+  color: #374151;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.rapport-field label small {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.rapport-field input,
+.rapport-field select,
+.rapport-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #dbe2ea;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #111827;
+  font-size: 12px;
+}
+
+.rapport-field textarea {
+  resize: vertical;
+}
+
+.rapport-field input:focus,
+.rapport-field select:focus,
+.rapport-field textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.rapports-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.rapport-cancel,
+.rapport-save {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rapport-cancel {
+  border: 1px solid #dbe2ea;
+  background: #fff;
+  color: #64748b;
+}
+
+.rapport-save {
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+}
+
+.rapport-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .rapports-page {
+    padding: 28px 24px 40px;
+  }
+}
+
+@media (max-width: 750px) {
+  .rapports-page {
+    padding: 22px 15px 35px;
+  }
+
+  .rapports-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .rapports-add-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .rapports-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .rapports-search {
+    width: 100%;
+  }
+
+  .rapports-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+  }
+
+  .rapports-filters button {
+    flex-shrink: 0;
+  }
+
+  .rapports-table {
+    min-width: 1100px;
+  }
+
+  .rapports-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rapport-field-full {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .rapports-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .rapports-modal-actions {
+    flex-direction: column;
+  }
+
+  .rapport-cancel,
+  .rapport-save {
+    width: 100%;
+  }
+}
+body.dark-mode .nom-de-ta-classe {
+    background: #111827;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+/* =========================================================
+   MODE SOMBRE — RAPPORTS
+   ========================================================= */
+
+body.dark-mode .rapports-page {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+body.dark-mode .rapports-breadcrumb {
+  color: #94a3b8;
+}
+
+body.dark-mode .rapports-breadcrumb span {
+  color: #64748b;
+}
+
+body.dark-mode .rapports-kicker {
+  color: #60a5fa;
+}
+
+body.dark-mode .rapports-header h1 {
+  color: #f8fafc;
+}
+
+body.dark-mode .rapports-header p {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   BOUTON AJOUT
+   ========================================================= */
+
+body.dark-mode .rapports-add-button {
+  background: linear-gradient(135deg, #2563eb, #0284c7);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BARRE DE RECHERCHE
+   ========================================================= */
+
+body.dark-mode .rapports-search > span {
+  color: #94a3b8;
+}
+
+body.dark-mode .rapports-search input {
+  background: #111827;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .rapports-search input::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .rapports-search input:focus {
+  border-color: #3b82f6;
+  background: #111827;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   FILTRES
+   ========================================================= */
+
+body.dark-mode .rapports-filters button {
+  background: #111827;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+body.dark-mode .rapports-filters button:hover {
+  border-color: #3b82f6;
+  color: #60a5fa;
+}
+
+body.dark-mode .rapports-filters button.active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CARTE PRINCIPALE
+   ========================================================= */
+
+body.dark-mode .rapports-card {
+  background: #111827;
+  border-color: #334155;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   HEADER DE LA CARTE
+   ========================================================= */
+
+body.dark-mode .rapports-card-header {
+  background: #111827;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .rapports-card-header h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .rapports-card-header p {
+  color: #94a3b8;
+}
+
+body.dark-mode .rapports-card-header > span {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TABLEAU
+   ========================================================= */
+
+body.dark-mode .rapports-table th {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+body.dark-mode .rapports-table td {
+  background: #111827;
+  border-top-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .rapports-table tr:hover td {
+  background: #172033;
+}
+
+
+/* =========================================================
+   IDENTITÉ RAPPORT
+   ========================================================= */
+
+body.dark-mode .rapport-avatar {
+  background: #1e3a5f;
+}
+
+body.dark-mode .rapport-identity strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .rapport-identity span {
+  color: #94a3b8;
+}
+
+body.dark-mode .rapport-stage {
+  color: #f1f5f9;
+}
+
+
+/* =========================================================
+   STATUTS
+   ========================================================= */
+
+body.dark-mode .status-pending {
+  color: #fbbf24;
+}
+
+body.dark-mode .status-valid {
+  color: #4ade80;
+}
+
+body.dark-mode .status-refused {
+  color: #f87171;
+}
+
+
+/* =========================================================
+   FICHIER
+   ========================================================= */
+
+body.dark-mode .rapport-file-button {
+  background: #172554;
+  color: #60a5fa;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+body.dark-mode .rapport-edit {
+  border-color: #1d4ed8;
+  background: #172554;
+  color: #60a5fa;
+}
+
+body.dark-mode .rapport-validate {
+  border-color: #166534;
+  background: #052e16;
+  color: #4ade80;
+}
+
+body.dark-mode .rapport-refuse,
+body.dark-mode .rapport-delete {
+  border-color: #991b1b;
+  background: #450a0a;
+  color: #f87171;
+}
+
+
+/* =========================================================
+   ÉTAT VIDE / CHARGEMENT
+   ========================================================= */
+
+body.dark-mode .rapports-state,
+body.dark-mode .rapports-empty {
+  background: #111827;
+  color: #e2e8f0;
+}
+
+body.dark-mode .rapports-empty-icon {
+  background: #172554;
+}
+
+body.dark-mode .rapports-empty h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .rapports-empty p,
+body.dark-mode .rapports-state p {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   SPINNER
+   ========================================================= */
+
+body.dark-mode .rapports-spinner {
+  border-color: #334155;
+  border-top-color: #3b82f6;
+}
+
+
+/* =========================================================
+   ERREUR
+   ========================================================= */
+
+body.dark-mode .rapports-error {
+  color: #f87171;
+}
+
+body.dark-mode .rapports-error button {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+body.dark-mode .rapports-toast {
+  background: #111827;
+  border-color: #334155;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .rapports-toast strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .rapports-toast p {
+  color: #94a3b8;
+}
+
+body.dark-mode .rapports-toast button {
+  color: #64748b;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+body.dark-mode .rapports-modal-overlay {
+  background: rgba(2, 6, 23, 0.75);
+}
+
+body.dark-mode .rapports-modal {
+  background: #111827;
+  color: #e2e8f0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .rapports-modal-header {
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .rapports-modal-header span {
+  color: #60a5fa;
+}
+
+body.dark-mode .rapports-modal-header h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .rapport-modal-close {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+body.dark-mode .rapport-modal-close:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   FORMULAIRE
+   ========================================================= */
+
+body.dark-mode .rapport-field label {
+  color: #cbd5e1;
+}
+
+body.dark-mode .rapport-field label small {
+  color: #64748b;
+}
+
+body.dark-mode .rapport-field input,
+body.dark-mode .rapport-field select,
+body.dark-mode .rapport-field textarea {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .rapport-field input::placeholder,
+body.dark-mode .rapport-field textarea::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .rapport-field input:focus,
+body.dark-mode .rapport-field select:focus,
+body.dark-mode .rapport-field textarea:focus {
+  border-color: #3b82f6;
+  background: #0f172a;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   BOUTONS MODAL
+   ========================================================= */
+
+body.dark-mode .rapport-cancel {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .rapport-cancel:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark-mode .rapport-save {
+  background: linear-gradient(135deg, #2563eb, #0284c7);
+  color: #ffffff;
+}

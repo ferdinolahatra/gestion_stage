@@ -1,0 +1,1804 @@
+.candidatures-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 38px 40px 50px;
+  box-sizing: border-box;
+  background: #f5f7fb;
+}
+
+/* HEADER */
+
+.candidatures-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.candidatures-breadcrumb {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.candidatures-breadcrumb span {
+  color: #cbd5e1;
+}
+
+.candidatures-kicker {
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.candidatures-header h1 {
+  margin: 7px 0 6px;
+  color: #111827;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.candidatures-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.candidatures-summary {
+  min-width: 110px;
+  padding: 15px 19px;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.candidatures-summary strong {
+  display: block;
+  color: #2563eb;
+  font-size: 25px;
+}
+
+.candidatures-summary span {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+/* TOOLBAR */
+
+.candidatures-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.candidatures-search {
+  width: min(450px, 100%);
+  position: relative;
+}
+
+.candidatures-search > span {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 19px;
+}
+
+.candidatures-search input {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 0 15px 0 42px;
+  border: 1px solid #dbe2ea;
+  border-radius: 11px;
+  outline: none;
+  background: #ffffff;
+  font-size: 13px;
+}
+
+.candidatures-search input:focus {
+  border-color: #2563eb;
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.candidatures-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.candidatures-filters button {
+  padding: 8px 11px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.candidatures-filters button.active {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* CARD */
+
+.candidatures-card {
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.candidatures-card-header {
+  padding: 21px 24px;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.candidatures-card-header h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 16px;
+}
+
+.candidatures-card-header p {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+/* TABLE */
+
+.candidatures-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.candidatures-table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+}
+
+.candidatures-table th {
+  padding: 14px 18px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.candidatures-table td {
+  padding: 16px 18px;
+  border-top: 1px solid #f1f5f9;
+  color: #475569;
+  font-size: 12px;
+}
+
+.candidatures-table tr:hover td {
+  background: #fbfdff;
+}
+
+/* USER */
+
+.candidature-user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.candidature-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.candidature-user strong {
+  display: block;
+  color: #111827;
+  font-size: 12px;
+}
+
+.candidature-user span {
+  display: block;
+  margin-top: 3px;
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+.candidature-offer {
+  color: #111827;
+  font-size: 12px;
+}
+
+/* STATUS */
+
+.candidature-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.candidature-status > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.status-pending {
+  color: #b45309;
+}
+
+.status-pending > span {
+  background: #f59e0b;
+}
+
+.status-accepted {
+  color: #15803d;
+}
+
+.status-accepted > span {
+  background: #22c55e;
+}
+
+.status-refused {
+  color: #b91c1c;
+}
+
+.status-refused > span {
+  background: #ef4444;
+}
+
+/* CV */
+
+.cv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ACTIONS */
+
+.candidatures-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.candidatures-actions button {
+  padding: 7px 9px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.details-button {
+  border: 1px solid #dbe2ea;
+  background: #ffffff;
+  color: #475569;
+}
+
+.accept-button {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.refuse-button {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.candidatures-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* EMPTY / STATE */
+
+.candidatures-state,
+.candidatures-empty {
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.candidatures-empty-icon {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: #eff6ff;
+  font-size: 23px;
+}
+
+.candidatures-empty h3 {
+  margin: 15px 0 5px;
+  color: #111827;
+  font-size: 15px;
+}
+
+.candidatures-empty p,
+.candidatures-state p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.candidatures-spinner {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 14px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: candidatures-spin 0.8s linear infinite;
+}
+
+@keyframes candidatures-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.candidatures-error {
+  color: #b91c1c;
+}
+
+.candidatures-error button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* TOAST */
+
+.candidatures-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+
+  width: min(390px, calc(100vw - 40px));
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 15px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+}
+
+.candidatures-toast-success {
+  border-left: 4px solid #16a34a;
+}
+
+.candidatures-toast-error {
+  border-left: 4px solid #dc2626;
+}
+
+.candidatures-toast-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #dcfce7;
+  color: #15803d;
+
+  font-weight: 800;
+}
+
+.candidatures-toast-error .candidatures-toast-icon {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.candidatures-toast strong {
+  display: block;
+  color: #111827;
+  font-size: 13px;
+}
+
+.candidatures-toast p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.candidatures-toast button {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* MODAL */
+
+.candidature-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.candidature-modal {
+  width: min(700px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+
+  border-radius: 20px;
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.25);
+}
+
+.candidature-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding: 24px 26px;
+
+  border-bottom: 1px solid #eef2f7;
+}
+
+.candidature-modal-header span {
+  color: #2563eb;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.candidature-modal-header h2 {
+  margin: 6px 0 0;
+  color: #111827;
+  font-size: 20px;
+}
+
+.candidature-modal-close {
+  width: 35px;
+  height: 35px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #f8fafc;
+  color: #64748b;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.candidature-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+
+  padding: 26px;
+}
+
+.detail-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-full {
+  grid-column: 1 / -1;
+}
+
+.detail-block label {
+  margin-bottom: 7px;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.detail-block p {
+  margin: 0;
+  color: #111827;
+  font-size: 13px;
+}
+
+.motivation-box {
+  min-height: 120px;
+  padding: 14px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.7;
+
+  white-space: pre-line;
+}
+
+.modal-cv-button {
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 13px;
+
+  border-radius: 9px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.candidature-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  padding: 18px 26px;
+
+  border-top: 1px solid #eef2f7;
+}
+
+.modal-close-button {
+  min-height: 40px;
+  padding: 0 14px;
+
+  border: 1px solid #dbe2ea;
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .candidatures-page {
+    padding: 28px 24px 40px;
+  }
+}
+
+@media (max-width: 750px) {
+  .candidatures-page {
+    padding: 22px 15px 35px;
+  }
+
+  .candidatures-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .candidatures-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .candidatures-search {
+    width: 100%;
+  }
+
+  .candidatures-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+  }
+
+  .candidatures-filters button {
+    flex-shrink: 0;
+  }
+
+  .candidatures-table {
+    min-width: 1100px;
+  }
+
+  .candidature-modal {
+    max-height: calc(100vh - 20px);
+  }
+
+  .candidature-details {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-full {
+    grid-column: auto;
+  }
+
+  .candidature-modal-footer {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 450px) {
+  .candidatures-header h1 {
+    font-size: 26px;
+  }
+
+  .candidatures-card-header {
+    padding: 18px;
+  }
+
+  .candidature-modal-footer {
+    flex-direction: column;
+  }
+
+  .candidature-modal-footer button {
+    width: 100%;
+  }
+}
+/* =========================================================
+   MODALE — DÉTAILS DE LA CANDIDATURE
+   ========================================================= */
+
+.candidature-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+
+  animation: modalOverlayIn 0.25s ease;
+}
+
+
+/* =========================================================
+   MODALE
+   ========================================================= */
+
+.candidature-modal {
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+
+  overflow: hidden;
+
+  background: #ffffff;
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 70px rgba(15, 23, 42, 0.25),
+    0 8px 30px rgba(15, 23, 42, 0.12);
+
+  animation: modalIn 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   HEADER MODALE
+   ========================================================= */
+
+.candidature-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 25px 30px;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #f8fafc
+  );
+}
+
+
+.candidature-modal-header > div {
+  min-width: 0;
+}
+
+
+.candidature-modal-header span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+}
+
+
+.candidature-modal-header h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   BOUTON FERMER
+   ========================================================= */
+
+.candidature-modal-close {
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  font-size: 25px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.candidature-modal-close:hover {
+  background: #fee2e2;
+  color: #dc2626;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   CONTENU DES DÉTAILS
+   ========================================================= */
+
+.candidature-details {
+  padding: 30px;
+
+  overflow-y: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   BLOC D'INFORMATION
+   ========================================================= */
+
+.detail-block {
+  padding: 18px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.detail-block:hover {
+  border-color: #cbd5e1;
+
+  box-shadow: 0 5px 15px rgba(15, 23, 42, 0.05);
+}
+
+
+.detail-block label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+}
+
+
+.detail-block p {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BLOC PLEINE LARGEUR
+   ========================================================= */
+
+.detail-full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   LETTRE DE MOTIVATION
+   ========================================================= */
+
+.motivation-box {
+  min-height: 120px;
+  max-height: 260px;
+
+  overflow-y: auto;
+
+  padding: 18px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   BOUTON CV DANS LA MODALE
+   ========================================================= */
+
+.modal-cv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.modal-cv-button:hover {
+  background: #dbeafe;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+}
+
+
+/* =========================================================
+   FOOTER MODALE
+   ========================================================= */
+
+.candidature-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding: 20px 30px;
+
+  border-top: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   BOUTON FERMER
+   ========================================================= */
+
+.modal-close-button {
+  padding: 11px 20px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #475569;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.modal-close-button:hover {
+  background: #f1f5f9;
+
+  border-color: #94a3b8;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   BOUTON ACCEPTER
+   ========================================================= */
+
+.candidature-modal-footer .accept-button {
+  padding: 11px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #16a34a;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.candidature-modal-footer .accept-button:hover {
+  background: #15803d;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 15px rgba(22, 163, 74, 0.25);
+}
+
+
+/* =========================================================
+   BOUTON REFUSER
+   ========================================================= */
+
+.candidature-modal-footer .refuse-button {
+  padding: 11px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #dc2626;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.candidature-modal-footer .refuse-button:hover {
+  background: #b91c1c;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 15px rgba(220, 38, 38, 0.25);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes modalOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLETTE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .candidature-modal-overlay {
+    padding: 15px;
+  }
+
+  .candidature-modal {
+    max-height: 94vh;
+
+    border-radius: 16px;
+  }
+
+  .candidature-modal-header {
+    padding: 20px;
+  }
+
+  .candidature-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .candidatures-details {
+    padding: 20px;
+  }
+
+  .candidature-details {
+    grid-template-columns: 1fr;
+
+    padding: 20px;
+  }
+
+  .detail-full {
+    grid-column: auto;
+  }
+
+  .candidature-modal-footer {
+    padding: 15px 20px;
+
+    flex-wrap: wrap;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .candidature-modal-overlay {
+    padding: 8px;
+  }
+
+  .candidature-modal {
+    width: 100%;
+
+    max-height: 96vh;
+
+    border-radius: 14px;
+  }
+
+  .candidature-modal-header {
+    padding: 16px;
+  }
+
+  .candidature-modal-header h2 {
+    font-size: 18px;
+  }
+
+  .candidature-modal-close {
+    width: 36px;
+    height: 36px;
+
+    font-size: 22px;
+  }
+
+  .candidature-details {
+    padding: 15px;
+
+    gap: 12px;
+  }
+
+  .detail-block {
+    padding: 14px;
+  }
+
+  .candidature-modal-footer {
+    padding: 12px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .candidature-modal-footer button,
+  .candidature-modal-footer .accept-button,
+  .candidature-modal-footer .refuse-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   MODE SOMBRE — CANDIDATURES
+   ========================================================= */
+
+/* PAGE PRINCIPALE */
+body.dark-mode .candidatures-page {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+body.dark-mode .candidatures-breadcrumb {
+  color: #94a3b8;
+}
+
+body.dark-mode .candidatures-breadcrumb span {
+  color: #64748b;
+}
+
+body.dark-mode .candidatures-kicker {
+  color: #60a5fa;
+}
+
+body.dark-mode .candidatures-header h1 {
+  color: #f8fafc;
+}
+
+body.dark-mode .candidatures-header p {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   RESUME
+   ========================================================= */
+
+body.dark-mode .candidatures-summary {
+  background: #111827;
+  border-color: #334155;
+}
+
+body.dark-mode .candidatures-summary strong {
+  color: #60a5fa;
+}
+
+body.dark-mode .candidatures-summary span {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+body.dark-mode .candidatures-search input {
+  background: #111827;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .candidatures-search input::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .candidatures-search input:focus {
+  border-color: #3b82f6;
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+body.dark-mode .candidatures-search > span {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   FILTRES
+   ========================================================= */
+
+body.dark-mode .candidatures-filters button {
+  background: #111827;
+  border-color: #334155;
+  color: #94a3b8;
+}
+
+body.dark-mode .candidatures-filters button:hover {
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+body.dark-mode .candidatures-filters button.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CARD PRINCIPALE
+   ========================================================= */
+
+body.dark-mode .candidatures-card {
+  background: #111827;
+  border-color: #334155;
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   HEADER DE LA CARD
+   ========================================================= */
+
+body.dark-mode .candidatures-card-header {
+  background: #111827;
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .candidatures-card-header h2 {
+  color: #f8fafc;
+}
+
+body.dark-mode .candidatures-card-header p {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   TABLEAU
+   ========================================================= */
+
+body.dark-mode .candidatures-table {
+  background: #111827;
+}
+
+body.dark-mode .candidatures-table th {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+body.dark-mode .candidatures-table td {
+  background: #111827;
+  border-top-color: #334155;
+  color: #cbd5e1;
+}
+
+body.dark-mode .candidatures-table tr:hover td {
+  background: #172033;
+}
+
+
+/* =========================================================
+   UTILISATEUR
+   ========================================================= */
+
+body.dark-mode .candidature-avatar {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+body.dark-mode .candidature-user strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .candidature-user span {
+  color: #94a3b8;
+}
+
+body.dark-mode .candidature-offer {
+  color: #f1f5f9;
+}
+
+
+/* =========================================================
+   STATUT
+   ========================================================= */
+
+body.dark-mode .status-pending {
+  color: #fbbf24;
+}
+
+body.dark-mode .status-pending > span {
+  background: #f59e0b;
+}
+
+body.dark-mode .status-accepted {
+  color: #4ade80;
+}
+
+body.dark-mode .status-accepted > span {
+  background: #22c55e;
+}
+
+body.dark-mode .status-refused {
+  color: #f87171;
+}
+
+body.dark-mode .status-refused > span {
+  background: #ef4444;
+}
+
+
+/* =========================================================
+   CV
+   ========================================================= */
+
+body.dark-mode .cv-button {
+  background: #172554;
+  color: #60a5fa;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+body.dark-mode .details-button {
+  background: #1e293b;
+  border-color: #475569;
+  color: #cbd5e1;
+}
+
+body.dark-mode .details-button:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark-mode .accept-button {
+  background: #052e16;
+  border-color: #166534;
+  color: #4ade80;
+}
+
+body.dark-mode .accept-button:hover {
+  background: #14532d;
+}
+
+body.dark-mode .refuse-button {
+  background: #450a0a;
+  border-color: #991b1b;
+  color: #f87171;
+}
+
+body.dark-mode .refuse-button:hover {
+  background: #7f1d1d;
+}
+
+
+/* =========================================================
+   ETAT VIDE / CHARGEMENT
+   ========================================================= */
+
+body.dark-mode .candidatures-state,
+body.dark-mode .candidatures-empty {
+  background: #111827;
+  color: #e2e8f0;
+}
+
+body.dark-mode .candidatures-empty-icon {
+  background: #172554;
+  color: #60a5fa;
+}
+
+body.dark-mode .candidatures-empty h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .candidatures-empty p,
+body.dark-mode .candidatures-state p {
+  color: #94a3b8;
+}
+
+body.dark-mode .candidatures-spinner {
+  border-color: #334155;
+  border-top-color: #3b82f6;
+}
+
+body.dark-mode .candidatures-error {
+  color: #f87171;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+body.dark-mode .candidatures-toast {
+  background: #111827;
+  border-color: #334155;
+  color: #e2e8f0;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .candidatures-toast strong {
+  color: #f8fafc;
+}
+
+body.dark-mode .candidatures-toast p {
+  color: #94a3b8;
+}
+
+body.dark-mode .candidatures-toast button {
+  color: #64748b;
+}
+
+body.dark-mode .candidatures-toast-success {
+  border-left-color: #22c55e;
+}
+
+body.dark-mode .candidatures-toast-error {
+  border-left-color: #ef4444;
+}
+
+body.dark-mode .candidatures-toast-icon {
+  background: #052e16;
+  color: #4ade80;
+}
+
+body.dark-mode .candidatures-toast-error .candidatures-toast-icon {
+  background: #450a0a;
+  color: #f87171;
+}
+
+
+/* =========================================================
+   MODALE — OVERLAY
+   ========================================================= */
+
+body.dark-mode .candidature-modal-overlay {
+  background: rgba(2, 6, 23, 0.78);
+}
+
+
+/* =========================================================
+   MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-modal {
+  background: #111827;
+  border: 1px solid #334155;
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    0 8px 30px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================================================
+   HEADER MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-modal-header {
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1e293b
+  );
+
+  border-bottom-color: #334155;
+}
+
+body.dark-mode .candidature-modal-header span {
+  color: #94a3b8;
+}
+
+body.dark-mode .candidature-modal-header h2 {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   BOUTON FERMER MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-modal-close {
+  background: #1e293b;
+  color: #cbd5e1;
+}
+
+body.dark-mode .candidature-modal-close:hover {
+  background: #450a0a;
+  color: #f87171;
+}
+
+
+/* =========================================================
+   DETAILS MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-details {
+  background: #111827;
+}
+
+body.dark-mode .detail-block {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark-mode .detail-block:hover {
+  border-color: #475569;
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.20);
+}
+
+body.dark-mode .detail-block label {
+  color: #94a3b8;
+}
+
+body.dark-mode .detail-block p {
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   LETTRE DE MOTIVATION
+   ========================================================= */
+
+body.dark-mode .motivation-box {
+  background: #0f172a;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+
+/* =========================================================
+   BOUTON CV MODALE
+   ========================================================= */
+
+body.dark-mode .modal-cv-button {
+  background: #172554;
+  color: #60a5fa;
+}
+
+body.dark-mode .modal-cv-button:hover {
+  background: #1e3a8a;
+  color: #93c5fd;
+}
+
+
+/* =========================================================
+   FOOTER MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-modal-footer {
+  background: #1e293b;
+  border-top-color: #334155;
+}
+
+
+/* =========================================================
+   BOUTON FERMER
+   ========================================================= */
+
+body.dark-mode .modal-close-button {
+  background: #111827;
+  border-color: #475569;
+  color: #cbd5e1;
+}
+
+body.dark-mode .modal-close-button:hover {
+  background: #334155;
+  border-color: #64748b;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   BOUTON ACCEPTER MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-modal-footer .accept-button {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+body.dark-mode .candidature-modal-footer .accept-button:hover {
+  background: #15803d;
+}
+
+
+/* =========================================================
+   BOUTON REFUSER MODALE
+   ========================================================= */
+
+body.dark-mode .candidature-modal-footer .refuse-button {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+body.dark-mode .candidature-modal-footer .refuse-button:hover {
+  background: #b91c1c;
+}
+
+
+/* =========================================================
+   INPUTS / SELECTS SI PRÉSENTS
+   ========================================================= */
+
+body.dark-mode .candidatures-page input,
+body.dark-mode .candidatures-page select,
+body.dark-mode .candidatures-page textarea {
+  background: #111827;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+body.dark-mode .candidatures-page input::placeholder,
+body.dark-mode .candidatures-page textarea::placeholder {
+  color: #64748b;
+}
+
+body.dark-mode .candidatures-page input:focus,
+body.dark-mode .candidatures-page select:focus,
+body.dark-mode .candidatures-page textarea:focus {
+  border-color: #3b82f6;
+}
+
+
+/* =========================================================
+   SCROLLBAR MODE SOMBRE
+   ========================================================= */
+
+body.dark-mode .candidatures-table-wrapper::-webkit-scrollbar,
+body.dark-mode .candidature-details::-webkit-scrollbar,
+body.dark-mode .motivation-box::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.dark-mode .candidatures-table-wrapper::-webkit-scrollbar-track,
+body.dark-mode .candidature-details::-webkit-scrollbar-track,
+body.dark-mode .motivation-box::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+body.dark-mode .candidatures-table-wrapper::-webkit-scrollbar-thumb,
+body.dark-mode .candidature-details::-webkit-scrollbar-thumb,
+body.dark-mode .motivation-box::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+
+body.dark-mode .candidatures-table-wrapper::-webkit-scrollbar-thumb:hover,
+body.dark-mode .candidature-details::-webkit-scrollbar-thumb:hover,
+body.dark-mode .motivation-box::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}

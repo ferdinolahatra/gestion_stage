@@ -1,0 +1,86 @@
+# =========================================================
+# DJANGO / PYTHON
+# =========================================================
+
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+ENV/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Variables d'environnement
+.env
+.env.*
+!.env.example
+
+
+# =========================================================
+# REACT / VITE
+# =========================================================
+
+node_modules/
+frontend/node_modules/
+
+dist/
+frontend/dist/
+
+.vite/
+frontend/.vite/
+
+
+# =========================================================
+# VARIABLES D'ENVIRONNEMENT VITE
+# =========================================================
+
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+
+# =========================================================
+# NPM
+# =========================================================
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# =========================================================
+# VS CODE / IDE
+# =========================================================
+
+.idea/
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+
+# =========================================================
+# WINDOWS
+# =========================================================
+
+Thumbs.db
+Desktop.ini
+
+
+# =========================================================
+# AUTRES
+# =========================================================
+
+.DS_Store
