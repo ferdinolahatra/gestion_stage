@@ -1,3 +1,4 @@
+```html
 {% load static %}
 
 <!DOCTYPE html>
@@ -49,23 +50,14 @@ body {
 ========================================================= */
 
 #header {
-
     min-height: 72px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     padding: 0 25px;
-
     background: #ffffff !important;
-
     border-bottom: 1px solid #e5e7eb;
-
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
-
 }
 
 
@@ -74,75 +66,43 @@ body {
 ========================================================= */
 
 #branding {
-
     margin: 0;
-
 }
 
 .admin-logo {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     text-decoration: none !important;
-
 }
-
 
 .logo-icon {
-
     width: 42px;
-
     height: 42px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     border-radius: 10px;
-
     background: #1767b1;
-
     color: white;
-
     font-weight: 700;
-
     font-size: 16px;
-
 }
-
 
 .logo-text {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 2px;
-
 }
-
 
 .logo-text strong {
-
     color: #172033;
-
     font-size: 16px;
-
 }
 
-
 .logo-text small {
-
     color: #718096;
-
     font-size: 11px;
-
 }
 
 
@@ -151,45 +111,24 @@ body {
 ========================================================= */
 
 #user-tools {
-
     display: flex;
-
     align-items: center;
-
     gap: 14px;
-
     margin: 0;
-
     padding: 0;
-
     font-size: 13px;
-
 }
-
-
-/* =========================================================
-   LIENS DU HEADER — MODE CLAIR
-========================================================= */
 
 #user-tools a {
-
     color: #1767b1 !important;
-
     text-decoration: none !important;
-
     font-weight: 600;
-
     transition: all .25s ease;
-
 }
 
-
 #user-tools a:hover {
-
     color: #0d4f8c !important;
-
     text-decoration: underline !important;
-
 }
 
 
@@ -198,175 +137,102 @@ body {
 ========================================================= */
 
 .user-profile {
-
     display: flex;
-
     align-items: center;
-
     gap: 9px;
-
 }
-
 
 .user-avatar {
-
     width: 36px;
-
     height: 36px;
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     background: #1767b1;
-
     color: #ffffff;
-
     font-weight: 700;
-
 }
-
 
 .user-info {
-
     display: flex;
-
     flex-direction: column;
-
     line-height: 1.2;
-
 }
-
 
 .user-info .welcome {
-
     color: #718096;
-
     font-size: 11px;
-
 }
-
 
 .user-info strong {
-
     color: #172033;
-
     font-size: 13px;
-
 }
 
-
 .user-separator {
-
     color: #cbd5e1;
-
 }
 
 
 /* =========================================================
-   BOUTON MODE CLAIR / NUIT
+   BOUTON THEME
 ========================================================= */
 
 .theme-toggle {
-
     width: 40px;
-
     height: 40px;
-
     padding: 0;
-
     border: 1px solid #dbe4ec;
-
     border-radius: 10px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     background: #f8fafc;
-
     color: #526b82;
-
     cursor: pointer;
-
     transition: all .25s ease;
-
 }
-
 
 .theme-toggle:hover {
-
     background: #eaf4fc;
-
     color: #1767b1;
-
     border-color: #bfd3e3;
-
 }
-
 
 .theme-toggle svg {
-
     width: 19px;
-
     height: 19px;
-
 }
 
-
 #moon-icon {
-
     display: none;
-
 }
 
 
 /* =========================================================
-   FORMULAIRE DECONNEXION HEADER
+   DECONNEXION HEADER
 ========================================================= */
 
 .logout-form {
-
     display: inline;
-
     margin: 0;
-
     padding: 0;
-
 }
-
 
 .logout-form button {
-
     border: 0;
-
     background: transparent;
-
     color: #dc3545;
-
     font-weight: 600;
-
     cursor: pointer;
-
     padding: 0;
-
     font-size: 13px;
-
 }
 
-
 .logout-form button:hover {
-
     color: #a71d2a;
-
     text-decoration: underline;
-
 }
 
 
@@ -375,11 +241,8 @@ body {
 ========================================================= */
 
 .main-wrapper {
-
     display: flex;
-
     min-height: calc(100vh - 72px);
-
 }
 
 
@@ -388,123 +251,68 @@ body {
 ========================================================= */
 
 .custom-sidebar {
-
     width: 245px;
-
     flex-shrink: 0;
-
     background: #ffffff;
-
     border-right: 1px solid #e5e7eb;
-
     display: flex;
-
     flex-direction: column;
-
 }
-
 
 .sidebar-title {
-
     display: flex;
-
     align-items: center;
-
     gap: 9px;
-
     padding: 22px 20px 12px;
-
     color: #718096;
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: .8px;
-
 }
-
 
 .sidebar-title-icon svg {
-
     width: 18px;
-
     height: 18px;
-
 }
-
 
 .sidebar-nav {
-
     padding: 5px 12px;
-
 }
-
 
 .sidebar-link {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 11px 13px;
-
     margin-bottom: 4px;
-
     border-radius: 8px;
-
     color: #526170 !important;
-
     text-decoration: none !important;
-
     font-size: 13px;
-
     transition: all .2s ease;
-
 }
-
 
 .sidebar-link:hover {
-
     background: #edf6fd;
-
     color: #1767b1 !important;
-
 }
-
 
 .sidebar-icon {
-
     width: 20px;
-
     height: 20px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
 }
-
 
 .sidebar-icon svg {
-
     width: 18px;
-
     height: 18px;
-
 }
 
-
 .sidebar-link:hover .sidebar-icon {
-
     color: #1767b1;
-
 }
 
 
@@ -513,58 +321,33 @@ body {
 ========================================================= */
 
 .sidebar-bottom {
-
     margin-top: auto;
-
     padding: 12px;
-
     border-top: 1px solid #e5e7eb;
-
 }
-
 
 .sidebar-bottom form {
-
     margin: 0;
-
 }
-
 
 .sidebar-logout {
-
     width: 100%;
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 11px 13px;
-
     border: 0;
-
     border-radius: 8px;
-
     background: transparent;
-
     color: #526170;
-
     font-size: 13px;
-
     cursor: pointer;
-
     text-align: left;
-
 }
 
-
 .sidebar-logout:hover {
-
     background: #fff1f2;
-
     color: #dc3545;
-
 }
 
 
@@ -573,15 +356,10 @@ body {
 ========================================================= */
 
 #content-main {
-
     flex: 1;
-
     min-width: 0;
-
     padding: 25px 30px;
-
     background: #f7f9fc;
-
 }
 
 
@@ -590,29 +368,18 @@ body {
 ========================================================= */
 
 .breadcrumbs {
-
     margin-bottom: 18px;
-
     color: #718096;
-
     font-size: 12px;
-
 }
-
 
 .breadcrumbs a {
-
     color: #1767b1 !important;
-
     text-decoration: none;
-
 }
 
-
 .breadcrumbs a:hover {
-
     text-decoration: underline;
-
 }
 
 
@@ -621,99 +388,65 @@ body {
 ========================================================= */
 
 .page-heading {
-
     margin-bottom: 25px;
-
 }
-
 
 .page-heading h1 {
-
     margin: 0 0 5px;
-
     color: #172033;
-
     font-size: 25px;
-
     font-weight: 700;
-
 }
 
-
 .page-heading p {
-
     margin: 0;
-
     color: #718096;
-
     font-size: 13px;
-
 }
 
 
 /* =========================================================
-   MODULES DJANGO
+   MODULES
 ========================================================= */
 
 #content-main .module {
-
     background: #ffffff;
-
     border: 1px solid #e5e7eb;
-
     border-radius: 10px;
-
     overflow: hidden;
-
     box-shadow: 0 2px 7px rgba(0,0,0,.03);
-
 }
 
-
 #content-main .module h2 {
-
     background: #f8fafc;
-
     color: #172033;
-
     border-bottom: 1px solid #e5e7eb;
-
 }
 
 
 /* =========================================================
-   LIENS CONTENU MODE CLAIR
+   LIENS CONTENU
 ========================================================= */
 
 #content-main a {
-
     color: #1767b1 !important;
-
 }
 
-
 #content-main a:hover {
-
     color: #0d4f8c !important;
-
 }
 
 
 /* =========================================================
-   TABLEAUX
+   TABLEAUX CLAIR
 ========================================================= */
 
 #content-main th {
-
     color: #526170;
-
 }
 
-
 #content-main td {
-
     color: #374151;
-
 }
 
 
@@ -722,34 +455,20 @@ body {
 ========================================================= */
 
 .custom-footer {
-
     min-height: 58px;
-
     padding: 15px 25px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     background: #ffffff;
-
     border-top: 1px solid #e5e7eb;
-
     color: #718096;
-
     font-size: 11px;
-
 }
 
-
 .custom-footer strong {
-
     color: #526170;
-
     margin-right: 8px;
-
 }
 
 
@@ -760,440 +479,663 @@ body {
 ========================================================= */
 
 body.dark-mode {
-
     background: #111827 !important;
-
     color: #e5e7eb !important;
-
+    color-scheme: dark;
 }
 
 
 /* =========================================================
-   HEADER MODE NUIT
+   CONTAINER
+========================================================= */
+
+body.dark-mode #container {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+
+/* =========================================================
+   HEADER
 ========================================================= */
 
 body.dark-mode #header {
-
     background: #172235 !important;
-
     border-bottom-color: #29384c !important;
-
+    color: #e5e7eb !important;
 }
 
+body.dark-mode #branding {
+    color: #ffffff !important;
+}
 
 body.dark-mode .logo-text strong {
-
     color: #ffffff !important;
-
 }
-
 
 body.dark-mode .logo-text small {
-
     color: #94a3b8 !important;
-
-}
-
-
-body.dark-mode .user-info .welcome {
-
-    color: #94a3b8 !important;
-
-}
-
-
-body.dark-mode .user-info strong {
-
-    color: #ffffff !important;
-
-}
-
-
-body.dark-mode .user-separator {
-
-    color: #475569 !important;
-
 }
 
 
 /* =========================================================
-   LIENS HEADER MODE NUIT
-   IMPORTANT
+   USER TOOLS
 ========================================================= */
 
-body.dark-mode #user-tools a {
-
-    color: #7dd3fc !important;
-
-    text-decoration: none !important;
-
-    font-weight: 600;
-
+body.dark-mode #user-tools {
+    color: #e5e7eb !important;
 }
 
+body.dark-mode #user-tools a {
+    color: #7dd3fc !important;
+}
 
 body.dark-mode #user-tools a:hover {
-
     color: #38bdf8 !important;
+}
 
-    text-decoration: underline !important;
+body.dark-mode .user-info .welcome {
+    color: #94a3b8 !important;
+}
 
+body.dark-mode .user-info strong {
+    color: #ffffff !important;
+}
+
+body.dark-mode .user-separator {
+    color: #475569 !important;
 }
 
 
 /* =========================================================
-   BOUTON MODE NUIT
+   THEME BUTTON
 ========================================================= */
 
 body.dark-mode .theme-toggle {
-
-    background: #243247;
-
-    border-color: #3a4c63;
-
-    color: #facc15;
-
+    background: #243247 !important;
+    border-color: #3a4c63 !important;
+    color: #facc15 !important;
 }
-
 
 body.dark-mode .theme-toggle:hover {
-
-    background: #2c3d54;
-
-    color: #fde047;
-
+    background: #2c3d54 !important;
+    color: #fde047 !important;
 }
-
 
 body.dark-mode #sun-icon {
-
-    display: none;
-
+    display: none !important;
 }
 
-
 body.dark-mode #moon-icon {
-
-    display: block;
-
+    display: block !important;
 }
 
 
 /* =========================================================
-   SIDEBAR MODE NUIT
+   SIDEBAR
 ========================================================= */
 
 body.dark-mode .custom-sidebar {
-
     background: #172235 !important;
-
     border-right-color: #29384c !important;
-
 }
-
 
 body.dark-mode .sidebar-title {
-
     color: #94a3b8 !important;
-
 }
-
 
 body.dark-mode .sidebar-title-icon {
-
     color: #60a5fa !important;
-
 }
-
 
 body.dark-mode .sidebar-link {
-
     color: #b7c3d0 !important;
-
 }
-
 
 body.dark-mode .sidebar-link:hover {
-
     background: #24344a !important;
-
     color: #7dd3fc !important;
-
 }
-
 
 body.dark-mode .sidebar-link:hover .sidebar-icon {
-
     color: #60a5fa !important;
-
 }
-
 
 body.dark-mode .sidebar-bottom {
-
     border-top-color: #29384c !important;
-
 }
-
 
 body.dark-mode .sidebar-logout {
-
     color: #b7c3d0 !important;
-
 }
-
 
 body.dark-mode .sidebar-logout:hover {
-
     background: #38262b !important;
-
     color: #f87171 !important;
-
 }
 
 
 /* =========================================================
-   CONTENU MODE NUIT
+   CONTENU PRINCIPAL
 ========================================================= */
+
+body.dark-mode .main-wrapper {
+    background: #111827 !important;
+}
+
+body.dark-mode #content {
+    background: #111827 !important;
+}
 
 body.dark-mode #content-main {
-
     background: #111827 !important;
-
-}
-
-
-body.dark-mode .breadcrumbs {
-
-    color: #94a3b8 !important;
-
+    color: #e5e7eb !important;
 }
 
 
 /* =========================================================
-   BREADCRUMBS MODE NUIT
+   BREADCRUMBS
 ========================================================= */
 
-body.dark-mode .breadcrumbs a {
-
-    color: #7dd3fc !important;
-
+body.dark-mode .breadcrumbs {
+    background: transparent !important;
+    color: #94a3b8 !important;
 }
 
+body.dark-mode .breadcrumbs a {
+    color: #7dd3fc !important;
+}
 
 body.dark-mode .breadcrumbs a:hover {
-
     color: #38bdf8 !important;
-
 }
 
 
 /* =========================================================
-   TITRE MODE NUIT
+   TITRES
 ========================================================= */
 
 body.dark-mode .page-heading h1 {
-
     color: #ffffff !important;
-
 }
 
-
 body.dark-mode .page-heading p {
-
     color: #94a3b8 !important;
-
 }
 
 
 /* =========================================================
-   LIENS CONTENU MODE NUIT
+   MODULES
+========================================================= */
+
+body.dark-mode #content-main .module,
+body.dark-mode #content-main fieldset,
+body.dark-mode .inline-group {
+    background: #172235 !important;
+    border-color: #29384c !important;
+    color: #e5e7eb !important;
+}
+
+
+/* =========================================================
+   MODULE HEADERS
+========================================================= */
+
+body.dark-mode #content-main .module h2,
+body.dark-mode #content-main .module caption,
+body.dark-mode .inline-group h2 {
+    background: #1d2b3e !important;
+    color: #ffffff !important;
+    border-bottom-color: #29384c !important;
+}
+
+
+/* =========================================================
+   LIENS
 ========================================================= */
 
 body.dark-mode #content-main a {
-
     color: #7dd3fc !important;
-
 }
-
 
 body.dark-mode #content-main a:hover {
-
     color: #38bdf8 !important;
-
 }
 
 
 /* =========================================================
-   MODULES MODE NUIT
+   TABLEAU PRINCIPAL DJANGO
 ========================================================= */
 
-body.dark-mode #content-main .module {
-
+body.dark-mode #result_list {
     background: #172235 !important;
-
-    border-color: #29384c !important;
-
     color: #e5e7eb !important;
-
+    border-color: #29384c !important;
 }
 
-
-body.dark-mode #content-main .module h2 {
-
-    background: #1d2b3e !important;
-
-    border-bottom-color: #29384c !important;
-
-    color: #ffffff !important;
-
-}
-
-
-/* =========================================================
-   TABLEAUX MODE NUIT
-========================================================= */
-
-body.dark-mode #content-main table {
-
+body.dark-mode .results {
     background: #172235 !important;
-
+    color: #e5e7eb !important;
 }
 
-
-body.dark-mode #content-main th {
-
-    background: #1d2b3e !important;
-
-    color: #cbd5e1 !important;
-
+body.dark-mode #result_list table {
+    background: #172235 !important;
+    color: #e5e7eb !important;
     border-color: #29384c !important;
-
-}
-
-
-body.dark-mode #content-main td {
-
-    color: #d1d5db !important;
-
-    border-color: #29384c !important;
-
-}
-
-
-body.dark-mode #content-main tr:hover td {
-
-    background: #213047 !important;
-
 }
 
 
 /* =========================================================
-   FORMULAIRES MODE NUIT
+   EN-TETE TABLEAU
 ========================================================= */
+
+body.dark-mode #result_list thead,
+body.dark-mode #result_list thead tr,
+body.dark-mode #result_list thead th {
+    background: #1d2b3e !important;
+    color: #cbd5e1 !important;
+    border-color: #29384c !important;
+}
+
+body.dark-mode #result_list thead th a {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode #result_list thead th a:hover {
+    color: #7dd3fc !important;
+}
+
+
+/* =========================================================
+   CORPS TABLEAU
+========================================================= */
+
+body.dark-mode #result_list tbody {
+    background: #172235 !important;
+}
+
+body.dark-mode #result_list tbody tr {
+    background: #172235 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #result_list tbody td,
+body.dark-mode #result_list tbody th {
+    background: #172235 !important;
+    color: #d1d5db !important;
+    border-bottom-color: #29384c !important;
+}
+
+
+/* =========================================================
+   HOVER TABLEAU
+========================================================= */
+
+body.dark-mode #result_list tbody tr:hover,
+body.dark-mode #result_list tbody tr:hover td,
+body.dark-mode #result_list tbody tr:hover th {
+    background: #213047 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   LIENS TABLEAU
+========================================================= */
+
+body.dark-mode #result_list tbody td a,
+body.dark-mode #result_list tbody th a {
+    color: #7dd3fc !important;
+}
+
+body.dark-mode #result_list tbody td a:hover,
+body.dark-mode #result_list tbody th a:hover {
+    color: #38bdf8 !important;
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+body.dark-mode #result_list input[type="checkbox"] {
+    accent-color: #3b82f6;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+body.dark-mode .actions {
+    background: #1d2b3e !important;
+    border-color: #29384c !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .actions label {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .actions select {
+    background: #1e2b3d !important;
+    color: #ffffff !important;
+    border-color: #3a4c63 !important;
+}
+
+body.dark-mode .actions button {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+}
+
+
+/* =========================================================
+   RECHERCHE
+========================================================= */
+
+body.dark-mode #changelist-search {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #changelist-search input[type="text"],
+body.dark-mode #changelist-search input[type="search"] {
+    background: #1e2b3d !important;
+    color: #ffffff !important;
+    border-color: #3a4c63 !important;
+}
+
+body.dark-mode #changelist-search input::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode #changelist-search input:focus {
+    background: #1e2b3d !important;
+    color: #ffffff !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15) !important;
+}
+
+
+/* =========================================================
+   FILTRE
+========================================================= */
+
+body.dark-mode #changelist-filter {
+    background: #172235 !important;
+    border-left-color: #29384c !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #changelist-filter h2 {
+    background: #1d2b3e !important;
+    color: #ffffff !important;
+    border-bottom-color: #29384c !important;
+}
+
+body.dark-mode #changelist-filter h3 {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode #changelist-filter ul {
+    background: #172235 !important;
+}
+
+body.dark-mode #changelist-filter li {
+    background: #172235 !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode #changelist-filter a {
+    color: #7dd3fc !important;
+}
+
+body.dark-mode #changelist-filter a:hover {
+    color: #38bdf8 !important;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+body.dark-mode .paginator {
+    background: #172235 !important;
+    color: #cbd5e1 !important;
+    border-color: #29384c !important;
+}
+
+body.dark-mode .paginator a {
+    color: #7dd3fc !important;
+}
+
+body.dark-mode .paginator a:hover {
+    color: #38bdf8 !important;
+}
+
+
+/* =========================================================
+   FORMULAIRES
+========================================================= */
+
+body.dark-mode #content-main form {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #content-main label {
+    color: #cbd5e1 !important;
+}
 
 body.dark-mode #content-main input,
 body.dark-mode #content-main textarea,
 body.dark-mode #content-main select {
-
     background: #1e2b3d !important;
-
     border-color: #3a4c63 !important;
-
     color: #ffffff !important;
-
 }
 
+body.dark-mode #content-main input::placeholder,
+body.dark-mode #content-main textarea::placeholder {
+    color: #94a3b8 !important;
+}
 
 body.dark-mode #content-main input:focus,
 body.dark-mode #content-main textarea:focus,
 body.dark-mode #content-main select:focus {
-
+    background: #1e2b3d !important;
+    color: #ffffff !important;
     border-color: #3b82f6 !important;
-
-    box-shadow:
-        0 0 0 3px rgba(59,130,246,.15);
-
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15) !important;
 }
 
 
 /* =========================================================
-   FILTRE MODE NUIT
+   FIELDSETS
 ========================================================= */
 
-body.dark-mode #changelist-filter {
-
+body.dark-mode fieldset {
     background: #172235 !important;
-
     border-color: #29384c !important;
-
 }
 
-
-body.dark-mode #changelist-filter h2 {
-
+body.dark-mode fieldset h2 {
     background: #1d2b3e !important;
-
     color: #ffffff !important;
-
 }
 
-
-body.dark-mode #changelist-filter h3 {
-
-    color: #94a3b8 !important;
-
-}
-
-
-body.dark-mode #changelist-filter a {
-
-    color: #7dd3fc !important;
-
-}
-
-
-body.dark-mode #changelist-filter a:hover {
-
-    color: #38bdf8 !important;
-
+body.dark-mode .form-row {
+    border-bottom-color: #29384c !important;
 }
 
 
 /* =========================================================
-   FOOTER MODE NUIT
+   TEXTE AIDE
+========================================================= */
+
+body.dark-mode .help,
+body.dark-mode p.help,
+body.dark-mode .helptext {
+    color: #94a3b8 !important;
+}
+
+
+/* =========================================================
+   BOUTONS DJANGO
+========================================================= */
+
+body.dark-mode input[type="submit"],
+body.dark-mode button[type="submit"],
+body.dark-mode .submit-row input {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode input[type="submit"]:hover,
+body.dark-mode button[type="submit"]:hover,
+body.dark-mode .submit-row input:hover {
+    background: #1d4ed8 !important;
+}
+
+
+/* =========================================================
+   SUBMIT ROW
+========================================================= */
+
+body.dark-mode .submit-row {
+    background: #172235 !important;
+    border-color: #29384c !important;
+}
+
+
+/* =========================================================
+   INLINE
+========================================================= */
+
+body.dark-mode .inline-related {
+    background: #172235 !important;
+    border-color: #29384c !important;
+}
+
+body.dark-mode .inline-related h3 {
+    background: #1d2b3e !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   TABLEAUX FORMULAIRES
+========================================================= */
+
+body.dark-mode #content-main table {
+    background: #172235 !important;
+    color: #e5e7eb !important;
+    border-color: #29384c !important;
+}
+
+body.dark-mode #content-main table th {
+    background: #1d2b3e !important;
+    color: #cbd5e1 !important;
+    border-color: #29384c !important;
+}
+
+body.dark-mode #content-main table td {
+    background: #172235 !important;
+    color: #d1d5db !important;
+    border-color: #29384c !important;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+body.dark-mode .messagelist {
+    background: transparent !important;
+}
+
+body.dark-mode .messagelist li {
+    background: #1d2b3e !important;
+    border-color: #33465c !important;
+    color: #dbeafe !important;
+}
+
+
+/* =========================================================
+   ERREURS
+========================================================= */
+
+body.dark-mode .errorlist {
+    background: transparent !important;
+    color: #fca5a5 !important;
+}
+
+body.dark-mode .errorlist li {
+    color: #fca5a5 !important;
+}
+
+
+/* =========================================================
+   OBJECT TOOLS
+========================================================= */
+
+body.dark-mode .object-tools a {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .object-tools a:hover {
+    background: #1d4ed8 !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   CHANGE LIST
+========================================================= */
+
+body.dark-mode #changelist {
+    background: #111827 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #changelist .module {
+    background: #172235 !important;
+}
+
+
+/* =========================================================
+   SELECTOR
+========================================================= */
+
+body.dark-mode .selector {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode .selector-available,
+body.dark-mode .selector-chosen {
+    background: #172235 !important;
+    border-color: #29384c !important;
+}
+
+body.dark-mode .selector h2 {
+    background: #1d2b3e !important;
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   FOOTER
 ========================================================= */
 
 body.dark-mode .custom-footer {
-
     background: #172235 !important;
-
     border-top-color: #29384c !important;
-
     color: #94a3b8 !important;
-
 }
-
 
 body.dark-mode .custom-footer strong {
-
     color: #e2e8f0 !important;
-
-}
-
-
-/* =========================================================
-   MESSAGES MODE NUIT
-========================================================= */
-
-body.dark-mode .messagelist li {
-
-    background: #1d2b3e !important;
-
-    border-color: #33465c !important;
-
-    color: #dbeafe !important;
-
 }
 
 
@@ -1204,21 +1146,15 @@ body.dark-mode .messagelist li {
 @media (max-width: 850px) {
 
     .custom-sidebar {
-
         width: 210px;
-
     }
 
     #user-tools {
-
         gap: 8px;
-
     }
 
     .user-info {
-
         display: none;
-
     }
 
 }
@@ -1227,71 +1163,48 @@ body.dark-mode .messagelist li {
 @media (max-width: 650px) {
 
     #header {
-
         padding: 0 12px;
-
     }
 
     .logo-text {
-
         display: none;
-
     }
 
     .custom-sidebar {
-
         width: 65px;
-
     }
 
     .sidebar-title span:last-child {
-
         display: none;
-
     }
 
     .sidebar-link {
-
         justify-content: center;
-
         padding: 11px;
-
     }
 
     .sidebar-link span:last-child {
-
         display: none;
-
     }
 
     .sidebar-logout {
-
         justify-content: center;
-
     }
 
     .sidebar-logout span:last-child {
-
         display: none;
-
     }
 
     #content-main {
-
         padding: 20px 15px;
-
     }
 
     #user-tools > a {
-
         display: none;
-
     }
 
     .user-separator {
-
         display: none;
-
     }
 
 }
@@ -1377,58 +1290,27 @@ body.dark-mode .messagelist li {
                  stroke-linecap="round"
                  stroke-linejoin="round">
 
-                <circle
-                    cx="12"
-                    cy="12"
-                    r="4"/>
+                <circle cx="12" cy="12" r="4"/>
 
-                <line
-                    x1="12"
-                    y1="2"
-                    x2="12"
-                    y2="4"/>
+                <line x1="12" y1="2" x2="12" y2="4"/>
 
-                <line
-                    x1="12"
-                    y1="20"
-                    x2="12"
-                    y2="22"/>
+                <line x1="12" y1="20" x2="12" y2="22"/>
 
-                <line
-                    x1="4.93"
-                    y1="4.93"
-                    x2="6.34"
-                    y2="6.34"/>
+                <line x1="4.93" y1="4.93"
+                      x2="6.34" y2="6.34"/>
 
-                <line
-                    x1="17.66"
-                    y1="17.66"
-                    x2="19.07"
-                    y2="19.07"/>
+                <line x1="17.66" y1="17.66"
+                      x2="19.07" y2="19.07"/>
 
-                <line
-                    x1="2"
-                    y1="12"
-                    x2="4"
-                    y2="12"/>
+                <line x1="2" y1="12" x2="4" y2="12"/>
 
-                <line
-                    x1="20"
-                    y1="12"
-                    x2="22"
-                    y2="12"/>
+                <line x1="20" y1="12" x2="22" y2="12"/>
 
-                <line
-                    x1="4.93"
-                    y1="19.07"
-                    x2="6.34"
-                    y2="17.66"/>
+                <line x1="4.93" y1="19.07"
+                      x2="6.34" y2="17.66"/>
 
-                <line
-                    x1="17.66"
-                    y1="6.34"
-                    x2="19.07"
-                    y2="4.93"/>
+                <line x1="17.66" y1="6.34"
+                      x2="19.07" y2="4.93"/>
 
             </svg>
 
@@ -1457,9 +1339,7 @@ body.dark-mode .messagelist li {
         <div class="user-profile">
 
             <div class="user-avatar">
-
                 {{ user.username|first|upper }}
-
             </div>
 
             <div class="user-info">
@@ -1482,18 +1362,14 @@ body.dark-mode .messagelist li {
         </span>
 
 
-        <!-- =================================================
-             TABLEAU DE BORD
-        ================================================== -->
+        <!-- TABLEAU DE BORD -->
 
         <a href="{% url 'admin:index' %}">
             Tableau de bord
         </a>
 
 
-        <!-- =================================================
-             MOT DE PASSE
-        ================================================== -->
+        <!-- MOT DE PASSE -->
 
         {% if user.has_usable_password %}
 
@@ -1504,9 +1380,7 @@ body.dark-mode .messagelist li {
         {% endif %}
 
 
-        <!-- =================================================
-             DECONNEXION
-        ================================================== -->
+        <!-- DECONNEXION -->
 
         <form method="post"
               action="{% url 'admin:logout' %}"
@@ -1522,7 +1396,6 @@ body.dark-mode .messagelist li {
 
 
         {% endif %}
-
 
     </div>
 
@@ -1552,23 +1425,11 @@ body.dark-mode .messagelist li {
                      stroke="currentColor"
                      stroke-width="2">
 
-                    <line
-                        x1="4"
-                        y1="6"
-                        x2="20"
-                        y2="6"/>
+                    <line x1="4" y1="6" x2="20" y2="6"/>
 
-                    <line
-                        x1="4"
-                        y1="12"
-                        x2="20"
-                        y2="12"/>
+                    <line x1="4" y1="12" x2="20" y2="12"/>
 
-                    <line
-                        x1="4"
-                        y1="18"
-                        x2="20"
-                        y2="18"/>
+                    <line x1="4" y1="18" x2="20" y2="18"/>
 
                 </svg>
 
@@ -1596,29 +1457,17 @@ body.dark-mode .messagelist li {
                          stroke="currentColor"
                          stroke-width="2">
 
-                        <rect
-                            x="3"
-                            y="3"
-                            width="7"
-                            height="7"/>
+                        <rect x="3" y="3"
+                              width="7" height="7"/>
 
-                        <rect
-                            x="14"
-                            y="3"
-                            width="7"
-                            height="7"/>
+                        <rect x="14" y="3"
+                              width="7" height="7"/>
 
-                        <rect
-                            x="3"
-                            y="14"
-                            width="7"
-                            height="7"/>
+                        <rect x="3" y="14"
+                              width="7" height="7"/>
 
-                        <rect
-                            x="14"
-                            y="14"
-                            width="7"
-                            height="7"/>
+                        <rect x="14" y="14"
+                              width="7" height="7"/>
 
                     </svg>
 
@@ -1646,10 +1495,7 @@ body.dark-mode .messagelist li {
                         <path
                             d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
 
-                        <circle
-                            cx="9"
-                            cy="7"
-                            r="4"/>
+                        <circle cx="9" cy="7" r="4"/>
 
                         <path
                             d="M22 21v-2a4 4 0 0 0-3-3.87"/>
@@ -1685,26 +1531,16 @@ body.dark-mode .messagelist li {
                         <path
                             d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
 
-                        <path
-                            d="M9 21v-4h6v4"/>
+                        <path d="M9 21v-4h6v4"/>
 
-                        <rect
-                            x="8"
-                            y="7"
-                            width="2"
-                            height="2"/>
+                        <rect x="8" y="7"
+                              width="2" height="2"/>
 
-                        <rect
-                            x="11"
-                            y="7"
-                            width="2"
-                            height="2"/>
+                        <rect x="11" y="7"
+                              width="2" height="2"/>
 
-                        <rect
-                            x="14"
-                            y="7"
-                            width="2"
-                            height="2"/>
+                        <rect x="14" y="7"
+                              width="2" height="2"/>
 
                     </svg>
 
@@ -1729,21 +1565,15 @@ body.dark-mode .messagelist li {
                          stroke="currentColor"
                          stroke-width="2">
 
-                        <rect
-                            x="3"
-                            y="7"
-                            width="18"
-                            height="13"
-                            rx="2"/>
+                        <rect x="3" y="7"
+                              width="18" height="13"
+                              rx="2"/>
 
                         <path
                             d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
 
-                        <line
-                            x1="3"
-                            y1="12"
-                            x2="21"
-                            y2="12"/>
+                        <line x1="3" y1="12"
+                              x2="21" y2="12"/>
 
                     </svg>
 
@@ -1771,20 +1601,13 @@ body.dark-mode .messagelist li {
                         <path
                             d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 
-                        <polyline
-                            points="14 2 14 8 20 8"/>
+                        <polyline points="14 2 14 8 20 8"/>
 
-                        <line
-                            x1="8"
-                            y1="13"
-                            x2="16"
-                            y2="13"/>
+                        <line x1="8" y1="13"
+                              x2="16" y2="13"/>
 
-                        <line
-                            x1="8"
-                            y1="17"
-                            x2="16"
-                            y2="17"/>
+                        <line x1="8" y1="17"
+                              x2="16" y2="17"/>
 
                     </svg>
 
@@ -1809,18 +1632,12 @@ body.dark-mode .messagelist li {
                          stroke="currentColor"
                          stroke-width="2">
 
-                        <circle
-                            cx="9"
-                            cy="7"
-                            r="4"/>
+                        <circle cx="9" cy="7" r="4"/>
 
                         <path
                             d="M3 21v-2a6 6 0 0 1 12 0v2"/>
 
-                        <circle
-                            cx="18"
-                            cy="8"
-                            r="3"/>
+                        <circle cx="18" cy="8" r="3"/>
 
                     </svg>
 
@@ -1877,8 +1694,7 @@ body.dark-mode .messagelist li {
                         <path
                             d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
 
-                        <polyline
-                            points="14 2 14 8 20 8"/>
+                        <polyline points="14 2 14 8 20 8"/>
 
                     </svg>
 
@@ -1920,7 +1736,9 @@ body.dark-mode .messagelist li {
         </nav>
 
 
-        <!-- BAS -->
+        <!-- =================================================
+             BAS SIDEBAR
+        ================================================== -->
 
         <div class="sidebar-bottom">
 
@@ -1935,10 +1753,7 @@ body.dark-mode .messagelist li {
                          stroke="currentColor"
                          stroke-width="2">
 
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="3"/>
+                        <circle cx="12" cy="12" r="3"/>
 
                         <path
                             d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06-1.5 1.5-.06-.06A1.65 1.65 0 0 0 16.03 19.4"/>
@@ -2129,6 +1944,28 @@ body.dark-mode .messagelist li {
 
 <script>
 
+(function () {
+
+    /*
+     * Restaurer immédiatement le thème sauvegardé.
+     * Cela évite que le thème clair apparaisse
+     * momentanément avant le chargement de la page.
+     */
+
+    const savedTheme =
+        localStorage.getItem("admin-theme");
+
+    if (savedTheme === "dark") {
+
+        document.documentElement.classList.add(
+            "dark-theme"
+        );
+
+    }
+
+})();
+
+
 document.addEventListener(
     "DOMContentLoaded",
     function () {
@@ -2140,19 +1977,25 @@ document.addEventListener(
             );
 
 
+        /* =================================================
+           RESTAURER LE MODE ENREGISTRÉ
+        ================================================= */
+
         const savedTheme =
             localStorage.getItem(
                 "admin-theme"
             );
 
 
-        /* =================================================
-           RESTAURER LE MODE ENREGISTRÉ
-        ================================================= */
-
         if (savedTheme === "dark") {
 
             document.body.classList.add(
+                "dark-mode"
+            );
+
+        } else {
+
+            document.body.classList.remove(
                 "dark-mode"
             );
 
@@ -2179,11 +2022,13 @@ document.addEventListener(
                        SAUVEGARDER LE CHOIX
                     ===================================== */
 
-                    if (
+                    const isDark =
                         document.body.classList.contains(
                             "dark-mode"
-                        )
-                    ) {
+                        );
+
+
+                    if (isDark) {
 
                         localStorage.setItem(
                             "admin-theme",
@@ -2219,3 +2064,4 @@ document.addEventListener(
 </body>
 
 </html>
+```

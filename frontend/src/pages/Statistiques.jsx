@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {
   BarChart,
   Bar,
@@ -14,6 +15,20 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+
+import {
+  BarChart3,
+  Users,
+  Building2,
+  ClipboardList,
+  FileText,
+  Send,
+  FileBarChart,
+  RefreshCw,
+  AlertTriangle,
+  LoaderCircle,
+  TrendingUp,
+} from "lucide-react";
 
 import api from "../services/api";
 import "./Statistiques.css";
@@ -55,13 +70,19 @@ function Statistiques() {
   if (loading) {
     return (
       <div className="statistiques-page">
+
         <div className="stats-loading">
-          <div className="stats-spinner"></div>
+
+          <div className="stats-spinner">
+            <LoaderCircle size={32} />
+          </div>
 
           <p>
             Chargement des statistiques...
           </p>
+
         </div>
+
       </div>
     );
   }
@@ -73,10 +94,11 @@ function Statistiques() {
   if (error) {
     return (
       <div className="statistiques-page">
+
         <div className="stats-error">
 
           <div className="error-icon">
-            ⚠️
+            <AlertTriangle size={42} />
           </div>
 
           <h2>
@@ -91,10 +113,12 @@ function Statistiques() {
             className="stats-retry"
             onClick={loadStatistiques}
           >
+            <RefreshCw size={17} />
             Réessayer
           </button>
 
         </div>
+
       </div>
     );
   }
@@ -277,7 +301,8 @@ function Statistiques() {
           </span>
 
           <h1>
-            📊 Statistiques
+            <BarChart3 size={30} />
+            Statistiques
           </h1>
 
           <p>
@@ -291,7 +316,8 @@ function Statistiques() {
           className="stats-refresh"
           onClick={loadStatistiques}
         >
-          ↻ Actualiser
+          <RefreshCw size={17} />
+          Actualiser
         </button>
 
       </div>
@@ -306,10 +332,11 @@ function Statistiques() {
         <div className="stats-card">
 
           <div className="stats-card-icon blue">
-            👥
+            <Users size={23} />
           </div>
 
           <div>
+
             <span>
               Utilisateurs
             </span>
@@ -317,6 +344,7 @@ function Statistiques() {
             <strong>
               {utilisateurs.total || 0}
             </strong>
+
           </div>
 
         </div>
@@ -325,10 +353,11 @@ function Statistiques() {
         <div className="stats-card">
 
           <div className="stats-card-icon green">
-            🏢
+            <Building2 size={23} />
           </div>
 
           <div>
+
             <span>
               Entreprises
             </span>
@@ -336,6 +365,7 @@ function Statistiques() {
             <strong>
               {entreprises.total || 0}
             </strong>
+
           </div>
 
         </div>
@@ -344,10 +374,11 @@ function Statistiques() {
         <div className="stats-card">
 
           <div className="stats-card-icon orange">
-            📋
+            <ClipboardList size={23} />
           </div>
 
           <div>
+
             <span>
               Offres de stage
             </span>
@@ -355,6 +386,7 @@ function Statistiques() {
             <strong>
               {offres.total || 0}
             </strong>
+
           </div>
 
         </div>
@@ -363,10 +395,11 @@ function Statistiques() {
         <div className="stats-card">
 
           <div className="stats-card-icon purple">
-            📝
+            <FileText size={23} />
           </div>
 
           <div>
+
             <span>
               Candidatures
             </span>
@@ -374,6 +407,7 @@ function Statistiques() {
             <strong>
               {candidatures.total || 0}
             </strong>
+
           </div>
 
         </div>
@@ -404,7 +438,7 @@ function Statistiques() {
             </div>
 
             <span className="panel-icon">
-              📊
+              <BarChart3 size={22} />
             </span>
 
           </div>
@@ -487,7 +521,7 @@ function Statistiques() {
             </div>
 
             <span className="panel-icon">
-              👥
+              <Users size={22} />
             </span>
 
           </div>
@@ -563,7 +597,7 @@ function Statistiques() {
             </div>
 
             <span className="panel-icon">
-              📝
+              <FileText size={22} />
             </span>
 
           </div>
@@ -639,7 +673,7 @@ function Statistiques() {
             </div>
 
             <span className="panel-icon">
-              📤
+              <Send size={22} />
             </span>
 
           </div>
@@ -715,7 +749,7 @@ function Statistiques() {
             </div>
 
             <span className="panel-icon">
-              📄
+              <FileBarChart size={22} />
             </span>
 
           </div>
@@ -791,7 +825,7 @@ function Statistiques() {
             </div>
 
             <span className="panel-icon">
-              📈
+              <TrendingUp size={22} />
             </span>
 
           </div>
