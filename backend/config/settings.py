@@ -26,13 +26,26 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-d@tv+y*y0a3&cuzw--r-2
 # Désactivé automatiquement en production sur Render, activé en local
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'gestion-stage-api-r2ts.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
-# Rend les domaines Render acceptés pour CSRF si nécessaire
+# Si Render injecte son propre nom d'hôte
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-    CSRF_TRUSTED_ORIGINS = [f'https://{RENDER_EXTERNAL_HOSTNAME}']
+
+# Domaines autorisés pour la protection CSRF (Requis pour l'admin Django sur Render en HTTPS)
+CSRF_TRUSTED_ORIGINS = [
+    'https://gestion-stage-api-r2ts.onrender.com',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
+
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
 
 
 # =========================================================
@@ -44,57 +57,34 @@ INSTALLED_APPS = [
     # -----------------------------------------------------
     # Applications Django
     # -----------------------------------------------------
-
     'django.contrib.admin',
-
     'django.contrib.auth',
-
     'django.contrib.contenttypes',
-
     'django.contrib.sessions',
-
     'django.contrib.messages',
-
     'django.contrib.staticfiles',
-
 
     # -----------------------------------------------------
     # Applications du projet
     # -----------------------------------------------------
-
     'accounts',
-
     'entreprises',
-
     'stages',
-
     'candidatures',
-
     'encadrement',
-
     'journal',
-
     'rapports',
-
     'evaluations',
-
     'dashboard',
-
     'notifications',
-
     'demandes',
-
     'statistiques',
-
 
     # -----------------------------------------------------
     # API REST & Outils de Production
     # -----------------------------------------------------
-
     'rest_framework',
-
     'corsheaders',
-
 ]
 
 
@@ -103,14 +93,13 @@ INSTALLED_APPS = [
 # =========================================================
 
 MIDDLEWARE = [
-
-    # CORS (Doit être en haut)
+    # CORS (Doit rester strictement en haut)
     'corsheaders.middleware.CorsMiddleware',
 
     # Sécurité
     'django.middleware.security.SecurityMiddleware',
 
-    # Gestion des fichiers statiques en production (WhiteNoise)
+    # Fichiers statiques WhiteNoise
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Sessions
@@ -130,7 +119,6 @@ MIDDLEWARE = [
 
     # Protection iframe
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
 
 
@@ -146,36 +134,20 @@ ROOT_URLCONF = 'config.urls'
 # =========================================================
 
 TEMPLATES = [
-
     {
-
-        'BACKEND':
-            'django.template.backends.django.DjangoTemplates',
-
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-
             BASE_DIR / 'templates',
-
         ],
-
         'APP_DIRS': True,
-
         'OPTIONS': {
-
             'context_processors': [
-
                 'django.template.context_processors.request',
-
                 'django.contrib.auth.context_processors.auth',
-
                 'django.contrib.messages.context_processors.messages',
-
             ],
-
         },
-
     },
-
 ]
 
 
@@ -193,7 +165,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
 if DATABASE_URL:
-    # Mode Production (Render + Supabase)
+    # Mode Production (Render + Supabase IPv4 Pooler)
     DATABASES = {
         'default': dj_database_url.parse(
             DATABASE_URL,
@@ -217,35 +189,18 @@ else:
 # =========================================================
 
 AUTH_PASSWORD_VALIDATORS = [
-
     {
-
-        'NAME':
-            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
-
     {
-
-        'NAME':
-            'django.contrib.auth.password_validation.MinimumLengthValidator',
-
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-
     {
-
-        'NAME':
-            'django.contrib.auth.password_validation.CommonPasswordValidator',
-
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-
     {
-
-        'NAME':
-            'django.contrib.auth.password_validation.NumericPasswordValidator',
-
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-
 ]
 
 
@@ -276,21 +231,18 @@ CORS_ALLOW_ALL_ORIGINS = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-
     BASE_DIR / 'static',
-
 ]
 
-# Dossier dans lequel collectstatic rassemblera les fichiers pour Render
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise pour la gestion du cache et de la compression en production
+# WhiteNoise tolérant (évite les erreurs 500/404 si un fichier manque au manifeste)
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
@@ -316,13 +268,9 @@ AUTH_USER_MODEL = 'accounts.User'
 # =========================================================
 
 REST_FRAMEWORK = {
-
     'DEFAULT_AUTHENTICATION_CLASSES': (
-
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-
     ),
-
 }
 
 
@@ -331,19 +279,10 @@ REST_FRAMEWORK = {
 # =========================================================
 
 SIMPLE_JWT = {
-
-    'ACCESS_TOKEN_LIFETIME':
-        timedelta(hours=1),
-
-    'REFRESH_TOKEN_LIFETIME':
-        timedelta(days=7),
-
-    'ROTATE_REFRESH_TOKENS':
-        False,
-
-    'BLACKLIST_AFTER_ROTATION':
-        False,
-
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
 }
 
 
