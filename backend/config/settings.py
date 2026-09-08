@@ -18,12 +18,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # =========================================================
-# SECURITY
+# SECURITY & PROXY (PRODUCTION)
 # =========================================================
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-d@tv+y*y0a3&cuzw--r-2v(knnrwwqf5jww#p1$wkn_sry5j91')
 
-# Désactivé automatiquement en production sur Render, activé en local
+# Désactivé automatiquement sur Render (Production), activé en local
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = [
@@ -32,20 +32,24 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
-# Si Render injecte son propre nom d'hôte
+# Si Render injecte un nom d'hôte externe
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
-# Domaines autorisés pour la protection CSRF (Requis pour l'admin Django sur Render en HTTPS)
+# Domaines autorisés pour la protection CSRF (Indispensable pour l'admin Django en HTTPS)
 CSRF_TRUSTED_ORIGINS = [
     'https://gestion-stage-api-r2ts.onrender.com',
+    'https://*.onrender.com',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
 ]
 
 if RENDER_EXTERNAL_HOSTNAME:
     CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
+
+# Reconnaissance du protocole HTTPS derrière le proxy inverse de Render (Résout l'erreur CSRF 403)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # =========================================================
@@ -93,13 +97,13 @@ INSTALLED_APPS = [
 # =========================================================
 
 MIDDLEWARE = [
-    # CORS (Doit rester strictement en haut)
+    # CORS (Doit impérativement rester en haut)
     'corsheaders.middleware.CorsMiddleware',
 
-    # Sécurité
+    # Sécurité Django
     'django.middleware.security.SecurityMiddleware',
 
-    # Fichiers statiques WhiteNoise
+    # Gestion des fichiers statiques WhiteNoise
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     # Sessions
