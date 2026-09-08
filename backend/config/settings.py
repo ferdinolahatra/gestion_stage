@@ -48,8 +48,10 @@ CSRF_TRUSTED_ORIGINS = [
 if RENDER_EXTERNAL_HOSTNAME:
     CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
 
-# Reconnaissance du protocole HTTPS derrière le proxy inverse de Render (Résout l'erreur CSRF 403)
+# Reconnaissance du protocole HTTPS et de l'hôte derrière le proxy inverse de Render
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
 
 
 # =========================================================
