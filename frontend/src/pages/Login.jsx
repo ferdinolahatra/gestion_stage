@@ -36,27 +36,11 @@ function Login() {
         response.data.refresh
       );
 
-      // Si l'API renvoie l'utilisateur directement
       if (response.data.user) {
         localStorage.setItem(
           "user",
           JSON.stringify(response.data.user)
         );
-      } else {
-        // Récupération automatique du profil si l'endpoint token ne le fournit pas
-        try {
-          const userResponse = await api.get("users/me/", {
-            headers: {
-              Authorization: `Bearer ${response.data.access}`,
-            },
-          });
-          localStorage.setItem(
-            "user",
-            JSON.stringify(userResponse.data)
-          );
-        } catch (userErr) {
-          console.warn("Impossible de récupérer le profil utilisateur :", userErr);
-        }
       }
 
       navigate("/dashboard");
