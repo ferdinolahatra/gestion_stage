@@ -2,10 +2,121 @@ import { useEffect, useMemo, useState } from "react";
 import api from "../services/api";
 import "./Evaluations.css";
 
+/* =========================================================
+   ICÔNES SVG PROFESSIONNELLES
+   Aucun package supplémentaire nécessaire
+   ========================================================= */
+
+const Icon = ({ name, size = 20, strokeWidth = 2 }) => {
+  const common = {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    className: "evaluations-icon",
+    "aria-hidden": "true",
+  };
+
+  const icons = {
+    student: (
+      <>
+        <path d="M3 9l9-5 9 5-9 5-9-5Z" />
+        <path d="M7 12v5c2.5 2 7.5 2 10 0v-5" />
+        <path d="M21 10v5" />
+      </>
+    ),
+
+    building: (
+      <>
+        <path d="M3 21h18" />
+        <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
+        <path d="M9 7h2" />
+        <path d="M13 7h2" />
+        <path d="M9 11h2" />
+        <path d="M13 11h2" />
+        <path d="M9 15h2" />
+        <path d="M13 15h2" />
+      </>
+    ),
+
+    teacher: (
+      <>
+        <circle cx="12" cy="7" r="3" />
+        <path d="M5 21a7 7 0 0 1 14 0" />
+        <path d="M18 10h3" />
+        <path d="M20 8v4" />
+      </>
+    ),
+
+    search: (
+      <>
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-4-4" />
+      </>
+    ),
+
+    file: (
+      <>
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+        <path d="M14 2v6h6" />
+        <path d="M8 13h8" />
+        <path d="M8 17h6" />
+      </>
+    ),
+
+    check: (
+      <path d="m5 12 4 4L19 6" />
+    ),
+
+    close: (
+      <>
+        <path d="M6 6l12 12" />
+        <path d="M18 6 6 18" />
+      </>
+    ),
+
+    trash: (
+      <>
+        <path d="M4 7h16" />
+        <path d="M10 11v6" />
+        <path d="M14 11v6" />
+        <path d="M6 7l1 14h10l1-14" />
+        <path d="M9 7V4h6v3" />
+      </>
+    ),
+
+    save: (
+      <>
+        <path d="M5 4h12l2 2v14H5Z" />
+        <path d="M8 4v6h8V4" />
+        <path d="M8 20v-6h8v6" />
+      </>
+    ),
+
+    alert: (
+      <>
+        <path d="M10.3 3.3 2.5 17a2 2 0 0 0 1.7 3h15.6a2 2 0 0 0 1.7-3L13.7 3.3a2 2 0 0 0-3.4 0Z" />
+        <path d="M12 9v4" />
+        <path d="M12 17h.01" />
+      </>
+    ),
+  };
+
+  return (
+    <svg {...common}>
+      {icons[name] || icons.file}
+    </svg>
+  );
+};
+
 function Evaluations() {
-  // =========================================================
-  // ÉTATS
-  // =========================================================
+  /* =========================================================
+     ÉTATS
+     ========================================================= */
 
   const [evaluations, setEvaluations] = useState([]);
   const [rapports, setRapports] = useState([]);
@@ -34,9 +145,9 @@ function Evaluations() {
     message: "",
   });
 
-  // =========================================================
-  // UTILISATEUR CONNECTÉ
-  // =========================================================
+  /* =========================================================
+     UTILISATEUR CONNECTÉ
+     ========================================================= */
 
   const user = useMemo(() => {
     try {
@@ -59,9 +170,9 @@ function Evaluations() {
       ? "ENSEIGNANT"
       : null;
 
-  // =========================================================
-  // EXTRAIRE LES DONNÉES API
-  // =========================================================
+  /* =========================================================
+     EXTRAIRE LES DONNÉES API
+     ========================================================= */
 
   const extractData = (response) => {
     if (Array.isArray(response?.data)) {
@@ -75,17 +186,17 @@ function Evaluations() {
     return [];
   };
 
-  // =========================================================
-  // CHARGEMENT INITIAL
-  // =========================================================
+  /* =========================================================
+     CHARGEMENT INITIAL
+     ========================================================= */
 
   useEffect(() => {
     loadData();
   }, []);
 
-  // =========================================================
-  // CHARGER LES DONNÉES
-  // =========================================================
+  /* =========================================================
+     CHARGER LES DONNÉES
+     ========================================================= */
 
   const loadData = async () => {
     try {
@@ -166,9 +277,9 @@ function Evaluations() {
     }
   };
 
-  // =========================================================
-  // NOTIFICATION
-  // =========================================================
+  /* =========================================================
+     NOTIFICATION
+     ========================================================= */
 
   const showNotification = (
     title,
@@ -190,9 +301,9 @@ function Evaluations() {
     }, 4000);
   };
 
-  // =========================================================
-  // TITRE DU STAGE
-  // =========================================================
+  /* =========================================================
+     TITRE DU STAGE
+     ========================================================= */
 
   const getStageTitle = (stageId) => {
     const stage = stages.find(
@@ -203,9 +314,9 @@ function Evaluations() {
     return stage?.titre || `Stage #${stageId}`;
   };
 
-  // =========================================================
-  // TYPE ÉVALUATION
-  // =========================================================
+  /* =========================================================
+     TYPE ÉVALUATION
+     ========================================================= */
 
   const getTypeLabel = (type) => {
     if (type === "ENSEIGNANT") {
@@ -231,9 +342,9 @@ function Evaluations() {
     return "evaluation-type";
   };
 
-  // =========================================================
-  // STATUT RAPPORT
-  // =========================================================
+  /* =========================================================
+     STATUT RAPPORT
+     ========================================================= */
 
   const getReportStatusLabel = (statut) => {
     switch (statut) {
@@ -264,9 +375,9 @@ function Evaluations() {
     }
   };
 
-  // =========================================================
-  // CLASSE NOTE
-  // =========================================================
+  /* =========================================================
+     CLASSE NOTE
+     ========================================================= */
 
   const getNoteClass = (note) => {
     const value = Number(note);
@@ -286,9 +397,9 @@ function Evaluations() {
     return "evaluation-note note-low";
   };
 
-  // =========================================================
-  // TROUVER UNE ÉVALUATION
-  // =========================================================
+  /* =========================================================
+     TROUVER UNE ÉVALUATION
+     ========================================================= */
 
   const getEvaluationByType = (
     rapport,
@@ -322,9 +433,9 @@ function Evaluations() {
     );
   };
 
-  // =========================================================
-  // CONSTRUIRE LES LIGNES
-  // =========================================================
+  /* =========================================================
+     CONSTRUIRE LES LIGNES
+     ========================================================= */
 
   const evaluationRows = useMemo(() => {
     return rapports.map((rapport) => {
@@ -349,9 +460,9 @@ function Evaluations() {
     });
   }, [rapports, evaluations]);
 
-  // =========================================================
-  // FILTRAGE + RECHERCHE
-  // =========================================================
+  /* =========================================================
+     FILTRAGE + RECHERCHE
+     ========================================================= */
 
   const filteredRows = useMemo(() => {
     const value = search
@@ -367,10 +478,6 @@ function Evaluations() {
       const enseignantEvaluation =
         row.enseignantEvaluation;
 
-      // -------------------------------------------------------
-      // FILTRE ENTREPRISE
-      // -------------------------------------------------------
-
       if (
         filterType === "ENTREPRISE" &&
         !entrepriseEvaluation
@@ -378,20 +485,12 @@ function Evaluations() {
         return false;
       }
 
-      // -------------------------------------------------------
-      // FILTRE ENSEIGNANT
-      // -------------------------------------------------------
-
       if (
         filterType === "ENSEIGNANT" &&
         !enseignantEvaluation
       ) {
         return false;
       }
-
-      // -------------------------------------------------------
-      // RECHERCHE
-      // -------------------------------------------------------
 
       if (!value) {
         return true;
@@ -430,9 +529,9 @@ function Evaluations() {
     stages,
   ]);
 
-  // =========================================================
-  // OUVRIR MODAL
-  // =========================================================
+  /* =========================================================
+     OUVRIR MODAL
+     ========================================================= */
 
   const openEvaluationModal = (rapport) => {
     if (isEtudiant) {
@@ -483,9 +582,9 @@ function Evaluations() {
     setShowModal(true);
   };
 
-  // =========================================================
-  // FERMER MODAL
-  // =========================================================
+  /* =========================================================
+     FERMER MODAL
+     ========================================================= */
 
   const closeModal = () => {
     if (saving) {
@@ -501,9 +600,9 @@ function Evaluations() {
     });
   };
 
-  // =========================================================
-  // CHANGEMENT FORMULAIRE
-  // =========================================================
+  /* =========================================================
+     CHANGEMENT FORMULAIRE
+     ========================================================= */
 
   const handleChange = (e) => {
     const {
@@ -517,9 +616,9 @@ function Evaluations() {
     }));
   };
 
-  // =========================================================
-  // ENREGISTRER ÉVALUATION
-  // =========================================================
+  /* =========================================================
+     ENREGISTRER ÉVALUATION
+     ========================================================= */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -537,10 +636,6 @@ function Evaluations() {
 
       return;
     }
-
-    // -------------------------------------------------------
-    // NOTE
-    // -------------------------------------------------------
 
     const note = Number(
       formData.note
@@ -560,10 +655,6 @@ function Evaluations() {
       return;
     }
 
-    // -------------------------------------------------------
-    // COMMENTAIRE
-    // -------------------------------------------------------
-
     const commentaire =
       formData.commentaire.trim();
 
@@ -577,10 +668,6 @@ function Evaluations() {
       return;
     }
 
-    // -------------------------------------------------------
-    // RAPPORT
-    // -------------------------------------------------------
-
     if (
       selectedRapport.statut !== "VALIDE"
     ) {
@@ -592,10 +679,6 @@ function Evaluations() {
 
       return;
     }
-
-    // -------------------------------------------------------
-    // DOUBLON
-    // -------------------------------------------------------
 
     const existingEvaluation =
       getEvaluationByType(
@@ -645,9 +728,6 @@ function Evaluations() {
         "ÉVALUATION CRÉÉE :",
         response.data
       );
-
-      // Ajouter seulement l'évaluation
-      // sans toucher aux rapports.
 
       setEvaluations((previous) => [
         ...previous,
@@ -711,9 +791,9 @@ function Evaluations() {
     }
   };
 
-  // =========================================================
-  // SUPPRESSION ADMIN
-  // =========================================================
+  /* =========================================================
+     SUPPRESSION ADMIN
+     ========================================================= */
 
   const handleDelete = async (
     evaluation
@@ -748,14 +828,6 @@ function Evaluations() {
       await api.delete(
         `evaluations/${evaluation.id}/`
       );
-
-      /*
-       * IMPORTANT :
-       * On supprime uniquement l'évaluation
-       * de la liste evaluations.
-       *
-       * On ne touche PAS à rapports.
-       */
 
       setEvaluations((previous) =>
         previous.filter(
@@ -812,9 +884,9 @@ function Evaluations() {
     }
   };
 
-  // =========================================================
-  // ÉTAT CHARGEMENT
-  // =========================================================
+  /* =========================================================
+     CHARGEMENT
+     ========================================================= */
 
   if (loading) {
     return (
@@ -828,13 +900,19 @@ function Evaluations() {
     );
   }
 
-  // =========================================================
-  // ÉTAT ERREUR
-  // =========================================================
+  /* =========================================================
+     ERREUR
+     ========================================================= */
 
   if (error) {
     return (
       <div className="evaluations-state evaluations-error">
+        <div className="evaluations-error-icon">
+          <Icon
+            name="alert"
+            size={30}
+          />
+        </div>
 
         <h2>
           Accès impossible
@@ -850,14 +928,13 @@ function Evaluations() {
         >
           Réessayer
         </button>
-
       </div>
     );
   }
 
-  // =========================================================
-  // INTERFACE
-  // =========================================================
+  /* =========================================================
+     INTERFACE
+     ========================================================= */
 
   return (
     <div className="evaluations-page">
@@ -867,21 +944,21 @@ function Evaluations() {
       ===================================================== */}
 
       {notification.visible && (
-
         <div
           className={`evaluations-toast evaluations-toast-${notification.type}`}
         >
-
           <div className="evaluations-toast-icon">
-
-            {notification.type === "error"
-              ? "!"
-              : "✓"}
-
+            <Icon
+              name={
+                notification.type === "error"
+                  ? "alert"
+                  : "check"
+              }
+              size={19}
+            />
           </div>
 
-          <div>
-
+          <div className="evaluations-toast-content">
             <strong>
               {notification.title}
             </strong>
@@ -889,11 +966,11 @@ function Evaluations() {
             <p>
               {notification.message}
             </p>
-
           </div>
 
           <button
             type="button"
+            className="evaluations-toast-close"
             onClick={() =>
               setNotification(
                 (previous) => ({
@@ -902,12 +979,14 @@ function Evaluations() {
                 })
               )
             }
+            aria-label="Fermer"
           >
-            ×
+            <Icon
+              name="close"
+              size={17}
+            />
           </button>
-
         </div>
-
       )}
 
       {/* =====================================================
@@ -915,11 +994,8 @@ function Evaluations() {
       ===================================================== */}
 
       <header className="evaluations-header">
-
         <div>
-
           <div className="evaluations-breadcrumb">
-
             {isEtudiant
               ? "Espace étudiant"
               : isEntreprise
@@ -928,12 +1004,9 @@ function Evaluations() {
                   ? "Espace encadrement"
                   : "Administration"}
 
-            <span>
-              /
-            </span>
+            <span>/</span>
 
             Évaluations
-
           </div>
 
           <span className="evaluations-kicker">
@@ -948,9 +1021,7 @@ function Evaluations() {
             Suivi des évaluations réalisées
             après le dépôt des rapports de stage.
           </p>
-
         </div>
-
       </header>
 
       {/* =====================================================
@@ -958,15 +1029,15 @@ function Evaluations() {
       ===================================================== */}
 
       {isEtudiant && (
-
         <section className="evaluations-info-card">
-
           <div className="evaluations-info-icon">
-            🎓
+            <Icon
+              name="student"
+              size={27}
+            />
           </div>
 
           <div>
-
             <h3>
               Suivi de votre stage
             </h3>
@@ -984,11 +1055,8 @@ function Evaluations() {
               modifier ou supprimer une
               évaluation.
             </strong>
-
           </div>
-
         </section>
-
       )}
 
       {/* =====================================================
@@ -996,15 +1064,15 @@ function Evaluations() {
       ===================================================== */}
 
       {isEntreprise && (
-
         <section className="evaluations-info-card">
-
           <div className="evaluations-info-icon">
-            🏢
+            <Icon
+              name="building"
+              size={27}
+            />
           </div>
 
           <div>
-
             <h3>
               Évaluation entreprise
             </h3>
@@ -1014,11 +1082,8 @@ function Evaluations() {
               étudiants après validation
               de leur rapport de stage.
             </p>
-
           </div>
-
         </section>
-
       )}
 
       {/* =====================================================
@@ -1026,15 +1091,15 @@ function Evaluations() {
       ===================================================== */}
 
       {isEnseignant && (
-
         <section className="evaluations-info-card">
-
           <div className="evaluations-info-icon">
-            👨‍🏫
+            <Icon
+              name="teacher"
+              size={27}
+            />
           </div>
 
           <div>
-
             <h3>
               Évaluation de l'encadrement
             </h3>
@@ -1044,11 +1109,8 @@ function Evaluations() {
               de l'étudiant après validation
               de son rapport.
             </p>
-
           </div>
-
         </section>
-
       )}
 
       {/* =====================================================
@@ -1058,9 +1120,11 @@ function Evaluations() {
       <section className="evaluations-toolbar">
 
         <div className="evaluations-search">
-
-          <span>
-            ⌕
+          <span className="evaluations-search-icon">
+            <Icon
+              name="search"
+              size={19}
+            />
           </span>
 
           <input
@@ -1071,7 +1135,6 @@ function Evaluations() {
             }
             placeholder="Rechercher un rapport ou un stage..."
           />
-
         </div>
 
         <div className="evaluations-filters">
@@ -1123,7 +1186,6 @@ function Evaluations() {
           </button>
 
         </div>
-
       </section>
 
       {/* =====================================================
@@ -1133,8 +1195,10 @@ function Evaluations() {
       <section className="evaluations-card">
 
         <div className="evaluations-card-header">
-
           <div>
+            <span className="evaluations-section-label">
+              ÉVALUATIONS
+            </span>
 
             <h2>
               Rapports et évaluations
@@ -1145,13 +1209,11 @@ function Evaluations() {
               une évaluation de l'entreprise
               et une évaluation de l'encadreur.
             </p>
-
           </div>
 
-          <span>
+          <span className="evaluations-count">
             {filteredRows.length} rapport(s)
           </span>
-
         </div>
 
         {/* ===================================================
@@ -1163,7 +1225,10 @@ function Evaluations() {
           <div className="evaluations-empty">
 
             <div className="evaluations-empty-icon">
-              📄
+              <Icon
+                name="file"
+                size={34}
+              />
             </div>
 
             <h3>
@@ -1184,35 +1249,14 @@ function Evaluations() {
             <table className="evaluations-table">
 
               <thead>
-
                 <tr>
-
-                  <th>
-                    Rapport
-                  </th>
-
-                  <th>
-                    Stage
-                  </th>
-
-                  <th>
-                    Statut
-                  </th>
-
-                  <th>
-                    Entreprise
-                  </th>
-
-                  <th>
-                    Encadrement
-                  </th>
-
-                  <th>
-                    Actions
-                  </th>
-
+                  <th>Rapport</th>
+                  <th>Stage</th>
+                  <th>Statut</th>
+                  <th>Entreprise</th>
+                  <th>Encadrement</th>
+                  <th>Actions</th>
                 </tr>
-
               </thead>
 
               <tbody>
@@ -1236,25 +1280,24 @@ function Evaluations() {
                         "VALIDE";
 
                     return (
-
                       <tr
                         key={row.id}
                       >
 
-                        {/* ===================================
-                            RAPPORT
-                        =================================== */}
+                        {/* RAPPORT */}
 
                         <td>
 
                           <div className="evaluation-user">
 
                             <div className="evaluation-avatar">
-                              📄
+                              <Icon
+                                name="file"
+                                size={19}
+                              />
                             </div>
 
                             <div>
-
                               <strong>
                                 {rapport.titre ||
                                   "Rapport de stage"}
@@ -1263,16 +1306,13 @@ function Evaluations() {
                               <span>
                                 Rapport #{rapport.id}
                               </span>
-
                             </div>
 
                           </div>
 
                         </td>
 
-                        {/* ===================================
-                            STAGE
-                        =================================== */}
+                        {/* STAGE */}
 
                         <td>
 
@@ -1284,9 +1324,7 @@ function Evaluations() {
 
                         </td>
 
-                        {/* ===================================
-                            STATUT
-                        =================================== */}
+                        {/* STATUT */}
 
                         <td>
 
@@ -1302,15 +1340,13 @@ function Evaluations() {
 
                         </td>
 
-                        {/* ===================================
-                            ENTREPRISE
-                        =================================== */}
+                        {/* ENTREPRISE */}
 
                         <td>
 
                           {entrepriseEvaluation ? (
 
-                            <div>
+                            <div className="evaluation-result">
 
                               <span
                                 className={getTypeClass(
@@ -1320,8 +1356,6 @@ function Evaluations() {
                                 Entreprise
                               </span>
 
-                              <br />
-
                               <span
                                 className={getNoteClass(
                                   entrepriseEvaluation.note
@@ -1334,7 +1368,6 @@ function Evaluations() {
                                 <small>
                                   /20
                                 </small>
-
                               </span>
 
                             </div>
@@ -1349,15 +1382,13 @@ function Evaluations() {
 
                         </td>
 
-                        {/* ===================================
-                            ENCADREMENT
-                        =================================== */}
+                        {/* ENCADREMENT */}
 
                         <td>
 
                           {enseignantEvaluation ? (
 
-                            <div>
+                            <div className="evaluation-result">
 
                               <span
                                 className={getTypeClass(
@@ -1367,8 +1398,6 @@ function Evaluations() {
                                 Encadrement
                               </span>
 
-                              <br />
-
                               <span
                                 className={getNoteClass(
                                   enseignantEvaluation.note
@@ -1381,7 +1410,6 @@ function Evaluations() {
                                 <small>
                                   /20
                                 </small>
-
                               </span>
 
                             </div>
@@ -1396,24 +1424,26 @@ function Evaluations() {
 
                         </td>
 
-                        {/* ===================================
-                            ACTIONS
-                        =================================== */}
+                        {/* ACTIONS */}
 
                         <td>
 
                           <div className="evaluations-actions">
 
-                            {/* ---------------------------------
-                                ENTREPRISE
-                            --------------------------------- */}
+                            {/* ENTREPRISE */}
 
                             {isEntreprise && (
-
                               entrepriseEvaluation ? (
 
                                 <span className="evaluation-done">
-                                  ✓ Évalué
+
+                                  <Icon
+                                    name="check"
+                                    size={14}
+                                  />
+
+                                  Évalué
+
                                 </span>
 
                               ) : canEvaluate ? (
@@ -1431,19 +1461,22 @@ function Evaluations() {
                                 </button>
 
                               ) : null
-
                             )}
 
-                            {/* ---------------------------------
-                                ENSEIGNANT
-                            --------------------------------- */}
+                            {/* ENSEIGNANT */}
 
                             {isEnseignant && (
-
                               enseignantEvaluation ? (
 
                                 <span className="evaluation-done">
-                                  ✓ Évalué
+
+                                  <Icon
+                                    name="check"
+                                    size={14}
+                                  />
+
+                                  Évalué
+
                                 </span>
 
                               ) : canEvaluate ? (
@@ -1461,12 +1494,9 @@ function Evaluations() {
                                 </button>
 
                               ) : null
-
                             )}
 
-                            {/* ---------------------------------
-                                ADMIN
-                            --------------------------------- */}
+                            {/* ADMIN */}
 
                             {isAdmin && (
 
@@ -1487,10 +1517,17 @@ function Evaluations() {
                                       )
                                     }
                                   >
+
+                                    <Icon
+                                      name="trash"
+                                      size={15}
+                                    />
+
                                     {deletingId ===
                                     entrepriseEvaluation.id
                                       ? "Suppression..."
                                       : "Supprimer entreprise"}
+
                                   </button>
 
                                 )}
@@ -1510,10 +1547,17 @@ function Evaluations() {
                                       )
                                     }
                                   >
+
+                                    <Icon
+                                      name="trash"
+                                      size={15}
+                                    />
+
                                     {deletingId ===
                                     enseignantEvaluation.id
                                       ? "Suppression..."
                                       : "Supprimer encadrement"}
+
                                   </button>
 
                                 )}
@@ -1531,9 +1575,7 @@ function Evaluations() {
 
                             )}
 
-                            {/* ---------------------------------
-                                ÉTUDIANT
-                            --------------------------------- */}
+                            {/* ÉTUDIANT */}
 
                             {isEtudiant && (
 
@@ -1548,7 +1590,6 @@ function Evaluations() {
                         </td>
 
                       </tr>
-
                     );
                   }
                 )}
@@ -1607,8 +1648,12 @@ function Evaluations() {
                   className="evaluation-modal-close"
                   onClick={closeModal}
                   disabled={saving}
+                  aria-label="Fermer"
                 >
-                  ×
+                  <Icon
+                    name="close"
+                    size={20}
+                  />
                 </button>
 
               </div>
@@ -1617,29 +1662,42 @@ function Evaluations() {
 
               <div className="evaluation-modal-report">
 
-                <strong>
-                  {selectedRapport.titre ||
-                    "Rapport de stage"}
-                </strong>
+                <div className="evaluation-modal-report-icon">
+                  <Icon
+                    name="file"
+                    size={20}
+                  />
+                </div>
 
-                <span>
-                  {getStageTitle(
-                    selectedRapport.stage
-                  )}
-                </span>
+                <div>
 
-                <span>
-                  Évaluation :{" "}
-                  {getTypeLabel(
-                    evaluatorType
-                  )}
-                </span>
+                  <strong>
+                    {selectedRapport.titre ||
+                      "Rapport de stage"}
+                  </strong>
+
+                  <span>
+                    {getStageTitle(
+                      selectedRapport.stage
+                    )}
+                  </span>
+
+                  <span>
+                    Évaluation :{" "}
+                    {getTypeLabel(
+                      evaluatorType
+                    )}
+                  </span>
+
+                </div>
 
               </div>
 
               {/* FORMULAIRE */}
 
-              <form onSubmit={handleSubmit}>
+              <form
+                onSubmit={handleSubmit}
+              >
 
                 <div className="evaluations-form-grid">
 
@@ -1708,7 +1766,7 @@ function Evaluations() {
 
                 </div>
 
-                {/* ACTIONS MODAL */}
+                {/* ACTIONS */}
 
                 <div className="evaluations-modal-actions">
 
@@ -1726,9 +1784,16 @@ function Evaluations() {
                     className="evaluation-save"
                     disabled={saving}
                   >
+
+                    <Icon
+                      name="save"
+                      size={16}
+                    />
+
                     {saving
                       ? "Enregistrement..."
                       : "Enregistrer l'évaluation"}
+
                   </button>
 
                 </div>
