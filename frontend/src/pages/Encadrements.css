@@ -1784,3 +1784,30 @@ body.dark-mode .encadrements-page textarea::placeholder {
   color: #64748b;
 
 }
+/* Style forcé du bouton principal d'affectation */
+.encadrements-add-button {
+  background-color: #2563eb !important; /* Bleu institutionnel */
+  color: #ffffff !important;           /* Texte blanc garanti */
+  border: none !important;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.encadrements-add-button:hover {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+/* Annulation explicite des effets du mode nuit automatique */
+@media (prefers-color-scheme: dark) {
+  .encadrements-add-button {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+  }
+}
