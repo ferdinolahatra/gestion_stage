@@ -720,3 +720,38 @@ body.dark-mode .depot-demande-error-icon {
   background: #450a0a;
   color: #f87171;
 }
+/* Correction des boutons du modal pour le mode nuit */
+.encadrements-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.encadrement-button-secondary {
+  background-color: #374151 !important; /* Gris sombre */
+  color: #f3f4f6 !important;            /* Texte clair */
+  border: 1px solid #4b5563 !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.encadrement-button-secondary:hover {
+  background-color: #4b5563 !important;
+}
+
+.encadrement-button-primary {
+  background-color: #2563eb !important; /* Bleu */
+  color: #ffffff !important;           /* Texte blanc */
+  border: none !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.encadrement-button-primary:hover {
+  background-color: #1d4ed8 !important;
+}
