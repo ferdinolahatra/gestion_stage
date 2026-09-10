@@ -2028,3 +2028,475 @@ select {
     color 0.25s ease,
     border-color 0.25s ease;
 }
+/* =========================================================
+   RESPONSIVE TABLETTE + MOBILE UNIQUEMENT
+   PC : aucun changement
+   LOGIQUE REACT : aucune modification
+========================================================= */
+
+/* =========================================================
+   TABLETTE : 1024px ET MOINS
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .protected-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .protected-content > *,
+  .protected-content > div,
+  .protected-content > section,
+  .protected-content > article {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .protected-content h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.25;
+  }
+
+  .protected-content h2 {
+    font-size: clamp(20px, 3vw, 26px);
+    line-height: 1.3;
+  }
+
+  .protected-content h3 {
+    font-size: clamp(17px, 2.5vw, 22px);
+    line-height: 1.35;
+  }
+
+  .protected-content .page-header,
+  .protected-content .dashboard-header,
+  .protected-content .entreprises-header,
+  .protected-content .stages-header,
+  .protected-content .candidatures-header,
+  .protected-content .encadrements-header,
+  .protected-content .journaux-header,
+  .protected-content .rapports-header,
+  .protected-content .evaluations-header,
+  .protected-content .users-header,
+  .protected-content .history-header,
+  .protected-content .statistiques-header,
+  .protected-content .demandes-header,
+  .protected-content .validation-demandes-header {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .protected-content .stats-grid,
+  .protected-content .content-grid,
+  .protected-content .form-grid,
+  .protected-content .cards-grid {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .protected-content .card,
+  .protected-content .panel,
+  .protected-content .content-card,
+  .protected-content .page-card,
+  .protected-content .form-card,
+  .protected-content .table-card,
+  .protected-content .dashboard-panel,
+  .protected-content .stat-card {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .protected-content form {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .protected-content input,
+  .protected-content select,
+  .protected-content textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .protected-content table {
+    max-width: 100%;
+  }
+
+  .protected-content .table-wrapper,
+  .protected-content .table-container,
+  .protected-content .table-responsive,
+  .protected-content .data-table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .protected-content .actions,
+  .protected-content .page-actions,
+  .protected-content .button-group,
+  .protected-content .action-buttons,
+  .protected-content .toolbar {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+
+/* =========================================================
+   TABLETTE / PETIT ÉCRAN : 768px ET MOINS
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .protected-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    padding: 14px;
+    overflow-x: hidden;
+  }
+
+  .protected-content .container,
+  .protected-content .page-container,
+  .protected-content .page-content,
+  .protected-content .content-container,
+  .protected-content .main-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .protected-content h1 {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .protected-content h2 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .protected-content h3 {
+    font-size: 17px;
+  }
+
+  .protected-content h4 {
+    font-size: 15px;
+  }
+
+  .protected-content p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .protected-content .card,
+  .protected-content .panel,
+  .protected-content .content-card,
+  .protected-content .page-card,
+  .protected-content .form-card,
+  .protected-content .table-card,
+  .protected-content .dashboard-panel,
+  .protected-content .stat-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .protected-content .stats-grid,
+  .protected-content .form-grid,
+  .protected-content .content-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .protected-content .actions,
+  .protected-content .page-actions,
+  .protected-content .button-group,
+  .protected-content .action-buttons,
+  .protected-content .toolbar {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .protected-content button {
+    max-width: 100%;
+    min-height: 38px;
+    padding: 8px 12px;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
+  .protected-content input,
+  .protected-content select,
+  .protected-content textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 40px;
+    padding: 9px 11px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  .protected-content form {
+    width: 100%;
+  }
+
+  .protected-content h1,
+  .protected-content h2,
+  .protected-content h3,
+  .protected-content h4,
+  .protected-content h5,
+  .protected-content h6,
+  .protected-content p,
+  .protected-content label,
+  .protected-content span,
+  .protected-content td,
+  .protected-content th {
+    overflow-wrap: anywhere;
+  }
+
+  .protected-content .table-wrapper,
+  .protected-content .table-container,
+  .protected-content .table-responsive,
+  .protected-content .data-table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .protected-content table {
+    width: 100%;
+    max-width: none;
+    min-width: 620px;
+  }
+
+  .protected-content svg {
+    flex-shrink: 0;
+  }
+
+  .protected-content .modal,
+  .protected-content .modal-content,
+  .protected-content .dialog,
+  .protected-content .popup,
+  .protected-content .evaluation-modal,
+  .protected-content .evaluations-modal {
+    max-width: calc(100vw - 24px);
+    width: calc(100vw - 24px);
+    box-sizing: border-box;
+  }
+
+  .protected-content .search,
+  .protected-content .search-box,
+  .protected-content .search-container,
+  .protected-content .filters {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .protected-content .pagination {
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+
+/* =========================================================
+   TÉLÉPHONE : 600px ET MOINS
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .protected-content {
+    padding: 12px;
+  }
+
+  .protected-content h1 {
+    font-size: 22px;
+  }
+
+  .protected-content h2 {
+    font-size: 19px;
+  }
+
+  .protected-content h3 {
+    font-size: 16px;
+  }
+
+  .protected-content .card,
+  .protected-content .panel,
+  .protected-content .content-card,
+  .protected-content .page-card,
+  .protected-content .form-card,
+  .protected-content .table-card,
+  .protected-content .dashboard-panel,
+  .protected-content .stat-card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .protected-content button {
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .protected-content input,
+  .protected-content select,
+  .protected-content textarea {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .protected-content .actions,
+  .protected-content .page-actions,
+  .protected-content .button-group,
+  .protected-content .action-buttons {
+    gap: 6px;
+  }
+
+  .protected-content table {
+    min-width: 580px;
+    font-size: 12px;
+  }
+
+  .protected-content th,
+  .protected-content td {
+    padding: 8px;
+  }
+
+  .protected-content .badge {
+    font-size: 11px;
+    padding: 4px 7px;
+  }
+
+  .protected-content .stats-grid {
+    gap: 12px;
+  }
+}
+
+
+/* =========================================================
+   PETIT TÉLÉPHONE : 480px ET MOINS
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .protected-content {
+    padding: 10px;
+  }
+
+  .protected-content h1 {
+    font-size: 21px;
+  }
+
+  .protected-content h2 {
+    font-size: 18px;
+  }
+
+  .protected-content h3 {
+    font-size: 15px;
+  }
+
+  .protected-content p {
+    font-size: 13px;
+  }
+
+  .protected-content .card,
+  .protected-content .panel,
+  .protected-content .content-card,
+  .protected-content .page-card,
+  .protected-content .form-card,
+  .protected-content .table-card,
+  .protected-content .dashboard-panel,
+  .protected-content .stat-card {
+    padding: 12px;
+  }
+
+  .protected-content button {
+    min-height: 34px;
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+
+  .protected-content input,
+  .protected-content select,
+  .protected-content textarea {
+    min-height: 36px;
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+
+  .protected-content .action-buttons button,
+  .protected-content .page-actions button,
+  .protected-content .button-group button {
+    flex: 1 1 auto;
+  }
+
+  .protected-content table {
+    min-width: 540px;
+    font-size: 11px;
+  }
+
+  .protected-content th,
+  .protected-content td {
+    padding: 7px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETIT TÉLÉPHONE : 360px ET MOINS
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .protected-content {
+    padding: 8px;
+  }
+
+  .protected-content h1 {
+    font-size: 19px;
+  }
+
+  .protected-content h2 {
+    font-size: 17px;
+  }
+
+  .protected-content .card,
+  .protected-content .panel,
+  .protected-content .content-card,
+  .protected-content .page-card,
+  .protected-content .form-card,
+  .protected-content .table-card {
+    padding: 10px;
+  }
+
+  .protected-content button {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+
+  .protected-content input,
+  .protected-content select,
+  .protected-content textarea {
+    font-size: 11px;
+  }
+}
