@@ -3,14 +3,19 @@
 ===================================================== */
 
 .sidebar {
+
   width: 265px;
+
   height: 100vh;
 
   position: fixed;
+
   left: 0;
+
   top: 0;
 
   display: flex;
+
   flex-direction: column;
 
   background: #ffffff;
@@ -23,6 +28,12 @@
   z-index: 1000;
 
   overflow: hidden;
+
+  transition:
+    transform 0.28s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+
 }
 
 
@@ -31,9 +42,11 @@
 ===================================================== */
 
 .sidebar-brand {
+
   min-height: 82px;
 
   display: flex;
+
   align-items: center;
 
   gap: 12px;
@@ -41,17 +54,24 @@
   padding: 0 20px;
 
   border-bottom: 1px solid #eef2f7;
+
+  flex-shrink: 0;
+
 }
 
 
 .sidebar-logo {
+
   width: 42px;
+
   height: 42px;
 
   flex-shrink: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 11px;
@@ -66,35 +86,45 @@
   color: #ffffff;
 
   font-size: 14px;
+
   font-weight: 800;
 
   letter-spacing: 0.5px;
 
   box-shadow:
     0 7px 18px rgba(37, 99, 235, 0.20);
+
 }
 
 
 .sidebar-brand-text {
+
   min-width: 0;
+
+  flex: 1;
+
 }
 
 
 .sidebar-brand-text h2 {
+
   margin: 0;
 
   color: #111827;
 
   font-size: 14px;
+
   font-weight: 750;
 
   line-height: 1.3;
 
   white-space: nowrap;
+
 }
 
 
 .sidebar-brand-text span {
+
   display: block;
 
   margin-top: 3px;
@@ -102,7 +132,56 @@
   color: #94a3b8;
 
   font-size: 10px;
+
   font-weight: 500;
+
+}
+
+
+/* =====================================================
+   BOUTON FERMER MOBILE
+===================================================== */
+
+.sidebar-close {
+
+  display: none;
+
+  width: 38px;
+
+  height: 38px;
+
+  flex-shrink: 0;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+}
+
+
+.sidebar-close:hover {
+
+  background: #eff6ff;
+
+  border-color: #bfdbfe;
+
+  color: #2563eb;
+
 }
 
 
@@ -111,9 +190,11 @@
 ===================================================== */
 
 .sidebar-nav {
+
   flex: 1;
 
   display: flex;
+
   flex-direction: column;
 
   gap: 4px;
@@ -121,22 +202,32 @@
   padding: 18px 12px;
 
   overflow-y: auto;
+
+  min-height: 0;
+
 }
 
 
 /* Scrollbar */
 
 .sidebar-nav::-webkit-scrollbar {
+
   width: 4px;
+
 }
 
 .sidebar-nav::-webkit-scrollbar-track {
+
   background: transparent;
+
 }
 
 .sidebar-nav::-webkit-scrollbar-thumb {
+
   background: #dbe3ee;
+
   border-radius: 10px;
+
 }
 
 
@@ -145,9 +236,11 @@
 ===================================================== */
 
 .sidebar-link {
+
   min-height: 44px;
 
   display: flex;
+
   align-items: center;
 
   gap: 12px;
@@ -161,16 +254,19 @@
   text-decoration: none;
 
   font-size: 12px;
+
   font-weight: 600;
 
   transition:
     background 0.18s ease,
     color 0.18s ease,
     transform 0.18s ease;
+
 }
 
 
 .sidebar-link svg {
+
   flex-shrink: 0;
 
   color: #94a3b8;
@@ -178,39 +274,49 @@
   transition:
     color 0.18s ease,
     transform 0.18s ease;
+
 }
 
 
 .sidebar-link span {
+
+  min-width: 0;
+
   white-space: nowrap;
 
   overflow: hidden;
 
   text-overflow: ellipsis;
+
 }
 
 
 /* Hover */
 
 .sidebar-link:hover {
+
   background: #f8fafc;
 
   color: #2563eb;
 
   transform: translateX(2px);
+
 }
 
 
 .sidebar-link:hover svg {
+
   color: #2563eb;
 
   transform: scale(1.05);
+
 }
 
 
 /* Active */
 
 .sidebar-link.active {
+
   background: #eff6ff;
 
   color: #2563eb;
@@ -219,19 +325,23 @@
 
   box-shadow:
     inset 3px 0 0 #2563eb;
+
 }
 
 
 .sidebar-link.active svg {
+
   color: #2563eb;
+
 }
 
 
 /* =====================================================
-   BAS DE SIDEBAR
+   BAS
 ===================================================== */
 
 .sidebar-bottom {
+
   flex-shrink: 0;
 
   padding: 12px;
@@ -239,6 +349,7 @@
   border-top: 1px solid #eef2f7;
 
   background: #ffffff;
+
 }
 
 
@@ -247,9 +358,11 @@
 ===================================================== */
 
 .sidebar-user {
+
   min-height: 52px;
 
   display: flex;
+
   align-items: center;
 
   gap: 10px;
@@ -263,17 +376,22 @@
   background: #f8fafc;
 
   border: 1px solid #eef2f7;
+
 }
 
 
 .sidebar-avatar {
+
   width: 34px;
+
   height: 34px;
 
   flex-shrink: 0;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   border-radius: 9px;
@@ -283,21 +401,27 @@
   color: #2563eb;
 
   font-size: 12px;
+
   font-weight: 800;
+
 }
 
 
 .sidebar-user-info {
+
   min-width: 0;
+
 }
 
 
 .sidebar-user-info strong {
+
   display: block;
 
   color: #111827;
 
   font-size: 11px;
+
   font-weight: 700;
 
   white-space: nowrap;
@@ -305,10 +429,12 @@
   overflow: hidden;
 
   text-overflow: ellipsis;
+
 }
 
 
 .sidebar-user-info span {
+
   display: block;
 
   margin-top: 3px;
@@ -316,22 +442,90 @@
   color: #94a3b8;
 
   font-size: 9px;
+
   font-weight: 600;
 
   text-transform: uppercase;
+
 }
 
 
 /* =====================================================
-   BOUTON DÉCONNEXION
+   BOUTON THEME
 ===================================================== */
 
-.logout-button {
+.theme-button {
+
   width: 100%;
+
   min-height: 42px;
 
   display: flex;
+
   align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  margin-bottom: 8px;
+
+  border: 1px solid #dbe4ec;
+
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  color: #526b82;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+}
+
+
+.theme-button:hover {
+
+  background: #eaf4fc;
+
+  color: #1767b1;
+
+  border-color: #bcd4e8;
+
+}
+
+
+.theme-button svg {
+
+  flex-shrink: 0;
+
+}
+
+
+/* =====================================================
+   DECONNEXION
+===================================================== */
+
+.logout-button {
+
+  width: 100%;
+
+  min-height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
   justify-content: center;
 
   gap: 9px;
@@ -347,6 +541,7 @@
   font-family: inherit;
 
   font-size: 11px;
+
   font-weight: 700;
 
   cursor: pointer;
@@ -356,15 +551,19 @@
     border-color 0.18s ease,
     color 0.18s ease,
     transform 0.18s ease;
+
 }
 
 
 .logout-button svg {
+
   flex-shrink: 0;
+
 }
 
 
 .logout-button:hover {
+
   background: #fee2e2;
 
   border-color: #fecaca;
@@ -372,319 +571,456 @@
   color: #b91c1c;
 
   transform: translateY(-1px);
+
 }
 
 
 .logout-button:active {
+
   transform: translateY(0);
+
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   BOUTON MOBILE OUVRIR
 ===================================================== */
 
-@media (max-width: 900px) {
+.mobile-sidebar-toggle {
 
-  .sidebar {
-    width: 235px;
-  }
+  display: none;
 
-  .sidebar-brand {
-    padding: 0 16px;
-  }
+  position: fixed;
 
-  .sidebar-nav {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
+  top: 15px;
 
-}
+  left: 15px;
 
+  width: 44px;
 
-@media (max-width: 650px) {
+  height: 44px;
 
-  .sidebar {
-    width: 220px;
-  }
-
-  .sidebar-brand-text h2 {
-    font-size: 12px;
-  }
-
-  .sidebar-link {
-    font-size: 11px;
-  }
-
-}
-
-
-
-/* =========================================
-   BOUTON MODE CLAIR / NUIT
-========================================= */
-
-.theme-button {
-  width: 100%;
-  display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  margin-bottom: 8px;
+
+  justify-content: center;
 
   border: 1px solid #dbe4ec;
-  border-radius: 9px;
 
-  background: #f8fafc;
-  color: #526b82;
+  border-radius: 11px;
 
-  font-size: 14px;
-  font-weight: 500;
+  background: rgba(255,255,255,.96);
+
+  color: #2563eb;
+
+  box-shadow:
+    0 6px 20px rgba(15,23,42,.10);
 
   cursor: pointer;
 
+  z-index: 1100;
+
   transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
-}
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 
-.theme-button:hover {
-  background: #eaf4fc;
-  color: #1767b1;
-  border-color: #bcd4e8;
 }
 
 
-/* =========================================
-   MODE NUIT — SIDEBAR
-========================================= */
+.mobile-sidebar-toggle:hover {
 
-/* Fond principal de la sidebar */
+  background: #eff6ff;
+
+  transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   OVERLAY MOBILE
+===================================================== */
+
+.sidebar-overlay {
+
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  backdrop-filter: blur(2px);
+
+  z-index: 950;
+
+}
+
+
+/* =====================================================
+   MODE NUIT
+===================================================== */
+
 body.dark-mode .sidebar {
+
   background: #111827;
+
   border-right-color: #273449;
 
   box-shadow:
     8px 0 30px rgba(0, 0, 0, 0.25);
+
 }
 
-
-/* =========================================
-   BRAND — MODE NUIT
-========================================= */
 
 body.dark-mode .sidebar-brand {
+
   border-bottom-color: #273449;
+
 }
+
 
 body.dark-mode .sidebar-brand-text h2 {
+
   color: #f1f5f9;
+
 }
+
 
 body.dark-mode .sidebar-brand-text span {
+
   color: #94a3b8;
+
 }
 
 
-/* =========================================
-   NAVIGATION — MODE NUIT
-========================================= */
+body.dark-mode .sidebar-close {
+
+  background: #1e293b;
+
+  border-color: #334155;
+
+  color: #94a3b8;
+
+}
+
+
+body.dark-mode .sidebar-close:hover {
+
+  background: #273449;
+
+  border-color: #475569;
+
+  color: #7dd3fc;
+
+}
+
 
 body.dark-mode .sidebar-link {
+
   color: #cbd5e1;
+
 }
+
 
 body.dark-mode .sidebar-link svg {
+
   color: #94a3b8;
+
 }
 
 
-/* Hover */
 body.dark-mode .sidebar-link:hover {
+
   background: #1e293b;
+
   color: #60a5fa;
+
 }
+
 
 body.dark-mode .sidebar-link:hover svg {
+
   color: #60a5fa;
+
 }
 
 
-/* Lien actif */
 body.dark-mode .sidebar-link.active {
+
   background: #172554;
+
   color: #60a5fa;
 
   box-shadow:
     inset 3px 0 0 #3b82f6;
+
 }
+
 
 body.dark-mode .sidebar-link.active svg {
+
   color: #60a5fa;
+
 }
 
-
-/* =========================================
-   SCROLLBAR — MODE NUIT
-========================================= */
 
 body.dark-mode .sidebar-nav::-webkit-scrollbar-thumb {
+
   background: #334155;
+
 }
 
-
-/* =========================================
-   BAS DE SIDEBAR
-========================================= */
 
 body.dark-mode .sidebar-bottom {
+
   background: #111827;
+
   border-top-color: #273449;
+
 }
 
-
-/* =========================================
-   UTILISATEUR — MODE NUIT
-========================================= */
 
 body.dark-mode .sidebar-user {
+
   background: #1e293b;
+
   border-color: #334155;
+
 }
+
 
 body.dark-mode .sidebar-avatar {
-  background: #1e3a8a;
-  color: #93c5fd;
+
+  background: #172554;
+
+  color: #60a5fa;
+
 }
+
 
 body.dark-mode .sidebar-user-info strong {
-  color: #f1f5f9;
+
+  color: #f8fafc;
+
 }
+
 
 body.dark-mode .sidebar-user-info span {
+
   color: #94a3b8;
+
 }
 
-
-/* =========================================
-   BOUTON DÉCONNEXION — MODE NUIT
-========================================= */
-
-body.dark-mode .logout-button {
-  background: #2a171a;
-  border-color: #5f262b;
-  color: #f87171;
-}
-
-body.dark-mode .logout-button:hover {
-  background: #3b1d21;
-  border-color: #7f1d1d;
-  color: #fca5a5;
-}
-
-
-/* =========================================
-   BOUTON THÈME — MODE NUIT
-========================================= */
 
 body.dark-mode .theme-button {
+
   background: #1e293b;
+
   border-color: #334155;
+
   color: #e2e8f0;
+
 }
+
 
 body.dark-mode .theme-button:hover {
+
   background: #273449;
+
   color: #7dd3fc;
+
   border-color: #475569;
+
 }
 
 
-/* =========================================
-   ANCIENNE CLASSE — SI UTILISÉE
-========================================= */
+body.dark-mode .logout-button {
 
-body.dark-mode .nom-de-ta-classe {
-  background: #111827;
-  color: #e2e8f0;
+  background: #2a171a;
+
+  border-color: #5f262b;
+
+  color: #f87171;
+
+}
+
+
+body.dark-mode .logout-button:hover {
+
+  background: #3b1d21;
+
+  border-color: #7f1d1d;
+
+  color: #fca5a5;
+
+}
+
+
+body.dark-mode .mobile-sidebar-toggle {
+
+  background: #172235;
+
   border-color: #334155;
+
+  color: #7dd3fc;
+
 }
+
 
 /* =====================================================
-   SIDEBAR — MODE SOMBRE
+   RESPONSIVE TABLETTE
 ===================================================== */
 
-body.dark-mode .sidebar {
-  background: #111827;
-  border-right-color: #334155;
-  box-shadow: 8px 0 30px rgba(0, 0, 0, 0.20);
+@media (max-width: 1100px) {
+
+  .sidebar {
+
+    width: 235px;
+
+  }
+
 }
 
-/* Texte du logo */
-body.dark-mode .sidebar-brand {
-  border-bottom-color: #334155;
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+
+    width: min(285px, 88vw);
+
+    transform: translateX(-100%);
+
+    box-shadow:
+      15px 0 40px rgba(15, 23, 42, 0.18);
+
+  }
+
+
+  .sidebar.sidebar-open {
+
+    transform: translateX(0);
+
+  }
+
+
+  .mobile-sidebar-toggle {
+
+    display: flex;
+
+  }
+
+
+  .sidebar-overlay {
+
+    display: block;
+
+  }
+
+
+  .sidebar-close {
+
+    display: flex;
+
+  }
+
+
+  .sidebar-brand {
+
+    min-height: 72px;
+
+    padding: 0 14px;
+
+  }
+
+
+  .sidebar-nav {
+
+    padding:
+      14px 10px;
+
+  }
+
+
+  .sidebar-link {
+
+    min-height: 45px;
+
+    font-size: 12px;
+
+    padding:
+      0 12px;
+
+  }
+
+
+  .sidebar-bottom {
+
+    padding: 10px;
+
+  }
+
+
+  .sidebar-user {
+
+    margin-bottom: 8px;
+
+  }
+
 }
 
-body.dark-mode .sidebar-brand-text h2 {
-  color: #f8fafc;
-}
 
-body.dark-mode .sidebar-brand-text span {
-  color: #64748b;
-}
+/* =====================================================
+   PETIT MOBILE
+===================================================== */
 
-/* Liens Sidebar */
-body.dark-mode .sidebar-link {
-  color: #94a3b8;
-}
+@media (max-width: 480px) {
 
-body.dark-mode .sidebar-link svg {
-  color: #64748b;
-}
+  .sidebar {
 
-/* Hover */
-body.dark-mode .sidebar-link:hover {
-  background: #172033;
-  color: #60a5fa;
-}
+    width: 86vw;
 
-body.dark-mode .sidebar-link:hover svg {
-  color: #60a5fa;
-}
+    max-width: 285px;
 
-/* Lien actif — Historique compris */
-body.dark-mode .sidebar-link.active {
-  background: #172554;
-  color: #60a5fa;
-  box-shadow: inset 3px 0 0 #3b82f6;
-}
+  }
 
-body.dark-mode .sidebar-link.active svg {
-  color: #60a5fa;
-}
 
-/* Partie basse */
-body.dark-mode .sidebar-bottom {
-  background: #111827;
-  border-top-color: #334155;
-}
+  .mobile-sidebar-toggle {
 
-/* Utilisateur */
-body.dark-mode .sidebar-user {
-  background: #1e293b;
-  border-color: #334155;
-}
+    top: 10px;
 
-body.dark-mode .sidebar-user-info strong {
-  color: #f8fafc;
-}
+    left: 10px;
 
-body.dark-mode .sidebar-user-info span {
-  color: #64748b;
-}
+    width: 42px;
 
-body.dark-mode .sidebar-avatar {
-  background: #172554;
-  color: #60a5fa;
+    height: 42px;
+
+  }
+
+
+  .sidebar-brand-text h2 {
+
+    font-size: 13px;
+
+  }
+
+
+  .sidebar-link {
+
+    font-size: 11px;
+
+  }
+
+
+  .theme-button,
+  .logout-button {
+
+    min-height: 40px;
+
+  }
+
 }

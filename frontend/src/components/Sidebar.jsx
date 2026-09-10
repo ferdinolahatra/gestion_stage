@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import {
@@ -18,6 +19,8 @@ import {
   LogOut,
   Sun,
   Moon,
+  Menu,
+  X,
 } from "lucide-react";
 
 import "./Sidebar.css";
@@ -26,6 +29,9 @@ import "./Sidebar.css";
 function Sidebar({ darkMode, setDarkMode }) {
 
   const navigate = useNavigate();
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
 
   /* =========================================
      UTILISATEUR CONNECTÉ
@@ -52,9 +58,6 @@ function Sidebar({ darkMode, setDarkMode }) {
 
   /* =========================================
      CHANGEMENT DU MODE
-     
-     On protège setDarkMode pour éviter
-     l'erreur "setDarkMode is not a function"
   ========================================= */
 
   const handleThemeChange = () => {
@@ -64,10 +67,6 @@ function Sidebar({ darkMode, setDarkMode }) {
 
     const newDarkMode = !currentDarkMode;
 
-
-    /* -----------------------------------------
-       Modifier le body
-    ----------------------------------------- */
 
     if (newDarkMode) {
 
@@ -86,13 +85,9 @@ function Sidebar({ darkMode, setDarkMode }) {
         "theme",
         "light"
       );
+
     }
 
-
-    /* -----------------------------------------
-       Mettre à jour le state React
-       seulement s'il existe
-    ----------------------------------------- */
 
     if (typeof setDarkMode === "function") {
 
@@ -100,10 +95,6 @@ function Sidebar({ darkMode, setDarkMode }) {
 
     }
 
-
-    /* -----------------------------------------
-       Informer les autres composants
-    ----------------------------------------- */
 
     window.dispatchEvent(
       new Event("themeChanged")
@@ -119,435 +110,529 @@ function Sidebar({ darkMode, setDarkMode }) {
     document.body.classList.contains("dark-mode");
 
 
+  /* =========================================
+     FERMER SIDEBAR
+  ========================================= */
+
+  const closeSidebar = () => {
+
+    setSidebarOpen(false);
+
+  };
+
+
   return (
+    <>
 
-    <aside className="sidebar">
+      {/* =====================================
+          BOUTON MOBILE
+      ===================================== */}
 
+      <button
+        type="button"
+        className="mobile-sidebar-toggle"
+        onClick={() =>
+          setSidebarOpen(true)
+        }
+        aria-label="Ouvrir le menu"
+        title="Ouvrir le menu"
+      >
 
-      {/* =========================================
-          LOGO
-      ========================================= */}
+        <Menu
+          size={23}
+          strokeWidth={2}
+        />
 
-      <div className="sidebar-brand">
-
-        <div className="sidebar-logo">
-          GS
-        </div>
-
-        <div className="sidebar-brand-text">
-
-          <h2>
-            Gestion des stages
-          </h2>
-
-          <span>
-            Plateforme
-          </span>
-
-        </div>
-
-      </div>
+      </button>
 
 
-      {/* =========================================
-          NAVIGATION
-      ========================================= */}
+      {/* =====================================
+          OVERLAY MOBILE
+      ===================================== */}
 
-      <nav className="sidebar-nav">
-
-
-        {/* DASHBOARD */}
-
-        <NavLink
-          to="/dashboard"
-          className="sidebar-link"
-        >
-
-          <LayoutDashboard
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Dashboard
-          </span>
-
-        </NavLink>
+      {sidebarOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={closeSidebar}
+          aria-hidden="true"
+        />
+      )}
 
 
-        {/* STATISTIQUES ADMIN */}
+      {/* =====================================
+          SIDEBAR
+      ===================================== */}
 
-        {user?.role === "ADMIN" && (
+      <aside
+        className={`sidebar ${
+          sidebarOpen
+            ? "sidebar-open"
+            : ""
+        }`}
+      >
 
-          <NavLink
-            to="/statistiques"
-            className="sidebar-link"
-          >
 
-            <BarChart3
-              size={19}
-              strokeWidth={2}
-            />
+        {/* =========================================
+            HEADER SIDEBAR
+        ========================================= */}
+
+        <div className="sidebar-brand">
+
+          <div className="sidebar-logo">
+            GS
+          </div>
+
+
+          <div className="sidebar-brand-text">
+
+            <h2>
+              Gestion des stages
+            </h2>
 
             <span>
-              Statistiques
+              Plateforme
             </span>
-
-          </NavLink>
-
-        )}
-
-
-        {/* UTILISATEURS ADMIN */}
-
-        {user?.role === "ADMIN" && (
-
-          <NavLink
-            to="/users"
-            className="sidebar-link"
-          >
-
-            <Users
-              size={19}
-              strokeWidth={2}
-            />
-
-            <span>
-              Gestion des utilisateurs
-            </span>
-
-          </NavLink>
-
-        )}
-
-
-        {/* ENTREPRISES */}
-
-        <NavLink
-          to="/entreprises"
-          className="sidebar-link"
-        >
-
-          <Building2
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Entreprises
-          </span>
-
-        </NavLink>
-
-
-        {/* OFFRES DE STAGE */}
-
-        <NavLink
-          to="/stages"
-          className="sidebar-link"
-        >
-
-          <BriefcaseBusiness
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Offres de stage
-          </span>
-
-        </NavLink>
-
-
-        {/* CANDIDATURES */}
-
-        <NavLink
-          to="/candidatures"
-          className="sidebar-link"
-        >
-
-          <FileText
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Candidatures
-          </span>
-
-        </NavLink>
-
-
-        {/* VALIDATION ADMIN */}
-
-        {user?.role === "ADMIN" && (
-
-          <NavLink
-            to="/demandes/validation"
-            className="sidebar-link"
-          >
-
-            <CheckCircle
-              size={19}
-              strokeWidth={2}
-            />
-
-            <span>
-              Validation des demandes
-            </span>
-
-          </NavLink>
-
-        )}
-
-
-        {/* DÉPÔT ÉTUDIANT */}
-
-        {user?.role === "ETUDIANT" && (
-
-          <NavLink
-            to="/demandes/depot"
-            className="sidebar-link"
-          >
-
-            <Send
-              size={19}
-              strokeWidth={2}
-            />
-
-            <span>
-              Dépôt de demande
-            </span>
-
-          </NavLink>
-
-        )}
-
-
-        {/* MES DEMANDES ÉTUDIANT */}
-
-        {user?.role === "ETUDIANT" && (
-
-          <NavLink
-            to="/demandes/mes-demandes"
-            className="sidebar-link"
-          >
-
-            <Inbox
-              size={19}
-              strokeWidth={2}
-            />
-
-            <span>
-              Mes demandes
-            </span>
-
-          </NavLink>
-
-        )}
-
-
-        {/* ENCADREMENTS */}
-
-        <NavLink
-          to="/encadrements"
-          className="sidebar-link"
-        >
-
-          <GraduationCap
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Encadrements
-          </span>
-
-        </NavLink>
-
-
-        {/* JOURNAUX */}
-
-        <NavLink
-          to="/journaux"
-          className="sidebar-link"
-        >
-
-          <BookOpen
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Journaux
-          </span>
-
-        </NavLink>
-
-
-        {/* RAPPORTS */}
-
-        <NavLink
-          to="/rapports"
-          className="sidebar-link"
-        >
-
-          <ClipboardList
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Rapports
-          </span>
-
-        </NavLink>
-
-
-        {/* ÉVALUATIONS */}
-
-        <NavLink
-          to="/evaluations"
-          className="sidebar-link"
-        >
-
-          <Star
-            size={19}
-            strokeWidth={2}
-          />
-
-          <span>
-            Évaluations
-          </span>
-
-        </NavLink>
-
-
-        {/* HISTORIQUE ADMIN */}
-
-        {user?.role === "ADMIN" && (
-
-          <NavLink
-            to="/history"
-            className="sidebar-link"
-          >
-
-            <History
-              size={19}
-              strokeWidth={2}
-            />
-
-            <span>
-              Historique
-            </span>
-
-          </NavLink>
-
-        )}
-
-      </nav>
-
-
-      {/* =========================================
-          BAS DE SIDEBAR
-      ========================================= */}
-
-      <div className="sidebar-bottom">
-
-
-        {/* UTILISATEUR */}
-
-        <div className="sidebar-user">
-
-          <div className="sidebar-avatar">
-
-            {user?.username
-              ?.charAt(0)
-              ?.toUpperCase() || "U"}
 
           </div>
 
-          <div className="sidebar-user-info">
 
-            <strong>
-              {user?.username || "Utilisateur"}
-            </strong>
+          {/* FERMER SUR MOBILE */}
 
-            <span>
-              {user?.role || ""}
-            </span>
+          <button
+            type="button"
+            className="sidebar-close"
+            onClick={closeSidebar}
+            aria-label="Fermer le menu"
+            title="Fermer le menu"
+          >
 
-          </div>
+            <X
+              size={21}
+              strokeWidth={2}
+            />
+
+          </button>
 
         </div>
 
 
         {/* =========================================
-            BOUTON MODE CLAIR / NUIT
+            NAVIGATION
         ========================================= */}
 
-        <button
-          type="button"
-          className="theme-button"
-          onClick={handleThemeChange}
-          title={
-            isDarkMode
-              ? "Activer le mode clair"
-              : "Activer le mode nuit"
-          }
-        >
+        <nav className="sidebar-nav">
 
-          {isDarkMode ? (
 
-            <Sun
-              size={18}
+          {/* DASHBOARD */}
+
+          <NavLink
+            to="/dashboard"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <LayoutDashboard
+              size={19}
               strokeWidth={2}
             />
 
-          ) : (
+            <span>
+              Dashboard
+            </span>
 
-            <Moon
-              size={18}
-              strokeWidth={2}
-            />
+          </NavLink>
+
+
+          {/* STATISTIQUES ADMIN */}
+
+          {user?.role === "ADMIN" && (
+
+            <NavLink
+              to="/statistiques"
+              className="sidebar-link"
+              onClick={closeSidebar}
+            >
+
+              <BarChart3
+                size={19}
+                strokeWidth={2}
+              />
+
+              <span>
+                Statistiques
+              </span>
+
+            </NavLink>
 
           )}
 
-          <span>
 
-            {isDarkMode
-              ? "Mode clair"
-              : "Mode nuit"}
+          {/* UTILISATEURS ADMIN */}
 
-          </span>
+          {user?.role === "ADMIN" && (
 
-        </button>
+            <NavLink
+              to="/users"
+              className="sidebar-link"
+              onClick={closeSidebar}
+            >
+
+              <Users
+                size={19}
+                strokeWidth={2}
+              />
+
+              <span>
+                Gestion des utilisateurs
+              </span>
+
+            </NavLink>
+
+          )}
+
+
+          {/* ENTREPRISES */}
+
+          <NavLink
+            to="/entreprises"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <Building2
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Entreprises
+            </span>
+
+          </NavLink>
+
+
+          {/* OFFRES */}
+
+          <NavLink
+            to="/stages"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <BriefcaseBusiness
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Offres de stage
+            </span>
+
+          </NavLink>
+
+
+          {/* CANDIDATURES */}
+
+          <NavLink
+            to="/candidatures"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <FileText
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Candidatures
+            </span>
+
+          </NavLink>
+
+
+          {/* VALIDATION ADMIN */}
+
+          {user?.role === "ADMIN" && (
+
+            <NavLink
+              to="/demandes/validation"
+              className="sidebar-link"
+              onClick={closeSidebar}
+            >
+
+              <CheckCircle
+                size={19}
+                strokeWidth={2}
+              />
+
+              <span>
+                Validation des demandes
+              </span>
+
+            </NavLink>
+
+          )}
+
+
+          {/* DÉPÔT ÉTUDIANT */}
+
+          {user?.role === "ETUDIANT" && (
+
+            <NavLink
+              to="/demandes/depot"
+              className="sidebar-link"
+              onClick={closeSidebar}
+            >
+
+              <Send
+                size={19}
+                strokeWidth={2}
+              />
+
+              <span>
+                Dépôt de demande
+              </span>
+
+            </NavLink>
+
+          )}
+
+
+          {/* MES DEMANDES */}
+
+          {user?.role === "ETUDIANT" && (
+
+            <NavLink
+              to="/demandes/mes-demandes"
+              className="sidebar-link"
+              onClick={closeSidebar}
+            >
+
+              <Inbox
+                size={19}
+                strokeWidth={2}
+              />
+
+              <span>
+                Mes demandes
+              </span>
+
+            </NavLink>
+
+          )}
+
+
+          {/* ENCADREMENTS */}
+
+          <NavLink
+            to="/encadrements"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <GraduationCap
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Encadrements
+            </span>
+
+          </NavLink>
+
+
+          {/* JOURNAUX */}
+
+          <NavLink
+            to="/journaux"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <BookOpen
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Journaux
+            </span>
+
+          </NavLink>
+
+
+          {/* RAPPORTS */}
+
+          <NavLink
+            to="/rapports"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <ClipboardList
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Rapports
+            </span>
+
+          </NavLink>
+
+
+          {/* ÉVALUATIONS */}
+
+          <NavLink
+            to="/evaluations"
+            className="sidebar-link"
+            onClick={closeSidebar}
+          >
+
+            <Star
+              size={19}
+              strokeWidth={2}
+            />
+
+            <span>
+              Évaluations
+            </span>
+
+          </NavLink>
+
+
+          {/* HISTORIQUE ADMIN */}
+
+          {user?.role === "ADMIN" && (
+
+            <NavLink
+              to="/history"
+              className="sidebar-link"
+              onClick={closeSidebar}
+            >
+
+              <History
+                size={19}
+                strokeWidth={2}
+              />
+
+              <span>
+                Historique
+              </span>
+
+            </NavLink>
+
+          )}
+
+        </nav>
 
 
         {/* =========================================
-            DÉCONNEXION
+            BAS SIDEBAR
         ========================================= */}
 
-        <button
-          type="button"
-          className="logout-button"
-          onClick={handleLogout}
-        >
+        <div className="sidebar-bottom">
 
-          <LogOut
-            size={18}
-            strokeWidth={2}
-          />
 
-          <span>
-            Déconnexion
-          </span>
+          {/* UTILISATEUR */}
 
-        </button>
+          <div className="sidebar-user">
 
-      </div>
+            <div className="sidebar-avatar">
 
-    </aside>
+              {user?.username
+                ?.charAt(0)
+                ?.toUpperCase() || "U"}
+
+            </div>
+
+
+            <div className="sidebar-user-info">
+
+              <strong>
+                {user?.username || "Utilisateur"}
+              </strong>
+
+              <span>
+                {user?.role || ""}
+              </span>
+
+            </div>
+
+          </div>
+
+
+          {/* =========================================
+              MODE CLAIR / NUIT
+          ========================================= */}
+
+          <button
+            type="button"
+            className="theme-button"
+            onClick={handleThemeChange}
+            title={
+              isDarkMode
+                ? "Activer le mode clair"
+                : "Activer le mode nuit"
+            }
+          >
+
+            {isDarkMode ? (
+
+              <Sun
+                size={18}
+                strokeWidth={2}
+              />
+
+            ) : (
+
+              <Moon
+                size={18}
+                strokeWidth={2}
+              />
+
+            )}
+
+            <span>
+
+              {isDarkMode
+                ? "Mode clair"
+                : "Mode nuit"}
+
+            </span>
+
+          </button>
+
+
+          {/* =========================================
+              DÉCONNEXION
+          ========================================= */}
+
+          <button
+            type="button"
+            className="logout-button"
+            onClick={handleLogout}
+          >
+
+            <LogOut
+              size={18}
+              strokeWidth={2}
+            />
+
+            <span>
+              Déconnexion
+            </span>
+
+          </button>
+
+
+        </div>
+
+      </aside>
+
+    </>
   );
 }
 
