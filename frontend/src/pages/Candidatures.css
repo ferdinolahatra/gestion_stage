@@ -1802,3 +1802,578 @@ body.dark-mode .candidature-details::-webkit-scrollbar-thumb:hover,
 body.dark-mode .motivation-box::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
+
+/* =========================================================
+   AJOUT RESPONSIVE — CANDIDATURES
+   Ne modifie pas le design PC existant
+   ========================================================= */
+
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .candidatures-page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .candidatures-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .candidatures-table {
+    min-width: 950px;
+  }
+
+  .candidatures-table th,
+  .candidatures-table td {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .candidatures-actions {
+    flex-wrap: wrap;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Transformation du tableau en cartes
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  .candidatures-page {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px 12px 30px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+
+  /* ---------- HEADER ---------- */
+
+  .candidatures-header {
+    width: 100%;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .candidatures-header > div:first-child {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .candidatures-header h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .candidatures-header p {
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  .candidatures-summary {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+
+  /* ---------- TOOLBAR ---------- */
+
+  .candidatures-toolbar {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .candidatures-search {
+    width: 100%;
+    max-width: none;
+  }
+
+  .candidatures-search input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .candidatures-filters {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .candidatures-filters button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+
+  /* ---------- CARD ---------- */
+
+  .candidatures-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 14px;
+  }
+
+  .candidatures-card-header {
+    padding: 18px 16px;
+  }
+
+  .candidatures-card-header h2 {
+    font-size: 15px;
+  }
+
+
+  /* =====================================================
+     TABLEAU → CARTES
+     ===================================================== */
+
+  .candidatures-table-wrapper {
+    width: 100%;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .candidatures-table {
+    width: 100%;
+    min-width: 0 !important;
+    max-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+  }
+
+  .candidatures-table thead {
+    display: none;
+  }
+
+  .candidatures-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .candidatures-table tbody tr {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 5px 18px rgba(15, 23, 42, 0.05);
+  }
+
+  .candidatures-table tbody tr:hover {
+    transform: none;
+  }
+
+  .candidatures-table tbody tr:hover td {
+    background: transparent;
+  }
+
+
+  /* ---------- CELLULES ---------- */
+
+  .candidatures-table tbody td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border-top: 1px solid #eef2f7;
+
+    text-align: right;
+
+    font-size: 12px;
+
+    gap: 12px;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .candidatures-table tbody td:first-child {
+    border-top: none;
+  }
+
+
+  /* ---------- LABELS DES COLONNES ---------- */
+
+  .candidatures-table tbody td::before {
+    flex: 0 0 auto;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    text-align: left;
+  }
+
+  .candidatures-table tbody td:nth-child(1)::before {
+    content: "Étudiant";
+  }
+
+  .candidatures-table tbody td:nth-child(2)::before {
+    content: "Offre";
+  }
+
+  .candidatures-table tbody td:nth-child(3)::before {
+    content: "Date";
+  }
+
+  .candidatures-table tbody td:nth-child(4)::before {
+    content: "Statut";
+  }
+
+  .candidatures-table tbody td:nth-child(5)::before {
+    content: "CV";
+  }
+
+  .candidatures-table tbody td:nth-child(6)::before {
+    content: "Actions";
+  }
+
+
+  /* ---------- CONTENU ÉTUDIANT ---------- */
+
+  .candidatures-table tbody td:first-child {
+    align-items: center;
+  }
+
+  .candidatures-table tbody td:first-child .candidature-user {
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-end;
+  }
+
+  .candidature-user {
+    min-width: 0;
+    max-width: 75%;
+  }
+
+  .candidature-user > div:last-child {
+    min-width: 0;
+  }
+
+  .candidature-user strong,
+  .candidature-user span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .candidature-avatar {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+  }
+
+
+  /* ---------- OFFRE ---------- */
+
+  .candidatures-table tbody td:nth-child(2) {
+    align-items: flex-start;
+  }
+
+  .candidature-offer {
+    flex: 1;
+    min-width: 0;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.5;
+  }
+
+
+  /* ---------- DATE ---------- */
+
+  .candidatures-table tbody td:nth-child(3) {
+    align-items: center;
+  }
+
+
+  /* ---------- STATUT ---------- */
+
+  .candidatures-table tbody td:nth-child(4) {
+    align-items: center;
+  }
+
+  .candidatures-table tbody td:nth-child(4) .candidature-status {
+    margin-left: auto;
+  }
+
+
+  /* ---------- CV ---------- */
+
+  .candidatures-table tbody td:nth-child(5) {
+    align-items: center;
+  }
+
+  .candidatures-table tbody td:nth-child(5) .cv-button {
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+
+  /* ---------- ACTIONS ---------- */
+
+  .candidatures-table tbody td:nth-child(6) {
+    align-items: flex-start;
+  }
+
+  .candidatures-actions {
+    flex: 1;
+
+    min-width: 0;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 6px;
+  }
+
+  .candidatures-actions button {
+    white-space: nowrap;
+  }
+
+
+  /* ---------- ÉTAT VIDE ---------- */
+
+  .candidatures-empty {
+    min-height: 260px;
+    padding: 25px 18px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+}
+
+
+/* =========================================================
+   PETIT MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .candidatures-page {
+    padding: 15px 9px 25px;
+  }
+
+  .candidatures-header h1 {
+    font-size: 25px;
+  }
+
+  .candidatures-header p {
+    font-size: 12px;
+  }
+
+  .candidatures-breadcrumb {
+    font-size: 10px;
+  }
+
+  .candidatures-kicker {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+
+  /* CARD */
+
+  .candidatures-card {
+    border-radius: 12px;
+  }
+
+  .candidatures-card-header {
+    padding: 16px 14px;
+  }
+
+
+  /* CARTE CANDIDATURE */
+
+  .candidatures-table tbody tr {
+    width: calc(100% - 14px);
+    margin: 7px;
+    border-radius: 12px;
+  }
+
+  .candidatures-table tbody td {
+    padding: 12px;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .candidatures-table tbody td::before {
+    font-size: 8px;
+  }
+
+
+  /* ÉTUDIANT */
+
+  .candidature-user {
+    gap: 7px;
+    max-width: 72%;
+  }
+
+  .candidature-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 11px;
+  }
+
+  .candidature-user strong {
+    font-size: 11px;
+  }
+
+  .candidature-user span {
+    font-size: 8px;
+  }
+
+
+  /* OFFRE */
+
+  .candidature-offer {
+    font-size: 11px;
+  }
+
+
+  /* ACTIONS */
+
+  .candidatures-actions {
+    gap: 5px;
+  }
+
+  .candidatures-actions button {
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
+  .cv-button {
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   TRÈS PETIT ÉCRAN
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .candidatures-page {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .candidatures-table tbody tr {
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+
+  .candidatures-table tbody td {
+    padding: 10px;
+  }
+
+  .candidatures-table tbody td::before {
+    font-size: 7px;
+  }
+
+  .candidature-user {
+    max-width: 68%;
+  }
+
+  .candidature-avatar {
+    width: 29px;
+    height: 29px;
+  }
+
+  .candidature-user strong {
+    font-size: 10px;
+  }
+
+  .candidature-user span {
+    font-size: 7px;
+  }
+
+}
+
+
+/* =========================================================
+   MODE SOMBRE — CARTES RESPONSIVES
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  body.dark-mode .candidatures-table tbody tr {
+    background: #111827;
+    border-color: #334155;
+
+    box-shadow:
+      0 5px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  body.dark-mode .candidatures-table tbody td {
+    border-top-color: #1e293b;
+    color: #cbd5e1;
+    background: transparent;
+  }
+
+  body.dark-mode .candidatures-table tbody tr:hover td {
+    background: transparent;
+  }
+
+  body.dark-mode .candidatures-table tbody td::before {
+    color: #64748b;
+  }
+
+  body.dark-mode .candidature-user strong {
+    color: #f8fafc;
+  }
+
+  body.dark-mode .candidature-user span {
+    color: #94a3b8;
+  }
+
+  body.dark-mode .candidature-offer {
+    color: #f8fafc;
+  }
+
+  body.dark-mode .candidatures-actions .details-button {
+    background: #1e293b;
+    border-color: #475569;
+    color: #cbd5e1;
+  }
+
+}
