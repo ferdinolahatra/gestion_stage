@@ -491,26 +491,16 @@
 
   line-height: 1.55;
 }
-
+/* Mode Sombre (Dark Mode) */
 .evaluations-count {
-  flex-shrink: 0;
-
-  padding:
-    7px 11px;
-
-  border-radius: 999px;
-
-  color:
-    var(--ev-primary);
-
-  background:
-    #eff6ff;
-
-  font-size: 12px;
-
-  font-weight: 800;
+  background-color: rgba(255, 255, 255, 0.08); /* Fond sombre transparent */
+  color: #e2e8f0;                               /* Texte clair */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Bordure discrète */
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
 }
-
 /* =========================================================
    ÉTAT VIDE
    ========================================================= */
@@ -2614,4 +2604,21 @@ body.dark .report-remaining-box.danger,
   border-color: #7f1d1d;                  /* Bordure rouge nuit (comme le bouton Supprimer) */
   color: #f87171;                         /* Texte rouge clair lumineux */
   background-color: rgba(220, 38, 38, 0.12); /* Fond rouge sombre translucide */
+}
+/* Style par défaut (Mode clair) */
+.evaluations-count {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* Style dédié au Mode Nuit */
+body.dark-mode .evaluations-count,
+.dark .evaluations-count {
+  background-color: #1e293b;
+  color: #94a3b8;
+  border-color: #334155;
 }
