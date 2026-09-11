@@ -62,4 +62,4 @@ class JournalStageSerializer(serializers.ModelSerializer):
         if request and hasattr(request, 'user') and not validated_data.get('etudiant'):
             validated_data['etudiant'] = request.user
 
-        return super().create(validated_data)
+        return super().create(validated_data)    

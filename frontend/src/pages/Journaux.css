@@ -4,6 +4,7 @@
   padding: 38px 40px 50px;
   box-sizing: border-box;
   background: #f5f7fb;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* HEADER */
@@ -62,6 +63,12 @@
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.journaux-add-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
 .journaux-add-button span {
@@ -110,7 +117,9 @@
   border-radius: 11px;
   outline: none;
   background: #fff;
+  color: #111827;
   font-size: 13px;
+  transition: all 0.2s ease;
 }
 
 .journaux-search input:focus {
@@ -134,7 +143,7 @@
   font-size: 11px;
 }
 
-/* CARD */
+/* CARD & TABLE */
 
 .journaux-card {
   overflow: hidden;
@@ -142,6 +151,7 @@
   border-radius: 18px;
   background: #fff;
   box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .journaux-card-header {
@@ -161,8 +171,6 @@
   font-size: 10px;
 }
 
-/* TABLE */
-
 .journaux-table-wrapper {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -170,7 +178,6 @@
 
 .journaux-table {
   width: 100%;
-  min-width: 1150px;
   border-collapse: collapse;
 }
 
@@ -182,6 +189,7 @@
   font-weight: 800;
   text-align: left;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .journaux-table td {
@@ -189,6 +197,7 @@
   border-top: 1px solid #f1f5f9;
   color: #475569;
   font-size: 12px;
+  vertical-align: top;
 }
 
 .journaux-table tr:hover td {
@@ -198,11 +207,13 @@
 .journal-date {
   color: #475569;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .journal-stage {
   color: #111827;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .journal-content {
@@ -218,17 +229,21 @@
   line-height: 1.5;
 }
 
+/* BOUTONS ACTIONS (MODIFIER & SUPPRIMER) */
+
 .journaux-actions {
   display: flex;
-  gap: 7px;
+  align-items: center;
+  gap: 8px;
 }
 
 .journaux-actions button {
-  padding: 7px 10px;
+  padding: 7px 12px;
   border-radius: 8px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .journal-edit {
@@ -237,10 +252,18 @@
   color: #2563eb;
 }
 
+.journal-edit:hover {
+  background: #dbe2ea;
+}
+
 .journal-delete {
   border: 1px solid #fecaca;
   background: #fef2f2;
   color: #dc2626;
+}
+
+.journal-delete:hover {
+  background: #fee2e2;
 }
 
 .journal-delete:disabled {
@@ -320,20 +343,14 @@
   top: 24px;
   right: 24px;
   z-index: 1000;
-
   width: min(390px, calc(100vw - 40px));
-
   display: flex;
   align-items: flex-start;
   gap: 12px;
-
   padding: 15px;
-
   border: 1px solid #e5e7eb;
   border-radius: 14px;
-
   background: #fff;
-
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
 }
 
@@ -389,13 +406,10 @@
   position: fixed;
   inset: 0;
   z-index: 900;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 20px;
-
   background: rgba(15, 23, 42, 0.48);
   backdrop-filter: blur(5px);
 }
@@ -404,10 +418,8 @@
   width: min(780px, 100%);
   max-height: calc(100vh - 40px);
   overflow-y: auto;
-
   border-radius: 20px;
   background: #fff;
-
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.25);
 }
 
@@ -415,7 +427,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   padding: 24px 26px;
   border-bottom: 1px solid #eef2f7;
 }
@@ -436,13 +447,10 @@
 .journal-modal-close {
   width: 35px;
   height: 35px;
-
   border: none;
   border-radius: 9px;
-
   background: #f8fafc;
   color: #64748b;
-
   font-size: 20px;
   cursor: pointer;
 }
@@ -478,17 +486,12 @@
 .journal-field textarea {
   width: 100%;
   box-sizing: border-box;
-
   padding: 11px 12px;
-
   border: 1px solid #dbe2ea;
   border-radius: 9px;
-
   outline: none;
-
   background: #fff;
   color: #111827;
-
   font-size: 12px;
 }
 
@@ -514,9 +517,7 @@
 .journal-save {
   min-height: 44px;
   padding: 0 16px;
-
   border-radius: 10px;
-
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -539,7 +540,9 @@
   cursor: not-allowed;
 }
 
-/* RESPONSIVE */
+/* =========================================================
+   RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   ========================================================= */
 
 @media (max-width: 1000px) {
   .journaux-page {
@@ -547,14 +550,15 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .journaux-page {
-    padding: 22px 15px 35px;
+    padding: 20px 14px 35px;
   }
 
   .journaux-header {
     align-items: flex-start;
     flex-direction: column;
+    gap: 15px;
   }
 
   .journaux-add-button {
@@ -565,14 +569,23 @@
   .journaux-toolbar {
     align-items: stretch;
     flex-direction: column;
+    gap: 12px;
   }
 
   .journaux-search {
     width: 100%;
   }
 
-  .journaux-table {
-    min-width: 1150px;
+  /* Affichage responsive des actions */
+  .journaux-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .journaux-actions button {
+    flex: 1;
+    padding: 8px 10px;
+    text-align: center;
   }
 
   .journaux-form-grid {
@@ -584,7 +597,11 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
+  .journaux-header h1 {
+    font-size: 24px;
+  }
+
   .journaux-modal-actions {
     flex-direction: column;
   }
@@ -593,32 +610,161 @@
   .journal-save {
     width: 100%;
   }
+
+  .journal-content,
+  .journal-small-content {
+    max-width: 100%;
+  }
 }
 
-body.dark-mode .nom-de-ta-classe {
-    background: #111827;
-    color: #e2e8f0;
-    border-color: #334155;
-}
 /* =========================================================
-   MODE SOMBRE (DARK MODE) - MODAL & ÉLÉMENTS DE LA MODAL
+   MODE SOMBRE (DARK MODE) - TOUS LES ÉLÉMENTS DE LA PAGE
    ========================================================= */
 
-/* Support si le body a la classe .dark-mode ou .dark */
+body.dark-mode .journaux-page,
+body.dark .journaux-page,
+[data-theme="dark"] .journaux-page {
+  background: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Textes et en-tête en mode sombre */
+body.dark-mode .journaux-header h1,
+body.dark .journaux-header h1,
+[data-theme="dark"] .journaux-header h1,
+body.dark-mode .journaux-count strong,
+body.dark .journaux-count strong,
+[data-theme="dark"] .journaux-count strong,
+body.dark-mode .journaux-card-header h2,
+body.dark .journaux-card-header h2,
+[data-theme="dark"] .journaux-card-header h2,
+body.dark-mode .journal-stage,
+body.dark .journal-stage,
+[data-theme="dark"] .journal-stage {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .journaux-header p,
+body.dark .journaux-header p,
+[data-theme="dark"] .journaux-header p,
+body.dark-mode .journaux-count span,
+body.dark .journaux-count span,
+[data-theme="dark"] .journaux-count span {
+  color: #94a3b8 !important;
+}
+
+/* Champ de recherche en mode sombre */
+body.dark-mode .journaux-search input,
+body.dark .journaux-search input,
+[data-theme="dark"] .journaux-search input {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-mode .journaux-search input::placeholder,
+body.dark .journaux-search input::placeholder,
+[data-theme="dark"] .journaux-search input::placeholder {
+  color: #64748b !important;
+}
+
+/* Carte & Tableau en mode sombre */
+body.dark-mode .journaux-card,
+body.dark .journaux-card,
+[data-theme="dark"] .journaux-card {
+  background: #0f172a !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .journaux-card-header,
+body.dark .journaux-card-header,
+[data-theme="dark"] .journaux-card-header {
+  border-bottom-color: #1e293b !important;
+}
+
+body.dark-mode .journaux-table th,
+body.dark .journaux-table th,
+[data-theme="dark"] .journaux-table th {
+  background: #1e293b !important;
+  color: #94a3b8 !important;
+}
+
+body.dark-mode .journaux-table td,
+body.dark .journaux-table td,
+[data-theme="dark"] .journaux-table td {
+  border-top-color: #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .journaux-table tr:hover td,
+body.dark .journaux-table tr:hover td,
+[data-theme="dark"] .journaux-table tr:hover td {
+  background: #162032 !important;
+}
+
+body.dark-mode .journal-date,
+body.dark .journal-date,
+[data-theme="dark"] .journal-date,
+body.dark-mode .journal-content,
+body.dark .journal-content,
+[data-theme="dark"] .journal-content {
+  color: #cbd5e1 !important;
+}
+
+body.dark-mode .journal-small-content,
+body.dark .journal-small-content,
+[data-theme="dark"] .journal-small-content {
+  color: #94a3b8 !important;
+}
+
+/* BOUTONS MODIFIER / SUPPRIMER EN MODE SOMBRE */
+
+body.dark-mode .journal-edit,
+body.dark .journal-edit,
+[data-theme="dark"] .journal-edit {
+  background: rgba(37, 99, 235, 0.15) !important;
+  border-color: #1e3a8a !important;
+  color: #60a5fa !important;
+}
+
+body.dark-mode .journal-edit:hover,
+body.dark .journal-edit:hover,
+[data-theme="dark"] .journal-edit:hover {
+  background: rgba(37, 99, 235, 0.3) !important;
+  color: #93c5fd !important;
+}
+
+body.dark-mode .journal-delete,
+body.dark .journal-delete,
+[data-theme="dark"] .journal-delete {
+  background: rgba(220, 38, 38, 0.15) !important;
+  border-color: #7f1d1d !important;
+  color: #f87171 !important;
+}
+
+body.dark-mode .journal-delete:hover,
+body.dark .journal-delete:hover,
+[data-theme="dark"] .journal-delete:hover {
+  background: rgba(220, 38, 38, 0.3) !important;
+  color: #fca5a5 !important;
+}
+
+/* MODAL EN MODE SOMBRE */
+
 body.dark-mode .journaux-modal,
 body.dark .journaux-modal,
 [data-theme="dark"] .journaux-modal {
-  background: #0f172a !important; /* Fond sombre pour la modal */
-  color: #f8fafc !important;      /* Texte blanc */
-  border: 1px solid #334155;
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid #1e293b;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
-/* En-tête de la modal */
 body.dark-mode .journaux-modal-header,
 body.dark .journaux-modal-header,
 [data-theme="dark"] .journaux-modal-header {
-  border-bottom-color: #1e293b;
+  border-bottom-color: #1e293b !important;
 }
 
 body.dark-mode .journaux-modal-header h2,
@@ -627,29 +773,26 @@ body.dark .journaux-modal-header h2,
   color: #ffffff !important;
 }
 
-/* Bouton de fermeture (X) */
 body.dark-mode .journal-modal-close,
 body.dark .journal-modal-close,
 [data-theme="dark"] .journal-modal-close {
-  background: #1e293b;
-  color: #94a3b8;
+  background: #1e293b !important;
+  color: #94a3b8 !important;
 }
 
 body.dark-mode .journal-modal-close:hover,
 body.dark .journal-modal-close:hover,
 [data-theme="dark"] .journal-modal-close:hover {
-  background: #334155;
-  color: #ffffff;
+  background: #334155 !important;
+  color: #ffffff !important;
 }
 
-/* Labels des champs du formulaire */
 body.dark-mode .journal-field label,
 body.dark .journal-field label,
 [data-theme="dark"] .journal-field label {
   color: #cbd5e1 !important;
 }
 
-/* Inputs, Selects et Textareas à l'intérieur de la modal */
 body.dark-mode .journal-field input,
 body.dark-mode .journal-field select,
 body.dark-mode .journal-field textarea,
@@ -677,25 +820,44 @@ body.dark .journal-field textarea:focus,
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
 }
 
-/* Option placeholder (ex: Décrivez les activités...) */
 body.dark-mode .journal-field ::placeholder,
 body.dark .journal-field ::placeholder,
 [data-theme="dark"] .journal-field ::placeholder {
   color: #64748b !important;
 }
 
-/* Bouton Annuler */
 body.dark-mode .journal-cancel,
 body.dark .journal-cancel,
 [data-theme="dark"] .journal-cancel {
-  background: #1e293b;
-  color: #cbd5e1;
-  border-color: #334155;
+  background: #1e293b !important;
+  color: #cbd5e1 !important;
+  border-color: #334155 !important;
 }
 
 body.dark-mode .journal-cancel:hover,
 body.dark .journal-cancel:hover,
 [data-theme="dark"] .journal-cancel:hover {
-  background: #334155;
-  color: #ffffff;
+  background: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Toast Notification en mode sombre */
+body.dark-mode .journaux-toast,
+body.dark .journaux-toast,
+[data-theme="dark"] .journaux-toast {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .journaux-toast strong,
+body.dark .journaux-toast strong,
+[data-theme="dark"] .journaux-toast strong {
+  color: #f8fafc !important;
+}
+
+body.dark-mode .journaux-toast p,
+body.dark .journaux-toast p,
+[data-theme="dark"] .journaux-toast p {
+  color: #94a3b8 !important;
 }
