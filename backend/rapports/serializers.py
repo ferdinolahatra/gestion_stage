@@ -1,6 +1,6 @@
 from rest_framework import serializers
+from django.apps import apps
 from .models import RapportStage
-from stages.models import Stage  # Assurez-vous d'importer votre modèle Stage
 
 
 class RapportStageSerializer(serializers.ModelSerializer):
@@ -41,12 +41,12 @@ class RapportStageSerializer(serializers.ModelSerializer):
         Permet d'accepter soit le nom/titre du stage ("Reseau"), 
         soit son ID numérique tout en résolvant le champ etudiant automatiquement.
         """
-        # Si le champ stage est transmis sous forme de texte (ex: "Reseau")
         stage_val = data.get("stage")
         if stage_val and not str(stage_val).isdigit():
-            stage_obj = Stage.objects.filter(titre__iexact=stage_val).first()
+            # Récupération dynamique du modèle de l'application 'stages'
+            StageModel = apps.get_model("stages", "Stage")
+            stage_obj = StageModel.objects.filter(titre__iexact=stage_val).first()
             if stage_obj:
-                # On remplace temporairement la donnée par l'ID réel pour que Django valide
                 mutable_data = data.copy() if hasattr(data, 'copy') else dict(data)
                 mutable_data["stage"] = stage_obj.id
                 data = mutable_data
