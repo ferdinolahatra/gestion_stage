@@ -36,27 +36,30 @@ class JournalStageSerializer(serializers.ModelSerializer):
 
     def to_internal_value(self, data):
         """
-        Convertit automatiquement le titre du stage en ID s'il est envoyé sous forme de texte (ex: "Reseau").
+        Convertit le titre du stage ("Reseau") en ID numérique avant validation.
         """
         stage_val = data.get("stage")
         if stage_val and not str(stage_val).isdigit():
-            StageModel = apps.get_model("stages", "Stage")
-            stage_obj = StageModel.objects.filter(titre__iexact=str(stage_val)).first()
-            if stage_obj:
-                mutable_data = data.copy() if hasattr(data, 'copy') else dict(data)
-                mutable_data["stage"] = stage_obj.id
-                data = mutable_data
-            else:
+            try:
+                StageModel = apps.get_model("stages", "Stage")
+                stage_obj = StageModel.objects.filter(titre__iexact=str(stage_val)).first()
+                if stage_obj:
+                    mutable_data = data.copy() if hasattr(data, 'copy') else dict(data)
+                    mutable_data["stage"] = stage_obj.id
+                    data = mutable_data
+                else:
+                    raise serializers.ValidationError({
+                        "stage": f"Aucun stage trouvé avec le titre '{stage_val}'."
+                    })
+            except Exception as e:
                 raise serializers.ValidationError({
-                    "stage": f"Aucun stage trouvé avec le titre '{stage_val}'."
+                    "stage": f"Erreur de résolution du stage '{stage_val}': {str(e)}"
                 })
 
         return super().to_internal_value(data)
 
     def create(self, validated_data):
         request = self.context.get('request')
-        
-        # Associe automatiquement l'utilisateur connecté s'il est disponible
         if request and hasattr(request, 'user') and not validated_data.get('etudiant'):
             validated_data['etudiant'] = request.user
 
