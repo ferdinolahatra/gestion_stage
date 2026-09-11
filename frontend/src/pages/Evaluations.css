@@ -2539,3 +2539,79 @@ body.dark .evaluation-modal-close,
   color: var(--ev-muted);
   background: var(--ev-soft);
 }
+/* =========================================================
+   COMPTEUR DE RAPPORTS RESTANTS (RESPONSIVE & MODE NUIT)
+   ========================================================= */
+
+/* --- Style de base (Mode Clair) --- */
+.reports-counter,
+.report-remaining-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #2563eb; /* Bordure Bleue */
+  background-color: #eff6ff;
+  color: #1e40af;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Version avec alerte / reste critique (Bordure Rouge) */
+.reports-counter.warning,
+.reports-counter.danger,
+.report-remaining-box.warning,
+.report-remaining-box.danger {
+  border-color: #dc2626; /* Bordure Rouge */
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+
+/* --- Adaptations pour les Mobiles (≤ 576px) --- */
+@media (max-width: 576px) {
+  .reports-counter,
+  .report-remaining-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.6rem 0.8rem;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   MODE SOMBRE - COULEURS INSPIRÉES DES BOUTONS
+   ========================================================= */
+
+/* Style avec Bordure Bleue (Standard / Mode Nuit) */
+.dark-mode .reports-counter,
+body.dark .reports-counter,
+[data-theme="dark"] .reports-counter,
+.dark-mode .report-remaining-box,
+body.dark .report-remaining-box,
+[data-theme="dark"] .report-remaining-box {
+  border-color: #1d4ed8;                  /* Bordure bleu nuit (comme le bouton Éditer) */
+  color: #60a5fa;                         /* Texte bleu clair lumineux */
+  background-color: rgba(37, 99, 235, 0.15); /* Fond bleu sombre translucide */
+}
+
+/* Style avec Bordure Rouge (Alerte / Mode Nuit) */
+.dark-mode .reports-counter.warning,
+.dark-mode .reports-counter.danger,
+body.dark .reports-counter.warning,
+body.dark .reports-counter.danger,
+[data-theme="dark"] .reports-counter.warning,
+[data-theme="dark"] .reports-counter.danger,
+.dark-mode .report-remaining-box.warning,
+.dark-mode .report-remaining-box.danger,
+body.dark .report-remaining-box.warning,
+body.dark .report-remaining-box.danger,
+[data-theme="dark"] .report-remaining-box.warning,
+[data-theme="dark"] .report-remaining-box.danger {
+  border-color: #7f1d1d;                  /* Bordure rouge nuit (comme le bouton Supprimer) */
+  color: #f87171;                         /* Texte rouge clair lumineux */
+  background-color: rgba(220, 38, 38, 0.12); /* Fond rouge sombre translucide */
+}
