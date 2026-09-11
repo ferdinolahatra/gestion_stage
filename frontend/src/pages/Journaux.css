@@ -600,3 +600,102 @@ body.dark-mode .nom-de-ta-classe {
     color: #e2e8f0;
     border-color: #334155;
 }
+/* =========================================================
+   MODE SOMBRE (DARK MODE) - MODAL & ÉLÉMENTS DE LA MODAL
+   ========================================================= */
+
+/* Support si le body a la classe .dark-mode ou .dark */
+body.dark-mode .journaux-modal,
+body.dark .journaux-modal,
+[data-theme="dark"] .journaux-modal {
+  background: #0f172a !important; /* Fond sombre pour la modal */
+  color: #f8fafc !important;      /* Texte blanc */
+  border: 1px solid #334155;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* En-tête de la modal */
+body.dark-mode .journaux-modal-header,
+body.dark .journaux-modal-header,
+[data-theme="dark"] .journaux-modal-header {
+  border-bottom-color: #1e293b;
+}
+
+body.dark-mode .journaux-modal-header h2,
+body.dark .journaux-modal-header h2,
+[data-theme="dark"] .journaux-modal-header h2 {
+  color: #ffffff !important;
+}
+
+/* Bouton de fermeture (X) */
+body.dark-mode .journal-modal-close,
+body.dark .journal-modal-close,
+[data-theme="dark"] .journal-modal-close {
+  background: #1e293b;
+  color: #94a3b8;
+}
+
+body.dark-mode .journal-modal-close:hover,
+body.dark .journal-modal-close:hover,
+[data-theme="dark"] .journal-modal-close:hover {
+  background: #334155;
+  color: #ffffff;
+}
+
+/* Labels des champs du formulaire */
+body.dark-mode .journal-field label,
+body.dark .journal-field label,
+[data-theme="dark"] .journal-field label {
+  color: #cbd5e1 !important;
+}
+
+/* Inputs, Selects et Textareas à l'intérieur de la modal */
+body.dark-mode .journal-field input,
+body.dark-mode .journal-field select,
+body.dark-mode .journal-field textarea,
+body.dark .journal-field input,
+body.dark .journal-field select,
+body.dark .journal-field textarea,
+[data-theme="dark"] .journal-field input,
+[data-theme="dark"] .journal-field select,
+[data-theme="dark"] .journal-field textarea {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+body.dark-mode .journal-field input:focus,
+body.dark-mode .journal-field select:focus,
+body.dark-mode .journal-field textarea:focus,
+body.dark .journal-field input:focus,
+body.dark .journal-field select:focus,
+body.dark .journal-field textarea:focus,
+[data-theme="dark"] .journal-field input:focus,
+[data-theme="dark"] .journal-field select:focus,
+[data-theme="dark"] .journal-field textarea:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* Option placeholder (ex: Décrivez les activités...) */
+body.dark-mode .journal-field ::placeholder,
+body.dark .journal-field ::placeholder,
+[data-theme="dark"] .journal-field ::placeholder {
+  color: #64748b !important;
+}
+
+/* Bouton Annuler */
+body.dark-mode .journal-cancel,
+body.dark .journal-cancel,
+[data-theme="dark"] .journal-cancel {
+  background: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+body.dark-mode .journal-cancel:hover,
+body.dark .journal-cancel:hover,
+[data-theme="dark"] .journal-cancel:hover {
+  background: #334155;
+  color: #ffffff;
+}
