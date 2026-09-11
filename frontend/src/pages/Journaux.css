@@ -550,7 +550,11 @@
   }
 }
 
-@media (max-width: 768px) {
+/* =========================================================
+   RESPONSIVE DESIGN : SCROLL SUPPRIMÉ (PASSAGE EN CARTES)
+   ========================================================= */
+
+@media (max-width: 850px) {
   .journaux-page {
     padding: 20px 14px 35px;
   }
@@ -576,27 +580,82 @@
     width: 100%;
   }
 
-  /* Affichage responsive des actions */
+  /* Annulation de la largeur minimale fixe pour supprimer la barre de défilement */
+  .journaux-table-wrapper {
+    overflow-x: visible;
+  }
+
+  .journaux-table {
+    min-width: 100% !important;
+    display: block;
+  }
+
+  /* Masquer les en-têtes du tableau (Date, Stage, etc.) */
+  .journaux-table thead {
+    display: none;
+  }
+
+  .journaux-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Transformation de chaque ligne <tr> en une Carte */
+  .journaux-table tr {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
+
+  body.dark-mode .journaux-table tr,
+  body.dark .journaux-table tr,
+  [data-theme="dark"] .journaux-table tr {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+  }
+
+  /* Adaptabilité des cellules <td> */
+  .journaux-table td {
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0;
+    border-top: none !important;
+    word-break: break-word;
+  }
+
+  .journal-content,
+  .journal-small-content {
+    max-width: 100% !important;
+  }
+
+  /* Actions Modifier / Supprimer en bas de carte */
   .journaux-actions {
     width: 100%;
-    justify-content: flex-start;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #e2e8f0;
+    display: flex;
+    gap: 10px;
+  }
+
+  body.dark-mode .journaux-actions,
+  body.dark .journaux-actions,
+  [data-theme="dark"] .journaux-actions {
+    border-top-color: #334155;
   }
 
   .journaux-actions button {
     flex: 1;
-    padding: 8px 10px;
+    padding: 10px;
     text-align: center;
-  }
-
-  .journaux-form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .journal-field-full {
-    grid-column: auto;
+    font-size: 12px;
   }
 }
-
 @media (max-width: 480px) {
   .journaux-header h1 {
     font-size: 24px;
