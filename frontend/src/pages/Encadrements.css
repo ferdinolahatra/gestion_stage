@@ -794,6 +794,29 @@
     width: 100%;
   }
 }
+
+@media (max-width: 600px) {
+  /* Empêche le débordement horizontal sur la page globale */
+  html, body, .encadrements-page {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Force le conteneur du tableau à ne pas forcer de scroll */
+  .encadrements-table-wrapper {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  /* Annule la largeur minimale forcée de 900px du tableau */
+  .encadrements-table {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block;
+  }
+}
 @media (max-width: 450px) {
   .encadrements-header h1 {
     font-size: 20px;
