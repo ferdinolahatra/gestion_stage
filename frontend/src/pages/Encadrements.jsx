@@ -39,8 +39,9 @@ function Encadrements() {
 
   const user = JSON.parse(localStorage.getItem("user") || "null");
 
-  const isAdmin = user?.role === "ADMIN";
-  const isEnseignant = user?.role === "ENSEIGNANT";
+  const userRole = (user?.role?.name || user?.role || "").toUpperCase();
+  const isAdmin = userRole === "ADMIN" || userRole === "ADMINISTRATEUR";
+  const isEnseignant = userRole === "ENSEIGNANT" || userRole === "TEACHER";
 
   /* =========================================
       CHARGEMENT DES DONNÉES
@@ -78,13 +79,19 @@ function Encadrements() {
       setEncadrements(encadrementsData);
       setStages(stagesData);
 
-      setEnseignants(
-        usersData.filter((item) => item.role === "ENSEIGNANT")
-      );
+      // Filtrage flexible selon la structure du rôle dans le backend
+      const teachersList = usersData.filter((item) => {
+        const role = String(item.role?.name || item.role || "").toUpperCase();
+        return role === "ENSEIGNANT" || role === "TEACHER";
+      });
 
-      setEtudiants(
-        usersData.filter((item) => item.role === "ETUDIANT")
-      );
+      const studentsList = usersData.filter((item) => {
+        const role = String(item.role?.name || item.role || "").toUpperCase();
+        return role === "ETUDIANT" || role === "STUDENT" || !role;
+      });
+
+      setEnseignants(teachersList);
+      setEtudiants(studentsList.length > 0 ? studentsList : usersData);
     } catch (error) {
       console.error("Erreur encadrements :", error);
 
@@ -121,26 +128,30 @@ function Encadrements() {
   };
 
   /* =========================================
-      NOM UTILISATEUR
+      NOM UTILISATEUR RÉEL
   ========================================= */
 
   const getUserName = (id) => {
+    if (id === null || id === undefined) return "Non attribué";
+
     const numericId = Number(id);
+
+    // Chercher dans l'objet complet si le backend a directement renvoyé un objet user
+    if (typeof id === "object") {
+      const name = `${id.first_name || ""} ${id.last_name || ""}`.trim();
+      return name || id.username || id.email || `Utilisateur #${id.id}`;
+    }
 
     const teacher = enseignants.find((item) => item.id === numericId);
     if (teacher) {
-      return (
-        `${teacher.first_name || ""} ${teacher.last_name || ""}`.trim() ||
-        teacher.username
-      );
+      const name = `${teacher.first_name || ""} ${teacher.last_name || ""}`.trim();
+      return name || teacher.username || teacher.email;
     }
 
     const student = etudiants.find((item) => item.id === numericId);
     if (student) {
-      return (
-        `${student.first_name || ""} ${student.last_name || ""}`.trim() ||
-        student.username
-      );
+      const name = `${student.first_name || ""} ${student.last_name || ""}`.trim();
+      return name || student.username || student.email;
     }
 
     return `Utilisateur #${id}`;
@@ -151,8 +162,11 @@ function Encadrements() {
   ========================================= */
 
   const getStageTitle = (id) => {
+    if (typeof id === "object") {
+      return id?.titre || id?.title || `Stage #${id?.id}`;
+    }
     const stage = stages.find((item) => item.id === Number(id));
-    return stage?.titre || `Stage #${id}`;
+    return stage?.titre || stage?.title || `Stage #${id}`;
   };
 
   /* =========================================
@@ -193,7 +207,7 @@ function Encadrements() {
 
     setFormData({
       enseignant: isEnseignant
-        ? String(user.id)
+        ? String(user?.id || "")
         : enseignants.length > 0
         ? String(enseignants[0].id)
         : "",
@@ -212,10 +226,14 @@ function Encadrements() {
   const openEditModal = (encadrement) => {
     setEditingEncadrement(encadrement);
 
+    const enseignantId = typeof encadrement.enseignant === "object" ? encadrement.enseignant.id : encadrement.enseignant;
+    const etudiantId = typeof encadrement.etudiant === "object" ? encadrement.etudiant.id : encadrement.etudiant;
+    const stageId = typeof encadrement.stage === "object" ? encadrement.stage.id : encadrement.stage;
+
     setFormData({
-      enseignant: String(encadrement.enseignant || ""),
-      etudiant: String(encadrement.etudiant || ""),
-      stage: String(encadrement.stage || ""),
+      enseignant: String(enseignantId || ""),
+      etudiant: String(etudiantId || ""),
+      stage: String(stageId || ""),
       commentaire: encadrement.commentaire || "",
     });
 
@@ -654,20 +672,14 @@ function Encadrements() {
                       <option value="">Sélectionner un enseignant</option>
                       {enseignants.map((enseignant) => (
                         <option key={enseignant.id} value={enseignant.id}>
-                          {enseignant.first_name || enseignant.last_name
-                            ? `${enseignant.first_name || ""} ${
-                                enseignant.last_name || ""
-                              }`.trim()
-                            : enseignant.username}
+                          {getUserName(enseignant)}
                         </option>
                       ))}
                     </select>
                   ) : (
                     <input
                       type="text"
-                      value={
-                        user?.first_name || user?.username || ""
-                      }
+                      value={getUserName(user)}
                       disabled
                     />
                   )}
@@ -675,7 +687,7 @@ function Encadrements() {
 
                 {/* Étudiant */}
                 <div className="encadrement-field">
-                  <label>Nom étudiant</label>
+                  <label>Nom étudiant inscrit sur le compte</label>
 
                   <select
                     name="etudiant"
@@ -686,11 +698,7 @@ function Encadrements() {
                     <option value="">Sélectionner un étudiant</option>
                     {etudiants.map((etudiant) => (
                       <option key={etudiant.id} value={etudiant.id}>
-                        {etudiant.first_name || etudiant.last_name
-                          ? `${etudiant.first_name || ""} ${
-                              etudiant.last_name || ""
-                            }`.trim()
-                          : etudiant.username}
+                        {getUserName(etudiant)}
                       </option>
                     ))}
                   </select>
@@ -709,7 +717,7 @@ function Encadrements() {
                     <option value="">Sélectionner une offre de stage</option>
                     {stages.map((stage) => (
                       <option key={stage.id} value={stage.id}>
-                        {stage.titre || `Stage #${stage.id}`}
+                        {stage.titre || stage.title || `Stage #${stage.id}`}
                       </option>
                     ))}
                   </select>
