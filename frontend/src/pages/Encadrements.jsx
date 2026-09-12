@@ -55,11 +55,11 @@ function Encadrements() {
       setLoading(true);
       setError("");
 
-      const requests = [api.get("encadrements/"), api.get("stages/")];
-
-      if (isAdmin) {
-        requests.push(api.get("users/"));
-      }
+      const requests = [
+        api.get("encadrements/"),
+        api.get("stages/"),
+        api.get("users/"),
+      ];
 
       const responses = await Promise.all(requests);
 
@@ -71,22 +71,20 @@ function Encadrements() {
         ? responses[1].data
         : responses[1].data.results || [];
 
+      const usersData = Array.isArray(responses[2].data)
+        ? responses[2].data
+        : responses[2].data.results || [];
+
       setEncadrements(encadrementsData);
       setStages(stagesData);
 
-      if (isAdmin && responses[2]) {
-        const usersData = Array.isArray(responses[2].data)
-          ? responses[2].data
-          : responses[2].data.results || [];
+      setEnseignants(
+        usersData.filter((item) => item.role === "ENSEIGNANT")
+      );
 
-        setEnseignants(
-          usersData.filter((item) => item.role === "ENSEIGNANT")
-        );
-
-        setEtudiants(
-          usersData.filter((item) => item.role === "ETUDIANT")
-        );
-      }
+      setEtudiants(
+        usersData.filter((item) => item.role === "ETUDIANT")
+      );
     } catch (error) {
       console.error("Erreur encadrements :", error);
 
@@ -677,36 +675,25 @@ function Encadrements() {
 
                 {/* Étudiant */}
                 <div className="encadrement-field">
-                  <label>Nom étudiant inscrit sur le compte</label>
+                  <label>Nom étudiant</label>
 
-                  {isAdmin ? (
-                    <select
-                      name="etudiant"
-                      value={formData.etudiant}
-                      onChange={handleChange}
-                      required
-                    >
-                      <option value="">Sélectionner un étudiant</option>
-                      {etudiants.map((etudiant) => (
-                        <option key={etudiant.id} value={etudiant.id}>
-                          {etudiant.first_name || etudiant.last_name
-                            ? `${etudiant.first_name || ""} ${
-                                etudiant.last_name || ""
-                              }`.trim()
-                            : etudiant.username}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <input
-                      type="number"
-                      name="etudiant"
-                      value={formData.etudiant}
-                      onChange={handleChange}
-                      placeholder="ID de l'étudiant"
-                      required
-                    />
-                  )}
+                  <select
+                    name="etudiant"
+                    value={formData.etudiant}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">Sélectionner un étudiant</option>
+                    {etudiants.map((etudiant) => (
+                      <option key={etudiant.id} value={etudiant.id}>
+                        {etudiant.first_name || etudiant.last_name
+                          ? `${etudiant.first_name || ""} ${
+                              etudiant.last_name || ""
+                            }`.trim()
+                          : etudiant.username}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 {/* Stage */}
