@@ -34,7 +34,7 @@ function DepotDemande() {
   const [lettreMode, setLettreMode] = useState("texte");
 
   // =====================================================
-  // ÉTATS
+  // ETATS
   // =====================================================
 
   const [loading, setLoading] = useState(true);
@@ -321,14 +321,12 @@ function DepotDemande() {
         <div className="depot-demande-error-icon">!</div>
         <h2>Impossible de charger</h2>
         <p>{error}</p>
-        <button type="button" onClick={loadData}>
-          Réessayer
-        </button>
+        <button onClick={loadData}>Réessayer</button>
       </div>
     );
   }
 
-  // VÉRIFICATION DES DROITS (ENSEIGNANT OU ADMIN)
+  // VERIFICATION DES DROITS (ENSEIGNANT OU ADMIN)
   if (!user?.role || !ALLOWED_ROLES.includes(user.role.toUpperCase())) {
     return (
       <div className="depot-demande-state depot-demande-error">
@@ -338,9 +336,7 @@ function DepotDemande() {
           Seuls les enseignants et les administrateurs peuvent accéder à cette
           section.
         </p>
-        <button type="button" onClick={() => navigate("/dashboard")}>
-          Retour
-        </button>
+        <button onClick={() => navigate("/dashboard")}>Retour</button>
       </div>
     );
   }
@@ -353,9 +349,7 @@ function DepotDemande() {
     <div className="depot-demande-page">
       {/* TOAST NOTIFICATION */}
       {notification.visible && (
-        <div
-          className={`depot-demande-toast depot-demande-toast-${notification.type}`}
-        >
+        <div className={`depot-demande-toast depot-demande-toast-${notification.type}`}>
           <div className="depot-demande-toast-icon">
             {notification.type === "error" ? "!" : "✓"}
           </div>
@@ -378,8 +372,7 @@ function DepotDemande() {
       <header className="depot-demande-header">
         <div>
           <div className="depot-demande-breadcrumb">
-            Espace {user?.role === "ADMIN" ? "Administrateur" : "Enseignant"}{" "}
-            <span>/</span> Dépôt de demande
+            Espace {user?.role === "ADMIN" ? "Administrateur" : "Enseignant"} <span>/</span> Dépôt de demande
           </div>
           <span className="depot-demande-kicker">NOUVELLE DEMANDE</span>
           <h1>Dépôt de demande</h1>
@@ -407,9 +400,8 @@ function DepotDemande() {
           <div className="depot-demande-grid">
             {/* TYPE */}
             <div className="depot-field">
-              <label htmlFor="type_demande">Type de demande</label>
+              <label>Type de demande</label>
               <select
-                id="type_demande"
                 name="type_demande"
                 value={formData.type_demande}
                 onChange={handleChange}
@@ -423,9 +415,8 @@ function DepotDemande() {
 
             {/* ENTREPRISE */}
             <div className="depot-field">
-              <label htmlFor="entreprise">Entreprise concernée</label>
+              <label>Entreprise concernée</label>
               <select
-                id="entreprise"
                 name="entreprise"
                 value={formData.entreprise}
                 onChange={handleChange}
@@ -441,9 +432,8 @@ function DepotDemande() {
 
             {/* STAGE */}
             <div className="depot-field depot-field-full">
-              <label htmlFor="stage">Stage concerné</label>
+              <label>Stage concerné</label>
               <select
-                id="stage"
                 name="stage"
                 value={formData.stage}
                 onChange={handleChange}
@@ -459,9 +449,8 @@ function DepotDemande() {
 
             {/* OBJET */}
             <div className="depot-field depot-field-full">
-              <label htmlFor="objet">Objet de la demande</label>
+              <label>Objet de la demande</label>
               <input
-                id="objet"
                 type="text"
                 name="objet"
                 value={formData.objet}
@@ -474,9 +463,8 @@ function DepotDemande() {
 
             {/* DESCRIPTION */}
             <div className="depot-field depot-field-full">
-              <label htmlFor="description">Description de la demande</label>
+              <label>Description de la demande</label>
               <textarea
-                id="description"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
@@ -492,9 +480,8 @@ function DepotDemande() {
 
             {/* CV / DOCUMENT */}
             <div className="depot-field depot-field-full">
-              <label htmlFor="cv_file">CV / Document joint</label>
+              <label>CV / Document joint</label>
               <input
-                id="cv_file"
                 type="file"
                 accept=".pdf,.doc,.docx"
                 onChange={handleCvChange}
@@ -541,7 +528,6 @@ function DepotDemande() {
               {lettreMode === "texte" && (
                 <div className="depot-letter-text">
                   <textarea
-                    id="lettre_motivation_texte"
                     name="lettre_motivation_texte"
                     value={formData.lettre_motivation_texte}
                     onChange={handleChange}
@@ -554,7 +540,6 @@ function DepotDemande() {
               {lettreMode === "fichier" && (
                 <div className="depot-letter-file">
                   <input
-                    id="lettre_motivation_fichier"
                     type="file"
                     accept=".pdf,.doc,.docx"
                     onChange={handleLettreFileChange}
