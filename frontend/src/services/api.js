@@ -62,4 +62,20 @@ api.interceptors.request.use(
   }
 );
 
+// =========================================================
+// INTERCEPTEUR RESPONSE
+// =========================================================
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 403) {
+      console.error(
+        "Erreur 403 : Le serveur refuse l'accès avec le compte/token actuel."
+      );
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default api;
