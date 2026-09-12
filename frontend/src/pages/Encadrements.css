@@ -701,7 +701,100 @@
 }
 
 /* Écrans Mobiles Étroits (Max 600px) — Transformation du tableau en cartes */
+@/* ==========================================================================
+   ÉCRANS MOBILES ÉTROITS (Max 600px) — MODE RESPONSIVE CENTRÉ
+   ========================================================================== */
+
 @media (max-width: 600px) {
+  .encadrements-table-wrapper {
+    overflow-x: visible;
+  }
+
+  .encadrements-table {
+    min-width: 100%;
+    display: block;
+  }
+
+  .encadrements-table thead {
+    display: none; /* Masque les en-têtes de colonnes sur mobile */
+  }
+
+  .encadrements-table tbody, 
+  .encadrements-table tr, 
+  .encadrements-table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Transformation de chaque ligne du tableau en carte centrée */
+  .encadrements-table tr {
+    margin-bottom: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    text-align: center;
+  }
+
+  /* Centrage global des cellules */
+  .encadrements-table td {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    border-top: 1px solid #f1f5f9;
+    text-align: center;
+  }
+
+  .encadrements-table td:first-child {
+    border-top: none;
+  }
+
+  /* Formatage des étiquettes (labels) pour être bien centrées au-dessus du contenu */
+  .encadrements-table td::before {
+    content: attr(data-label);
+    font-weight: 800;
+    font-size: 10px;
+    color: #64748b;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Centrage des composants spécifiques */
+  .encadrement-user {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .encadrement-comment {
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .encadrements-actions {
+    justify-content: center;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .encadrements-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .encadrement-cancel,
+  .encadrement-save {
+    width: 100%;
+  }
+  
+}media (max-width: 600px) {
   .encadrements-table-wrapper {
     overflow-x: visible;
   }
