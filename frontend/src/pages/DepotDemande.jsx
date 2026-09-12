@@ -14,6 +14,9 @@ const EMPTY_FORM = {
   lettre_motivation_texte: "",
 };
 
+// Rôles autorisés à accéder à la page
+const ALLOWED_ROLES = ["ENSEIGNANT", "ADMIN"];
+
 function DepotDemande() {
   const navigate = useNavigate();
 
@@ -132,7 +135,6 @@ function DepotDemande() {
     setFormData((previous) => {
       const updated = { ...previous, [name]: value };
 
-      // Si l'utilisateur change d'entreprise, re-filtrer et reset le stage choisi
       if (name === "entreprise") {
         updated.stage = "";
       }
@@ -141,7 +143,6 @@ function DepotDemande() {
     });
   };
 
-  // Filtrage dynamique des stages en fonction de l'entreprise sélectionnée
   const filteredStages = formData.entreprise
     ? stages.filter(
         (stage) =>
@@ -184,7 +185,6 @@ function DepotDemande() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validations
     if (!formData.type_demande) {
       showNotification(
         "Type obligatoire",
@@ -267,7 +267,6 @@ function DepotDemande() {
         "Votre demande a été déposée avec succès."
       );
 
-      // Reset
       setFormData(EMPTY_FORM);
       setCvFile(null);
       setLettreMotivationFile(null);
@@ -327,12 +326,16 @@ function DepotDemande() {
     );
   }
 
-  if (user?.role !== "ETUDIANT") {
+  // VERIFICATION DES DROITS (ENSEIGNANT OU ADMIN)
+  if (!user?.role || !ALLOWED_ROLES.includes(user.role.toUpperCase())) {
     return (
       <div className="depot-demande-state depot-demande-error">
         <div className="depot-demande-error-icon">🔒</div>
         <h2>Accès refusé</h2>
-        <p>Seuls les étudiants peuvent déposer une demande.</p>
+        <p>
+          Seuls les enseignants et les administrateurs peuvent accéder à cette
+          section.
+        </p>
         <button onClick={() => navigate("/dashboard")}>Retour</button>
       </div>
     );
@@ -369,7 +372,7 @@ function DepotDemande() {
       <header className="depot-demande-header">
         <div>
           <div className="depot-demande-breadcrumb">
-            Espace étudiant <span>/</span> Dépôt de demande
+            Espace {user?.role === "ADMIN" ? "Administrateur" : "Enseignant"} <span>/</span> Dépôt de demande
           </div>
           <span className="depot-demande-kicker">NOUVELLE DEMANDE</span>
           <h1>Dépôt de demande</h1>
@@ -427,7 +430,7 @@ function DepotDemande() {
               </select>
             </div>
 
-            {/* STAGE (FILTRÉ DYNAMIQUEMENT) */}
+            {/* STAGE */}
             <div className="depot-field depot-field-full">
               <label>Stage concerné</label>
               <select
@@ -452,7 +455,7 @@ function DepotDemande() {
                 name="objet"
                 value={formData.objet}
                 onChange={handleChange}
-                placeholder="Ex. Demande de convention de stage"
+                placeholder="Ex. Demande d'encadrement"
                 maxLength={255}
                 required
               />
@@ -475,9 +478,9 @@ function DepotDemande() {
               </small>
             </div>
 
-            {/* CV */}
+            {/* CV / DOCUMENT */}
             <div className="depot-field depot-field-full">
-              <label>CV</label>
+              <label>CV / Document joint</label>
               <input
                 type="file"
                 accept=".pdf,.doc,.docx"
@@ -496,7 +499,7 @@ function DepotDemande() {
 
             {/* LETTRE DE MOTIVATION */}
             <div className="depot-field depot-field-full">
-              <label>Lettre de motivation</label>
+              <label>Lettre de motivation / Message</label>
 
               <div className="depot-letter-choice">
                 <label className="depot-radio-option">
@@ -507,7 +510,7 @@ function DepotDemande() {
                     checked={lettreMode === "texte"}
                     onChange={() => handleLettreModeChange("texte")}
                   />
-                  <span>Écrire la lettre</span>
+                  <span>Rédiger le message</span>
                 </label>
 
                 <label className="depot-radio-option">
@@ -518,7 +521,7 @@ function DepotDemande() {
                     checked={lettreMode === "fichier"}
                     onChange={() => handleLettreModeChange("fichier")}
                   />
-                  <span>Importer la lettre</span>
+                  <span>Importer un fichier</span>
                 </label>
               </div>
 
@@ -529,11 +532,8 @@ function DepotDemande() {
                     value={formData.lettre_motivation_texte}
                     onChange={handleChange}
                     rows="10"
-                    placeholder="Rédigez votre lettre de motivation ici..."
+                    placeholder="Rédigez votre texte ici..."
                   />
-                  <small className="depot-field-help">
-                    Rédigez directement votre lettre de motivation.
-                  </small>
                 </div>
               )}
 
@@ -565,8 +565,7 @@ function DepotDemande() {
             <div>
               <strong>Information</strong>
               <p>
-                Après l'envoi, votre demande sera enregistrée et une notification
-                sera envoyée aux responsables concernés.
+                Votre demande sera transmise directement aux responsables.
               </p>
             </div>
           </div>
