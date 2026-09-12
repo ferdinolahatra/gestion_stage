@@ -37,19 +37,27 @@ function Encadrements() {
     message: "",
   });
 
+  // Extraction sécurisée de l'utilisateur et de son rôle
   const user = JSON.parse(localStorage.getItem("user") || "null");
+  const userRole = String(user?.role?.name || user?.role || "").toUpperCase();
 
-  const userRole = (user?.role?.name || user?.role || "").toUpperCase();
   const isAdmin = userRole === "ADMIN" || userRole === "ADMINISTRATEUR";
   const isEnseignant = userRole === "ENSEIGNANT" || userRole === "TEACHER";
+  
+  // Contrôle global d'accès au niveau du composant
+  const isAuthorized = isAdmin || isEnseignant;
 
   /* =========================================
       CHARGEMENT DES DONNÉES
   ========================================= */
 
   useEffect(() => {
-    loadData();
-  }, []);
+    if (isAuthorized) {
+      loadData();
+    } else {
+      setLoading(false);
+    }
+  }, [isAuthorized]);
 
   const loadData = async () => {
     try {
@@ -136,7 +144,6 @@ function Encadrements() {
 
     const numericId = Number(id);
 
-    // Chercher dans l'objet complet si le backend a directement renvoyé un objet user
     if (typeof id === "object") {
       const name = `${id.first_name || ""} ${id.last_name || ""}`.trim();
       return name || id.username || id.email || `Utilisateur #${id.id}`;
@@ -405,10 +412,10 @@ function Encadrements() {
   }
 
   /* =========================================
-      ACCÈS REFUSÉ
+      ACCÈS REFUSÉ (ROLE NON AUTORISÉ OU 403)
   ========================================= */
 
-  if (error === "Vous n'avez pas accès aux encadrements.") {
+  if (!isAuthorized || error === "Vous n'avez pas accès aux encadrements.") {
     return (
       <AccessDenied
         title="Accès refusé"
