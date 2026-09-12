@@ -893,10 +893,113 @@ body.dark-mode .encadrements-table td {
 }
 body.dark-mode .encadrements-table tr:hover td { background: #172033; }
 
+/* ==========================================================================
+   ÉCRANS MOBILES ÉTROITS (Max 600px) — MODE RESPONSIVE CENTRÉ SANS SCROLL
+   ========================================================================== */
+
 @media (max-width: 600px) {
-  body.dark-mode .encadrements-table tr {
-    border-color: #334155;
-    background: #111827;
+  /* 1. Neutralisation du débordement horizontal global */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .encadrements-page {
+    padding: 16px 12px 30px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Annulation de la largeur minimale forcée du tableau */
+  .encadrements-table-wrapper {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .encadrements-table {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .encadrements-table thead {
+    display: none !important;
+  }
+
+  .encadrements-table tbody, 
+  .encadrements-table tr, 
+  .encadrements-table td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Transformation des lignes en cartes centrées */
+  .encadrements-table tr {
+    margin-bottom: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+    text-align: center !important;
+  }
+
+  /* 4. Alignement et centrage des éléments */
+  .encadrements-table td {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10px 0 !important;
+    border-top: 1px solid #f1f5f9 !important;
+    text-align: center !important;
+  }
+
+  .encadrements-table td:first-child {
+    border-top: none !important;
+  }
+
+  .encadrements-table td::before {
+    content: attr(data-label);
+    font-weight: 800;
+    font-size: 10px;
+    color: #64748b;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .encadrement-user {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 6px !important;
+  }
+
+  .encadrement-comment {
+    max-width: 100% !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .encadrements-actions {
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 6px !important;
+  }
+
+  .encadrements-modal-actions {
+    flex-direction: column-reverse !important;
+  }
+
+  .encadrement-cancel,
+  .encadrement-save {
+    width: 100% !important;
   }
 }
 
