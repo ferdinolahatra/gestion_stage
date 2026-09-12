@@ -1500,3 +1500,53 @@
 }
 
 
+/* Boutons d'action dans le tableau pour le mode sombre */
+.user-edit-button {
+  background-color: #1e293b;
+  color: #38bdf8;
+  border: 1px solid #334155;
+}
+
+.user-edit-button:hover {
+  background-color: #334155;
+}
+
+.user-delete-button {
+  background-color: #1e293b;
+  color: #f87171;
+  border: 1px solid #334155;
+}
+
+.user-delete-button:hover {
+  background-color: #7f1d1d;
+  color: #ffffff;
+}
+
+/* Badges de Rôle translucides en mode nuit */
+.user-role {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.user-role.role-student {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.user-role.role-teacher {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+}
+
+.user-role.role-admin {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.user-role.role-company {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+}
